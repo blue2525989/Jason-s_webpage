@@ -4,7 +4,7 @@
     <head>
         <title>Blue's Web Page</title>
     </head>
-    <body class="helloHTML">    
+    <body>    
         <h1 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]!</h1>
         <form th:action="@{/logout}" method="post">
             <input type="submit" value="Sign Out"/>
