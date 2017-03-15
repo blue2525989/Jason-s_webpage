@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- the meta tag needs to be like one below, not one from examples. -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>Person List</title>
+<link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body  background="/pics/Rock.jpg">
+
+<h1><marquee>Interact with MySQL examples</marquee></h1>
+<div align="center">
+<p><img src="/images/totes_face.jpg" alt="Totes ma Goat"
+		width="600" height="375" align="middle">
+		<br>
+		<a href="/index.html"><img src="/images/Larrow.gif" width="40" height="25" alt="home"></a>
+</p>
+</div>
+
+<div class="entryForm">
+<!-- Enter Values to go with messages, different forms for each. -->
+<h2>Enter you info into the Person Book</h2>	
+<form action="/person/add" method="GET">	
+	<label for="ID">ID:</label>
+	<input type="text" name="ID" size="50" class="ID"></input><br/>
+	<label for="name">name:</label>
+	<input type="text" name="name" size="50" class="name"></input><br/>
+	<label for="gender">gender:</label>
+	<input type="text" name="gender" size="50" class="gender"></input><br/>
+	<label for="age">age:</label>
+	<input type="text" name="age" size="50" class="age"></input><br/>
+	<label for="description">description:</label>
+	<input type="text" name="description" size="50" class="description"></input><br/>
+	<label for="occupation">occupation:</label>
+	<input type="text" name="occupation" size="50" class="occupation"></input><br/>
+	<label for="hobbies">hobbies:</label>
+	<input type="text" name="hobbies" size="50" class="hobbies"></input><br/>
+	
+	<input type="submit" id="button"></input>
+	<br>
+</form>
+
+<!-- Enter Values to go with messages, different forms for each. -->	
+<h2>List all</h2>
+<form action="/person/all" method="GET">	
+	<h3>Click this button to see all entries</h3>
+	<input type="submit" id="button"></input>
+	<br>
+</form>
+
+<!-- removing this for production  
+<h2>Delete all</h2>
+<form action="/person/deleteAll" method="GET">	
+	<h3>Click this button to delete all entries</h3>
+	<input type="submit" id="button"></input>
+	<br>
+</form>-->	
+
+<!-- Enter Values to go with messages, different forms for each. -->	
+<h2>Send all toString</h2>
+<form action="/person/toString" method="GET">	
+	<h3>Click this button to see all entries</h3>
+	<input type="submit" id="button"></input>
+	<br>
+</form>
+
+<!-- Enter Values to go with messages, different forms for each. -->	
+<h2>Count all entries</h2>
+<form action="/person/count" method="GET">	
+	<h3>Click this button to count all entries</h3>
+	<input type="submit" id="button"></input>
+	<br>
+</form>
+
+<!-- Enter Values to go with messages, different forms for each. -->	
+<h2>Find entry based on ID number</h2>
+<form action="/person/find" method="GET">
+	<label for="ID">ID:</label>
+	<input type="text" name="ID" size="50" class="ID"></input><br/>	
+	<h3>Click this button to find entry</h3>
+	<input type="submit" id="button"></input>
+	<br>
+</form>
+
+<!-- removing this for production 
+<h2>Delete entry based on ID number</h2>
+<form action="/person/delete" method="GET">
+	<label for="ID">ID:</label>
+	<input type="text" name="ID" size="50" class="ID"></input><br/>	
+	<h3>Click this button to find entry</h3>
+	<input type="submit" id="button"></input>
+	<br>
+</form>-->	
+</div>
+
+</body>
+</html>
