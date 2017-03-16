@@ -1,7 +1,7 @@
 # Jason-s_webpage
 Java web application using Spring boot + gradle, hosted on aws
 
-URL: http://sample-env-3.i3ywvhk4um.us-west-2.elasticbeanstalk.com/index.html
+URL: http://sample-env-3.i3ywvhk4um.us-west-2.elasticbeanstalk.com/
 
 I am currently working on tracking down a good domain name for this.
 
