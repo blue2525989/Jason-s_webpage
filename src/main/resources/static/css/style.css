@@ -5,6 +5,7 @@ body {
 	font-family: arial,helvetica,sans-serif;
 }
 
+
 label {
 	font-weight: bold;
 }
@@ -12,26 +13,21 @@ label {
 h1 {
 	color : #400000;
 	text-align: center;
-	border : 2px dashed #808000;
+	border : 2px ridge #ff8000;
 	padding : 2px;
 }
 
 h2 {
 	color : #400000;
 	text-align: center;
-	border : 2px dashed #ff0000;
-	padding : 2px;
 }
 
 h3 {
 	color : #400000;
 	text-align: center;
-	border : 2px dashed #ff0080;
-	padding : 2px;
 }
 
 a {
-	align: center;
 	color: #ff8080;
 }
 
@@ -68,6 +64,7 @@ div {
 	font-family: verdana;
     font-size: 20px;
     padding: 25px 50px;
+    align: center;
 }
 
 footer {
@@ -76,7 +73,9 @@ footer {
     margin: auto;
 }
 
-
+p {
+	text-indent: 3em;
+}
 p.footer {
 	font-family: verdana;
     font-size: 12px;

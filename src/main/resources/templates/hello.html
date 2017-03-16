@@ -2,15 +2,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <head>
-        <title>Blue's Web Page</title>
+        <title>Jason's Web Page</title>
         <link rel="stylesheet" th:href="@{/style.css}"></link>
+        
+   <style type="text/css">
+        h1 {font-family: arial; font: 24px; color: darkgreen; border: 2px ridge #ff8000;}
+        body{width: 350px; height: 200px; margin: auto; padding : 200px; font: 16px;}
+        div{align: center;}
+        a{align: center; color: #ff8080;}
+        </style>
     </head>
-    <body class="hello">    
+    
+     <body bgcolor="#0080ff" text="#400000">
+	    
+    <div align="center">
         <h1 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]!</h1>
+        
         <form th:action="@{/logout}" method="post">
             <input type="submit" value="Sign Out"/>
         </form>
-        <p class="hello">Welcome to the website! If you have made it this far, thats mean you have successfully logged in. Please click here  
+        
+        <p class="hello">Welcome to the website! If you have made it this far, that means you have successfully logged in. Please click here  
         for the <a href="/index2.html">Main Page</a></p>.
+        
+        </div> 
+
     </body>
 </html>

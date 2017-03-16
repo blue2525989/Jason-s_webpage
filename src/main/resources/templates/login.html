@@ -2,19 +2,36 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <head>
-        <title>Blue's Web Page</title>
+        <title>Jason's Web Page</title>
+        
+   <style type="text/css">
+        h1 {font-family: arial; font: 24px; color: darkgreen; border: 2px ridge #ff8000;}
+        body{width: 350px; height: 200px; margin: auto; padding : 200px; font: 16px;}
+        div{align: center;}
+        a{align: center; color: #ff8080;}
+        </style>
     </head>
-    <body class="loginBody">
-        <div th:if="${param.error}">
+    
+     <body bgcolor="#0080ff" text="#400000">
+    
+        <div th:if="${param.error}" align="center">
             Invalid username and password.
         </div>
-        <div th:if="${param.logout}">
+        
+        <div th:if="${param.logout}" align="center">
             You have been logged out.
         </div>
+        
+        <div align="center">
+        <h1>Login</h1>
+        <p>
+        Please enter your username and password. Then click <em>Sign In</em> to continue.
+        </p>
         <form th:action="@{/login}" method="post">
             <div><label> User Name : <input type="text" name="username" /> </label></div>
             <div><label> Password: <input type="password" name="password" /> </label></div>
             <div><input type="submit" value="Sign In"/></div>
         </form>
+        </div>
     </body>
 </html>

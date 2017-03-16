@@ -4,17 +4,30 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Oops!</title>
 		<link rel="stylesheet" th:href="@{/style.css}"></link>
-		</head>
-
-		<body class="errorBody">
-		<h1>Opps!</h1>
-		<a href="/index2.html">back home</a>
-		<!-- Can add paragraphs but not br in thymeleaf  -->
-		<p>
-		I wish I could add some funny images to this page, but currently I have to store these
-		 html file in a seprate folder away from my images folder.
-		 </p>
-
+		
+   <style type="text/css">
+        h1 {font-family: arial; font: 24px; color: darkgreen; border: 2px ridge #ff8000;}
+        body{width: 350px; height: 200px; margin: auto; padding : 200px; font: 16px;}
+        div{align: center;}
+        a{align: center; color: #ff8080;}
+        </style>
+    </head>
+    
+     <body bgcolor="#0080ff" text="#400000">
+		 
+   		 <div align="center">
+   		 
+			<h1>Opps!</h1>
+			
+			<a href="/index2.html">back home</a>
+			
+			<!-- Can add paragraphs but not br in thymeleaf  -->
+				<p>
+				You have managed to make it to this page because of an error. Please return home.
+		 		</p>
+		 		
+		  </div>
+		  
 		</body>
 
 </html>
