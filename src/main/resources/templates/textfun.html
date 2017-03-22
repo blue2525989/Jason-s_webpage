@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+	<title>Jason's Web Page</title>
+	<meta http-equiv="Content-Type" context="text/html; charset=UTF-8"/>
+	<link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet"/>
+	<link href="../static/css/normalize.css" th:href="@{cdd/normalize.css}" rel="stylesheet"/>
+	
+</head>
+
+<body>
+
+<h1>Fun with text</h1><br/>
+
+		<div align="center">
+		<img th:src="@{/images/java-code01.jpg}" src="../images/java-code01.jpg" 
+		width="550" height="375" alt="java code" align="middle"/>
+		<br/>
+		
+		<a href="/index"><img th:src="@{/images/Larrow.gif}" src="../images/Larrow.gif" 
+		width="40" height="25" alt="home"/></a>
+		
+		</div>
+				
+	<div class="funPages">	
+			
+		<br/>
+		<!-- Enter Values to go with messages, different forms for each. -->
+		<h2>Message to Array</h2>	
+		<h3>Enter a message:</h3>
+		<form action="/text/toArray" method="GET">	
+			<label for="msg">Message:</label>
+			<input type="text" name="msg" size="50"></input><br/>
+			<input type="submit"></input>
+			<br/>
+		</form>
+		
+		<!-- Enter Values to go with messages, different forms for each. -->
+		<h2>Message to Array and select an element</h2>	
+		<h3>Enter a message:</h3>
+		<form action="/text/toArrayFindElement" method="GET">	
+			<label for="msg">Message:</label>
+			<input type="text" name="msg" size="50"></input><br/>	
+			<label for="ele">Element number (start at 0):</label>
+			<input type="text" name="ele" size="30"></input><br/>
+			<input type="submit"></input>
+			<br/>
+		</form>
+		
+		<!-- Enter Values to go with messages, different forms for each. -->	
+		<h2>Reverse message to Array:</h2>
+		<h3>Enter a message:</h3>
+		<form action="/text/toArrayReverse" method="GET">	
+			<label for="msg">Message:</label>
+			<input type="text" name="msg" size="50"></input><br/>
+			<input type="submit"></input>
+			<br/>
+		</form>
+		
+		<!-- Enter Values to go with messages, different forms for each. -->	
+		<h2>Replace a character in a String:</h2>
+		<h3>Enter a message:</h3>
+		<form action="/text/replace" method="GET">	
+			<label for="msg">Message:</label>
+			<input type="text" name="msg" size="50"></input><br/>
+			<label for="oldChar">Old character:</label>
+			<input type="text" name="oldChar" size="50"></input><br/>
+			<label for="newChar">New character:</label>
+			<input type="text" name="newChar" size="50"></input><br/>
+			<input type="submit"></input>
+			<br/>
+		</form>
+		
+		<!-- Enter Values to go with messages, different forms for each. -->
+		<h2>Reverse String</h2>	
+		<h3>Enter a message:</h3>
+		<form action="/text/reverseString" method="GET">	
+			<label for="msg">Message:</label>
+			<input type="text" name="msg" size="50"></input><br/>
+			<input type="submit"></input>
+			<br/>
+		</form>
+		
+		<!-- Enter Values to go with messages, different forms for each. -->
+		<h2>is Palidrome</h2>	
+		<h3>Enter a message:</h3>
+		<form action="/text/isPalidrome" method="GET">	
+			<label for="msg">Message:</label>
+			<input type="text" name="msg" size="50"></input><br/>
+			<input type="submit"></input>
+			<br/>
+		</form>
+		
+		<!-- Enter Values to go with messages, different forms for each. -->
+		<h2>Repeat a message.</h2>	
+		<h3>Enter a message:</h3>
+		<form action="/text/repeatMessage" method="GET">	
+			<label for="msg">Message:</label>
+			<input type="text" name="msg" size="50"></input><br/>
+			<label for="numTimes">Number of times:</label>
+			<input type="text" name="numTimes" size="50"></input><br/>
+			<input type="submit"></input>
+			<br/>
+		</form>
+</div>
+
+
+
+<!-- start of footer -->
+ <footer>
+     <!-- picture of my goat. -->
+     <img th:src="@{/images/totes_face.jpg}" height="225" width="350" alt="Totes ma goats"
+     src="../images/totes_face.jpg"/>
+     <!-- paragraph tag with class tag for style.css -->
+     <p class="footer">Written by: Jason Bierbrauer</p>
+     <p class="footer">Contact information: <a href="mailto:jbierbrauer99@gmail.com">
+         jbierbrauer99@gmail.com</a>.</p>
+     <p class="footer">
+         <!-- the special character -->
+          Jason Bierbrauer, 2017
+     </p>
+</footer>
+
+</body>
+</html>

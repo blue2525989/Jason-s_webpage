@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+	<title>Jason's Web Page</title>
+	<meta http-equiv="Content-Type" context="text/html; charset=UTF-8"/>
+	<link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet"/>
+	<link href="../static/css/normalize.css" th:href="@{cdd/normalize.css}" rel="stylesheet"/>
+	
+</head>
+
+
+<body  background="/pics/Rock.jpg">
+
+<h1><marquee>Jason's page GuestBook, feel free to fill it out...</marquee></h1>
+
+<div align="center">
+
+<p><img th:src="@{/images/totes_face.jpg}" src="../images/totes_face.jpg" alt="Totes ma Goat"
+		width="600" height="375" align="middle"/>
+		<br/>
+		<a href="/index"><img th:src="@{/images/Larrow.gif}" src="../images/Larrow.gif" 
+		width="40" height="25" alt="home"/></a>
+</p>
+</div>
+
+<div class="showEntry" align="center">
+
+
+</div>
+
+
+<div class="entryForm">
+
+<!-- Enter Values to go with messages, different forms for each. -->
+<h2>Enter you info into the Person Book</h2>
+	
+	<table>
+		<tr>
+		<td th:text="${person}">1</td>
+		</tr>
+	</table>
+	
+
+<form action="/person/add" method="GET">	
+	<label for="ID">ID:</label>
+	<input type="text" name="ID" size="50" class="ID"></input><br/>
+	<label for="name">name:</label>
+	<input type="text" name="name" size="50" class="name"></input><br/>
+	<label for="gender">gender:</label>
+	<input type="text" name="gender" size="50" class="gender"></input><br/>
+	<label for="age">age:</label>
+	<input type="text" name="age" size="50" class="age"></input><br/>
+	<label for="description">description:</label>
+	<input type="text" name="description" size="50" class="description"></input><br/>
+	<label for="occupation">occupation:</label>
+	<input type="text" name="occupation" size="50" class="occupation"></input><br/>
+	<label for="hobbies">hobbies:</label>
+	<input type="text" name="hobbies" size="50" class="hobbies"></input><br/>
+	
+	<input type="submit" id="button"></input>
+	<br/>
+</form>
+
+<!-- Enter Values to go with messages, different forms for each. -->	
+<h2>List all</h2>
+
+<form action="/person/all" method="GET">	
+	<h3>Click this button to see all entries</h3>
+	<input type="submit" id="button"></input>
+	<br/>
+</form>
+
+<!-- Enter Values to go with messages, different forms for each. -->	
+<h2>Send all toString</h2>
+<form action="/person/toString" method="GET">	
+	<h3>Click this button to see all entries</h3>
+	<input type="submit" id="button"></input>
+	<br/>
+</form>
+
+<!-- Enter Values to go with messages, different forms for each. -->	
+<h2>Count all entries</h2>
+<form action="/person/count" method="GET">	
+	<h3>Click this button to count all entries</h3>
+	<input type="submit" id="button"></input>
+	<br/>
+</form>
+
+<!-- Enter Values to go with messages, different forms for each. -->	
+<h2>Find entry based on ID number</h2>
+
+	<ul>
+	<li th:text="${name}"></li>
+	<li th:text="${age}"></li>
+	<li th:text="${descript}"></li>
+	<li th:text="${hobbies}"></li>
+	</ul>
+
+<form action="/person/find" method="GET">
+	<label for="ID">ID:</label>
+	<input type="text" name="ID" size="50" class="ID"></input><br/>	
+	<h3>Click this button to find entry</h3>
+	<input type="submit" id="button"></input>
+	<br/>
+</form>
+</div>
+
+<!-- start of footer -->
+ <footer>
+     <!-- picture of my goat. -->
+     <img th:src="@{/images/totes_face.jpg}" height="225" width="350" alt="Totes ma goats"
+     src="../images/totes_face.jpg"/>
+     <!-- paragraph tag with class tag for style.css -->
+     <p class="footer">Written by: Jason Bierbrauer</p>
+     <p class="footer">Contact information: <a href="mailto:jbierbrauer99@gmail.com">
+         jbierbrauer99@gmail.com</a>.</p>
+     <p class="footer">
+         <!-- the special character -->
+          Jason Bierbrauer, 2017
+     </p>
+</footer>
+
+
+</body>
+</html>

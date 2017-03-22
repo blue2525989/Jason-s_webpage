@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+	<title>Jason's Web Page</title>
+	<meta http-equiv="Content-Type" context="text/html; charset=UTF-8"/>
+	<link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet"/>
+	<link href="../static/css/normalize.css" th:href="@{cdd/normalize.css}" rel="stylesheet"/>
+	
+</head>
+
+	<body>
+		
+<h1><marquee>Java calculator</marquee></h1><br></br>
+
+
+		<div align="center">
+		
+		<!-- how to add an image in thymeleaf -->
+		<img th:src="@{/images/space01.jpg}"
+          src="../images/space01.jpg" alt="space" width="550" height="375"/>
+		<br></br>
+		
+		<a href="/index"><img th:src="@{/images/Larrow.gif}" src="../images/Larrow.gif" 
+		width="40" height="25" alt="home"/></a>
+		</div>
+		
+		<div class="funPages">		
+		
+		<h3>Calculator using Java:</h3>
+		
+		<!-- Enter Values to go with messages, different forms for each. -->
+		<h2>Add.</h2>	
+		<h3>Enter a number:</h3>
+		<form action="/calc/add" method="GET">	
+			<label for="num1">number one:</label>
+			<input type="text" name="num1" size="50"></input>
+			<label for="num2">number two:</label>
+			<input type="text" name="num2" size="50"></input>
+			<input type="submit"></input>
+			
+		</form>
+		
+		<!-- Enter Values to go with messages, different forms for each. -->	
+		<h2>Subtract.</h2>	
+		<h3>Enter a number:</h3>
+		<form action="/calc/subtract" method="GET">	
+			<label for="num1">number one:</label>
+			<input type="text" name="num1" size="50"></input>
+			<label for="num2">number two:</label>
+			<input type="text" name="num2" size="50"></input>
+			<input type="submit"></input>
+			
+		</form>
+		
+		<!-- Enter Values to go with messages, different forms for each. -->	
+		<h2>Multiply.</h2>	
+		<h3>Enter a number:</h3>
+		<form action="/calc/multiply" method="GET">	
+			<label for="num1">number one:</label>
+			<input type="text" name="num1" size="50"></input>
+			<label for="num2">number two:</label>
+			<input type="text" name="num2" size="50"></input>
+			<input type="submit"></input>
+			
+		</form>
+		
+		<!-- Enter Values to go with messages, different forms for each. -->	
+		<h2>Divide.</h2>	
+		<h3>Enter a number:</h3>
+		<form action="/calc/divide" method="GET">	
+			<label for="num1">number one:</label>
+			<input type="text" name="num1" size="50"></input>
+			<label for="num2">number two:</label>
+			<input type="text" name="num2" size="50"></input>
+			<input type="submit"></input>
+			
+		</form>
+		
+		<!-- Enter Values to go with messages, different forms for each. -->	
+		<h2>Add Three.</h2>	
+		<h3>Enter a number:</h3>
+		<form action="/calc/addThree" method="GET">	
+			<label for="num1">number one:</label>
+			<input type="text" name="num1" size="50"></input>
+			<label for="num2">number two:</label>
+			<input type="text" name="num2" size="50"></input>
+			<label for="num3">number three:</label>
+			<input type="text" name="num3" size="50"></input>
+			<input type="submit"></input>
+			
+		</form>
+		
+		<!-- Enter Values to go with messages, different forms for each. -->	
+		<h2>Square.</h2>	
+		<h3>Enter a number:</h3>
+		<form action="/calc/square" method="GET">	
+			<label for="num1">number one:</label>
+			<input type="text" name="num1" size="50"></input>
+			<input type="submit"></input>
+			
+		</form>
+		
+		<!-- Enter Values to go with messages, different forms for each. -->	
+		<h2>Square root.</h2>	
+		<h3>Enter a number:</h3>
+		<form action="/calc/squareRoot" method="GET">	
+			<label for="num1">number one:</label>
+			<input type="text" name="num1" size="50"></input>
+			<input type="submit"></input>
+			
+		</form>
+		
+		<!-- Enter Values to go with messages, different forms for each. -->	
+		<h2>Power of.</h2>	
+		<h3>Enter a number:</h3>
+		<form action="/calc/pow" method="GET">	
+			<label for="num1">number one:</label>
+			<input type="text" name="num1" size="50"></input>
+			<label for="num2">number two:</label>
+			<input type="text" name="num2" size="50"></input>
+			<input type="submit"></input>
+			
+		</form>
+		
+		<!-- Enter Values to go with messages, different forms for each. -->	
+		<h2>is Triangle.</h2>	
+		<h3>Enter a number:</h3>
+		<form action="/calc/isTriangle" method="GET">	
+			<label for="num1">number one:</label>
+			<input type="text" name="num1" size="50"></input>
+			<label for="num2">number two:</label>
+			<input type="text" name="num2" size="50"></input>
+			<label for="num3">number three:</label>
+			<input type="text" name="num3" size="50"></input>
+			<input type="submit"></input>
+			
+		</form>
+		
+		<!-- Enter Values to go with messages, different forms for each. -->	
+		<h2>Percent.</h2>	
+		<h3>Enter a number:</h3>
+		<form action="/calc/percent" method="GET">	
+			<label for="num1">number one:</label>
+			<input type="text" name="num1" size="50"></input>
+			<input type="submit"></input>
+			
+		</form>
+</div>
+
+<!-- start of footer -->
+ <footer>
+     <!-- picture of my goat. -->
+     <img th:src="@{/images/totes_face.jpg}" height="225" width="350" alt="Totes ma goats"
+     src="../images/totes_face.jpg"/>
+     <!-- paragraph tag with class tag for style.css -->
+     <p class="footer">Written by: Jason Bierbrauer</p>
+     <p class="footer">Contact information: <a href="mailto:jbierbrauer99@gmail.com">
+         jbierbrauer99@gmail.com</a>.</p>
+     <p class="footer">
+         <!-- the special character -->
+          Jason Bierbrauer, 2017
+     </p>
+</footer>
+
+		
+	</body>
+
+</html>

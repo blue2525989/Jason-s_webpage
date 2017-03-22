@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+	<title>Jason's Web Page</title>
+	<meta http-equiv="Content-Type" context="text/html; charset=UTF-8"/>
+	<link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet"/>
+	<link href="../static/css/normalize.css" th:href="@{cdd/normalize.css}" rel="stylesheet"/>
+	
+</head>
+
+<body class="indexBody">
+
+<h1>Jason's webpage... Welcome, please feel free to look around.</h1>
+
+	<div align="center">
+	<img th:src="@{/images/kevin_coding.jpg}" src="../images/kevin_coding.jpg" 
+	height="400" width="525" alt="kevin the destructive cat"/>
+	</div>
+
+
+<div>
+		<ul>
+		<li><a href="/hobbies">Hobbies</a></li>
+		<li><a href="/th-math">Calculator</a></li>
+		<li><a href="/textfun">Messing around with words</a></li>
+		<li><a href="/guestbook">Guestbook</a></li>
+		</ul>
+
+	<p>Welcome to my homepage. This is built using the Spring Boot framework for Java.
+	<!-- get time browser was loaded -->
+	<br/> The time this browser loaded was: 
+	<script language="Javascript" type="text/javascript">
+		document.write(currentTime);
+	</script><br/><br/>
+	
+	</p>
+	
+	
+	<p>
+	On this page I hope to show off some of my programming skills. I love Java programming and similar
+	 languages. I have tried Python and a little c++. 
+	 I hope to be a software engineer in the near future. 
+	 I really enjoy solving problems and writing software that people enjoy.
+	</p>
+	
+	
+	<p>This page mainly consists of Java programming. I used the Spring boot framework along with Thymeleaf and
+	 used Gradle to build this application. Also a MySQL server has been used to make a login page as well as a 
+	guestbook for users to fill out.
+	</p>
+	
+	<p>If you would like to view the source code for this or any of my other projects, please follow this 
+	link to my <a href="https://github.com/blue2525989">GitHub</a> account. There are a lot more projects 
+	to view.
+	</p>
+
+</div>
+
+
+<!-- start of footer -->
+ <footer>
+     <!-- picture of my goat. -->
+     <img th:src="@{/images/totes_face.jpg}" height="225" width="350" alt="Totes ma goats"
+     src="../images/totes_face.jpg"/>
+     <!-- paragraph tag with class tag for style.css -->
+     <p class="footer">Written by: Jason Bierbrauer</p>
+     <p class="footer">Contact information: <a href="mailto:jbierbrauer99@gmail.com">
+         jbierbrauer99@gmail.com</a>.</p>
+     <p class="footer">
+         <!-- the special character -->
+          Jason Bierbrauer, 2017
+     </p>
+</footer>
+
+</body>
+
+</html>
