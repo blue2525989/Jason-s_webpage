@@ -37,7 +37,7 @@ public class TextFunction {
 		for (int i = 0; i < s1.length()-1;i++) {
 			newString += "\n char[" + i + "] " + chars[i];
 		}
-		return "The element you chose was, " + chars[ele] +
+		return "The element you chose was, " + chars[ele] + " " +
 				"\nHere is the full Array,\n " + newString + "\n char[" +
 		(s1.length()-1) + "] " + s1.charAt(s1.length()-1);
 	}

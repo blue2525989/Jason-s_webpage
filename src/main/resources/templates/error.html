@@ -1,27 +1,23 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Oops!</title>
-		<link rel="stylesheet" th:href="@{/style.css}"></link>
-		
-   <style type="text/css">
-        h1 {font-family: arial; font: 24px; color: darkgreen; border: 2px ridge #ff8000;}
-        body{width: 350px; height: 200px; margin: auto; padding : 200px; font: 16px;}
-        div{align: center;}
-        a{align: center; color: #ff8080;}
-        </style>
-    </head>
-    
-     <body bgcolor="#0080ff" text="#400000">
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+	<title>Jason's Web Page</title>
+	<meta http-equiv="Content-Type" context="text/html; charset=UTF-8"/>
+	<link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet"/>
+	<link href="../static/css/normalize.css" th:href="@{cdd/normalize.css}" rel="stylesheet"/>
+	
+</head>
+
+     <body>
 		 
    		 <div align="center">
    		 
 			<h1>Opps!</h1>
 			
-			<a href="/index2.html">back home</a>
+			<a href="/index"><img th:src="@{https://http.cat/404}" src="https://http.cat/404" 
+			alt="home"/></a>
 			
-			<!-- Can add paragraphs but not br in thymeleaf  -->
 				<p>
 				You have managed to make it to this page because of an error. Please return home.
 		 		</p>

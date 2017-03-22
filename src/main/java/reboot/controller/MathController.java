@@ -22,6 +22,12 @@ public class MathController {
 			return "Sum = " + sum.toString();
 		}
 		
+		@GetMapping(path="/add2")
+		public @ResponseBody double addNums2(@RequestParam double num1, @RequestParam double num2) {
+			sum = calc.add(num1, num2);
+			return sum;
+		}
+		
 		@GetMapping(path="/subtract")
 		public @ResponseBody String subtractNums(@RequestParam double num1, @RequestParam double num2) {
 			sum = calc.subtract(num1, num2);
