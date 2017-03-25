@@ -1,19 +1,16 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-    <head>
-        <title>Jason's Web Page</title>
-        
-   <style type="text/css">
-        h1 {font-family: arial; font: 24px; color: darkgreen; border: 2px ridge #ff8000;}
-        body{width: 350px; height: 200px; margin: auto; padding : 200px; font: 16px;}
-        div{align: center;}
-        a{align: center; color: #ff8080;}
-        </style>
-    </head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+	<title>Jason's Web Page</title>
+	<meta http-equiv="Content-Type" context="text/html; charset=UTF-8"/>
+	<link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet"/>
+	<link href="../static/css/normalize.css" th:href="@{cdd/normalize.css}" rel="stylesheet"/>
+	
+</head>
     
      <body bgcolor="#0080ff" text="#400000">
-    
+     
         <div th:if="${param.error}" align="center">
             Invalid username and password.
         </div>

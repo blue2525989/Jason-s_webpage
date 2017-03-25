@@ -4,81 +4,89 @@ import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.*;
 
 import reboot.model.CalcFunctions;
+import reboot.model.Numbers;
 
 @Controller
-@RequestMapping("/calc")
 public class MathController {
-	
 
-	
-
-		private Double sum;
-		
 		private CalcFunctions calc = new CalcFunctions();
 		
-		@GetMapping(path="/add")
-		public @ResponseBody String addNums(@RequestParam double num1, @RequestParam double num2) {
-			sum = calc.add(num1, num2);
-			return "Sum = " + sum.toString();
+		@PostMapping(path="/th-math")
+		public String addNums(
+				@ModelAttribute Numbers numbers) {
+			numbers.sum1 = 0;
+			numbers.sum1 = calc.add(numbers.getNum1(), numbers.getNum2());
+			numbers.setNum1(0);
+			numbers.setNum2(0);
+			return "th-math";
 		}
 		
-		@GetMapping(path="/add2")
-		public @ResponseBody double addNums2(@RequestParam double num1, @RequestParam double num2) {
-			sum = calc.add(num1, num2);
-			return sum;
+		@PostMapping(path="/th-math2")
+		public String subNums(
+				@ModelAttribute Numbers numbers) {
+			numbers.sum2 = 0;
+			numbers.sum2 = calc.subtract(numbers.getNum1(), numbers.getNum2());
+			numbers.setNum1(0);
+			numbers.setNum2(0);
+			return "th-math";
 		}
 		
-		@GetMapping(path="/subtract")
-		public @ResponseBody String subtractNums(@RequestParam double num1, @RequestParam double num2) {
-			sum = calc.subtract(num1, num2);
-			return "Sum = " + sum.toString();
+		@PostMapping(path="/th-math3")
+		public String multNums(
+				@ModelAttribute Numbers numbers) {
+			numbers.sum3 = 0;
+			numbers.sum2 = calc.multiply(numbers.getNum1(), numbers.getNum2());
+			numbers.setNum1(0);
+			numbers.setNum2(0);
+			return "th-math";
 		}
 		
-		@GetMapping(path="/multiply")
-		public @ResponseBody String multiplyNums(@RequestParam double num1, @RequestParam double num2) {
-			sum = calc.multiply(num1, num2);
-			return "Sum = " + sum.toString();
+		@PostMapping(path="/th-math4")
+		public String divNums(
+				@ModelAttribute Numbers numbers) {
+			numbers.sum4 = 0;
+			numbers.sum2 = calc.divide(numbers.getNum1(), numbers.getNum2());
+			numbers.setNum1(0);
+			numbers.setNum2(0);
+			return "th-math";
 		}
 		
-		@GetMapping(path="/divide")
-		public @ResponseBody String divideNums(@RequestParam double num1, @RequestParam double num2) {
-			sum = calc.divide(num1, num2);
-			return "Sum = " + sum.toString();
+		@PostMapping(path="/th-math5")
+		public String addThreeNums(
+				@ModelAttribute Numbers numbers) {
+			numbers.sum5 = 0;
+			numbers.sum5 = calc.addThree(numbers.getNum1(), numbers.getNum2(), numbers.getNum3());
+			numbers.setNum1(0);
+			numbers.setNum2(0);
+			numbers.setNum3(0);
+			return "th-math";
 		}
 		
-		@GetMapping(path="/addThree")
-		public @ResponseBody String addThree(@RequestParam double num1, @RequestParam double num2, @RequestParam double num3) {
-			sum = calc.addThree(num1, num2, num3);
-			return "Sum = " + sum.toString();
-		}
-
-		@GetMapping(path="/square")
-		public @ResponseBody String square(@RequestParam double num1) {
-			sum = calc.square(num1);
-			return "Square of " + num1 + " = " + sum.toString();
-		}
-
-		@GetMapping(path="/squareRoot")
-		public @ResponseBody String squareRoot(@RequestParam double num1) {
-			sum = calc.squareRoot(num1);
-			return "The square root of " + num1 + " = " + sum.toString();
-		}
-
-		@GetMapping(path="/pow")
-		public @ResponseBody String pow(@RequestParam double num1, @RequestParam double num2) {
-			sum = calc.pow(num1, num2);
-			return "Sum = " + sum.toString();
-		}
-
-		@GetMapping(path="/isTriangle")
-		public @ResponseBody String isTriangle(@RequestParam double num1, @RequestParam double num2, @RequestParam double num3) {
-			return calc.isTriangle(num1, num2, num3);
+		@PostMapping(path="/th-math6")
+		public String squareNums(
+				@ModelAttribute Numbers numbers) {
+			numbers.sum6 = 0;
+			numbers.sum6 = calc.square(numbers.getNum1());
+			numbers.setNum1(0);
+			return "th-math";
 		}
 		
-		@GetMapping(path="/percent")
-		public @ResponseBody String percent(@RequestParam double num1) {
-			sum = calc.percent(num1);
-			return sum.toString() + "%";
+		@PostMapping(path="/th-math7")
+		public String sqrtNums(
+				@ModelAttribute Numbers numbers) {
+			numbers.sum7 = 0;
+			numbers.sum7 = calc.squareRoot(numbers.getNum1());
+			numbers.setNum1(0);
+			return "th-math";
 		}
-
+		
+		@PostMapping(path="/th-math8")
+		public String powNums(
+				@ModelAttribute Numbers numbers) {
+			numbers.sum8 = 0;
+			numbers.sum8 = calc.pow(numbers.getNum1(), numbers.getNum2());
+			numbers.setNum1(0);
+			numbers.setNum2(0);
+			return "th-math";
+		}
 	}

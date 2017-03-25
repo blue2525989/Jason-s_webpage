@@ -32,11 +32,12 @@
 		<!-- Enter Values to go with messages, different forms for each. -->
 		<h2>Add.</h2>	
 		<h3>Enter a number:</h3>
-		<form action="/calc/add" method="GET">	
+		<p th:text="'sum: ' + ${numbers.sum1}" />
+		<form action="#" th:action="@{/th-math}" th:object="${numbers}" method="post">
 			<label for="num1">number one:</label>
-			<input type="text" name="num1" size="50"></input>
+			<input type="text" name="num1" th:field="*{num1}" size="50"></input>
 			<label for="num2">number two:</label>
-			<input type="text" name="num2" size="50"></input>
+			<input type="text" name="num2" th:field="*{num2}" size="50"></input>
 			<input type="submit"></input>
 			
 		</form>
@@ -44,11 +45,12 @@
 		<!-- Enter Values to go with messages, different forms for each. -->	
 		<h2>Subtract.</h2>	
 		<h3>Enter a number:</h3>
-		<form action="/calc/subtract" method="GET">	
+		<p th:text="'sum: ' + ${numbers.sum2}" />
+		<form action="#" th:action="@{/th-math2}" th:object="${numbers}" method="post">
 			<label for="num1">number one:</label>
-			<input type="text" name="num1" size="50"></input>
+			<input type="text" name="num1" th:field="*{num1}" size="50"></input>
 			<label for="num2">number two:</label>
-			<input type="text" name="num2" size="50"></input>
+			<input type="text" name="num2" th:field="*{num2}" size="50"></input>
 			<input type="submit"></input>
 			
 		</form>
@@ -56,11 +58,12 @@
 		<!-- Enter Values to go with messages, different forms for each. -->	
 		<h2>Multiply.</h2>	
 		<h3>Enter a number:</h3>
-		<form action="/calc/multiply" method="GET">	
+		<p th:text="'sum: ' + ${numbers.sum3}" />
+		<form action="#" th:action="@{/th-math3}" th:object="${numbers}" method="post">
 			<label for="num1">number one:</label>
-			<input type="text" name="num1" size="50"></input>
+			<input type="text" name="num1" th:field="*{num1}" size="50"></input>
 			<label for="num2">number two:</label>
-			<input type="text" name="num2" size="50"></input>
+			<input type="text" name="num2" th:field="*{num2}" size="50"></input>
 			<input type="submit"></input>
 			
 		</form>
@@ -68,11 +71,12 @@
 		<!-- Enter Values to go with messages, different forms for each. -->	
 		<h2>Divide.</h2>	
 		<h3>Enter a number:</h3>
-		<form action="/calc/divide" method="GET">	
+		<p th:text="'sum: ' + ${numbers.sum4}" />
+		<form action="#" th:action="@{/th-math4}" th:object="${numbers}" method="post">
 			<label for="num1">number one:</label>
-			<input type="text" name="num1" size="50"></input>
+			<input type="text" name="num1" th:field="*{num1}" size="50"></input>
 			<label for="num2">number two:</label>
-			<input type="text" name="num2" size="50"></input>
+			<input type="text" name="num2" th:field="*{num2}" size="50"></input>
 			<input type="submit"></input>
 			
 		</form>
@@ -80,13 +84,14 @@
 		<!-- Enter Values to go with messages, different forms for each. -->	
 		<h2>Add Three.</h2>	
 		<h3>Enter a number:</h3>
-		<form action="/calc/addThree" method="GET">	
+		<p th:text="'sum: ' + ${numbers.sum5}" />
+		<form action="#" th:action="@{/th-math5}" th:object="${numbers}" method="post">
 			<label for="num1">number one:</label>
-			<input type="text" name="num1" size="50"></input>
+			<input type="text" name="num1" th:field="*{num1}" size="50"></input>
 			<label for="num2">number two:</label>
-			<input type="text" name="num2" size="50"></input>
-			<label for="num3">number three:</label>
-			<input type="text" name="num3" size="50"></input>
+			<input type="text" name="num2" th:field="*{num2}" size="50"></input>
+			<label for="num3">number two:</label>
+			<input type="text" name="num3" th:field="*{num3}" size="50"></input>
 			<input type="submit"></input>
 			
 		</form>
@@ -94,9 +99,10 @@
 		<!-- Enter Values to go with messages, different forms for each. -->	
 		<h2>Square.</h2>	
 		<h3>Enter a number:</h3>
-		<form action="/calc/square" method="GET">	
+		<p th:text="'sum: ' + ${numbers.sum6}" />
+		<form action="#" th:action="@{/th-math6}" th:object="${numbers}" method="post">
 			<label for="num1">number one:</label>
-			<input type="text" name="num1" size="50"></input>
+			<input type="text" name="num1" th:field="*{num1}" size="50"></input>
 			<input type="submit"></input>
 			
 		</form>
@@ -104,9 +110,10 @@
 		<!-- Enter Values to go with messages, different forms for each. -->	
 		<h2>Square root.</h2>	
 		<h3>Enter a number:</h3>
-		<form action="/calc/squareRoot" method="GET">	
+		<p th:text="'sum: ' + ${numbers.sum7}" />
+		<form action="#" th:action="@{/th-math7}" th:object="${numbers}" method="post">
 			<label for="num1">number one:</label>
-			<input type="text" name="num1" size="50"></input>
+			<input type="text" name="num1" th:field="*{num1}" size="50"></input>
 			<input type="submit"></input>
 			
 		</form>
@@ -114,38 +121,17 @@
 		<!-- Enter Values to go with messages, different forms for each. -->	
 		<h2>Power of.</h2>	
 		<h3>Enter a number:</h3>
-		<form action="/calc/pow" method="GET">	
+		<p th:text="'sum: ' + ${numbers.sum8}" />
+		<form action="#" th:action="@{/th-math8}" th:object="${numbers}" method="post">
 			<label for="num1">number one:</label>
-			<input type="text" name="num1" size="50"></input>
+			<input type="text" name="num1" th:field="*{num1}" size="50"></input>
 			<label for="num2">number two:</label>
-			<input type="text" name="num2" size="50"></input>
+			<input type="text" name="num2" th:field="*{num2}" size="50"></input>
 			<input type="submit"></input>
 			
 		</form>
 		
-		<!-- Enter Values to go with messages, different forms for each. -->	
-		<h2>is Triangle.</h2>	
-		<h3>Enter a number:</h3>
-		<form action="/calc/isTriangle" method="GET">	
-			<label for="num1">number one:</label>
-			<input type="text" name="num1" size="50"></input>
-			<label for="num2">number two:</label>
-			<input type="text" name="num2" size="50"></input>
-			<label for="num3">number three:</label>
-			<input type="text" name="num3" size="50"></input>
-			<input type="submit"></input>
-			
-		</form>
-		
-		<!-- Enter Values to go with messages, different forms for each. -->	
-		<h2>Percent.</h2>	
-		<h3>Enter a number:</h3>
-		<form action="/calc/percent" method="GET">	
-			<label for="num1">number one:</label>
-			<input type="text" name="num1" size="50"></input>
-			<input type="submit"></input>
-			
-		</form>
+
 </div>
 
 <!-- start of footer -->

@@ -1,47 +1,50 @@
 package reboot.model;
 
 public class CalcFunctions {
+	
 	/**
 	 * 	
 	 * By: Jason Bierbrauer
+	 * 
 	 */
-	public double add(double num1, double num2) {
+	
+	public int add(int num1, int num2) {
 		return num1 + num2;
 	}
 	
-	public double subtract(double num1, double num2) {
+	public int subtract(int num1, int num2) {
 		return num1 - num2;
 	}
 	
-	public double multiply(double num1, double num2) {
+	public int multiply(int num1, int num2) {
 		return num1 * num2;
 	}
 	
-	public double divide(double num1, double num2)  {
+	public int divide(int num1, int num2)  {
 		return num1 / num2;
 	} 
 	
-	public double addThree(double num1, double num2, double num3) {
+	public int addThree(int num1, int num2, int num3) {
 		return (num1 + num2) + num3;
 	}
 	
-	public double square(double num1) {
-		return Math.pow(num1, 2);
+	public int square(int num1) {
+		return (int) Math.pow(num1, 2);
 	}
 	
-	public double squareRoot(double num1) {
-		return Math.sqrt(num1);
+	public int squareRoot(int num1) {
+		return (int) Math.sqrt(num1);
 	}
 	
-	public double pow(double num1, double num2) {
-		return Math.pow(num1,  num2);
+	public int pow(int num1, int num2) {
+		return (int) Math.pow(num1,  num2);
 	}
 	
-	public String isTriangle(double num1, double num2, double num3) {
+	public String isTriangle(int num1, int num2, int num3) {
 		String msg = "";
-		double tri1 = num1 + num2;
-		double tri2 = num1 + num3;
-		double tri3 = num2 + num3;
+		int tri1 = num1 + num2;
+		int tri2 = num1 + num3;
+		int tri3 = num2 + num3;
 		if (tri1 < num3) {
 			msg = "Number three is too large,";
 		}
@@ -58,7 +61,7 @@ public class CalcFunctions {
 			
 	}
 	
-	public double percent(double num1) {
+	public int percent(int num1) {
 		return (num1 / 100);
 	}
 	

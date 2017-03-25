@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Jason's Web Page</title>
+        
+   <style type="text/css">
+        h1 {font-family: arial; font: 24px; color: darkgreen; border: 2px ridge #ff8000;}
+        body{width: 350px; height: 200px; margin: auto; padding : 200px; font: 16px;}
+        div{align: center;}
+        a{align: center; color: #ff8080;}
+        </style>
+    </head>
+    
+     <body bgcolor="#0080ff" text="#400000">
+    
+    <div align="center">
+	<img th:src="@{/images/kevin_coding.jpg}" src="../images/kevin_coding.jpg" 
+	height="400" width="525" alt="kevin the destructive cat"/>
+	</div>
+	
+		<br/>
+		<a href="/index"><img th:src="@{/images/Larrow.gif}" src="../images/Larrow.gif" 
+		width="40" height="25" alt="home"/></a>
+	
+    <div align="center" >
+        <h1>Blue's database managment system</h1>
+        
+        
+        <img th:src="@{/images/main.jpg}" src="../images/main.jpg" 
+		height="600" width="485" alt="Blue's database managment system"/>
+		
+		
+        <p>
+        This is my database managment system. I use this program to edit and maintain the databases I use 
+        in test projects. The first image is of the main user interface where you can choose to either 
+        view and edit any table in any database at any host (as long as you know the credentials) or choose 
+        to make a brand new database or table.
+        </p>
+        
+        
+        <img th:src="@{/images/edit01.jpg}" src="../images/edit01.jpg" 
+		height="600" width="485" alt="Blue's database managment system"/>
+		
+        
+        On the view interface, a user must first log in to the database they want to edit. 
+        Next they are free to click through each entry and execute SQL statements as needed.
+        
+        <img th:src="@{/images/edit02.jpg}" src="../images/edit02.jpg" 
+		height="600" width="485" alt="Blue's database managment system"/>
+		<br/>
+		Cycle through the database viewing entries.
+		
+        <img th:src="@{/images/edit03.jpg}" src="../images/edit03.jpg" 
+		height="600" width="485" alt="Blue's database managment system"/>
+		<br/>
+		Execute SQL statements to affect the tables and then click the refresh button to see the 
+		changed results.
+		
+        <img th:src="@{/images/edit04.jpg}" src="../images/edit04.jpg" 
+		height="600" width="485" alt="Blue's database managment system"/>
+		 <br/>
+		 The results of the executed statement are now visible.
+		 
+        
+        
+             
+        <img th:src="@{/images/create01.jpg}" src="../images/create01.jpg" 
+		height="600" width="485" alt="Blue's database managment system"/>
+		
+		
+        <p>Also users are able to create new databases and tables at will. Simply goto the 
+        create interface and enter the name of what you what in the field or a SQL statement 
+        for tables. Deleting a database is also avaiable on the view. 
+		</p>
+		
+	</div>
+    </body>
+</html>
