@@ -29,80 +29,107 @@
 		<!-- Enter Values to go with messages, different forms for each. -->
 		<h2>Message to Array</h2>	
 		<h3>Enter a message:</h3>
-		<form action="/text/toArray" method="GET">	
-			<label for="msg">Message:</label>
-			<input type="text" name="msg" size="50"></input><br/>
-			<input type="submit"></input>
-			<br/>
-		</form>
+    <form action="#" th:action="@{/toArray}" th:object="${greeting}" method="post">
+        <label>Message: </label>
+        <textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
+        </textarea>
+        
+       <!--  <input type="text" th:field="*{content}" size="120"/><br/> -->
+        <input type="submit" value="Submit" />
+    </form>
+        
+    <p th:text="'content: ' + ${greeting.content2}" />
+    
+    
+    
 		
 		<!-- Enter Values to go with messages, different forms for each. -->
 		<h2>Message to Array and select an element</h2>	
 		<h3>Enter a message:</h3>
-		<form action="/text/toArrayFindElement" method="GET">	
-			<label for="msg">Message:</label>
-			<input type="text" name="msg" size="50"></input><br/>	
-			<label for="ele">Element number (start at 0):</label>
-			<input type="text" name="ele" size="30"></input><br/>
-			<input type="submit"></input>
-			<br/>
-		</form>
+		    <form action="#" th:action="@{/toArrayFindElement}" th:object="${greeting}" method="post">
+		    	<label>Id:</label> <input type="text" th:field="*{id2}" /><br/>
+		        <label>Message:</label> 
+		        <textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
+        		</textarea>
+		        <input type="submit" value="Submit" />
+		    </form>
+    
+     <p th:text="'id: ' + ${greeting.id2}" />
+    <p th:text="'content: ' + ${greeting.content3}" />
+		
+		
 		
 		<!-- Enter Values to go with messages, different forms for each. -->	
 		<h2>Reverse message to Array:</h2>
 		<h3>Enter a message:</h3>
-		<form action="/text/toArrayReverse" method="GET">	
-			<label for="msg">Message:</label>
-			<input type="text" name="msg" size="50"></input><br/>
-			<input type="submit"></input>
-			<br/>
-		</form>
+			    <form action="#" th:action="@{/toArrayReverse}" th:object="${greeting}" method="post">
+			        <label>Message:</label>
+					<textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
+        			</textarea>
+			        <input type="submit" value="Submit" />
+			    </form>
+    
+    <p th:text="'content: ' + ${greeting.content4}" />
+		
+		
 		
 		<!-- Enter Values to go with messages, different forms for each. -->	
 		<h2>Replace a character in a String:</h2>
 		<h3>Enter a message:</h3>
-		<form action="/text/replace" method="GET">	
-			<label for="msg">Message:</label>
-			<input type="text" name="msg" size="50"></input><br/>
-			<label for="oldChar">Old character:</label>
-			<input type="text" name="oldChar" size="50"></input><br/>
-			<label for="newChar">New character:</label>
-			<input type="text" name="newChar" size="50"></input><br/>
-			<input type="submit"></input>
-			<br/>
-		</form>
+		<form action="#" th:action="@{/replace}" th:object="${greeting}" method="post">
+			        <label>Message:</label> 
+					<textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
+					        </textarea>
+			        <label>Old char:</label> <input type="text" th:field="*{content98}" size="20"/><br/>
+			        <label>New char:</label> <input type="text" th:field="*{content99}" size="20"/><br/>
+			        <input type="submit" value="Submit" />
+			    </form>
+    
+    <p th:text="'content: ' + ${greeting.content5}" />
+		
+		
 		
 		<!-- Enter Values to go with messages, different forms for each. -->
 		<h2>Reverse String</h2>	
 		<h3>Enter a message:</h3>
-		<form action="/text/reverseString" method="GET">	
-			<label for="msg">Message:</label>
-			<input type="text" name="msg" size="50"></input><br/>
-			<input type="submit"></input>
-			<br/>
-		</form>
+		<form action="#" th:action="@{/reverseString}" th:object="${greeting}" method="post">
+			        <label>Message:</label> 
+					<textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
+        			</textarea>
+			        <input type="submit" value="Submit" />
+			    </form>
+    
+    <p th:text="'content: ' + ${greeting.content6}" />
+		
+		
 		
 		<!-- Enter Values to go with messages, different forms for each. -->
 		<h2>is Palidrome</h2>	
 		<h3>Enter a message:</h3>
-		<form action="/text/isPalidrome" method="GET">	
-			<label for="msg">Message:</label>
-			<input type="text" name="msg" size="50"></input><br/>
-			<input type="submit"></input>
-			<br/>
-		</form>
+		<form action="#" th:action="@{/isPalidrome}" th:object="${greeting}" method="post">
+			        <label>Message:</label>
+					<textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
+        			</textarea>
+			        <input type="submit" value="Submit" />
+			    </form>
+    
+    <p th:text="'content: ' + ${greeting.content7}" />
+		
+		
 		
 		<!-- Enter Values to go with messages, different forms for each. -->
 		<h2>Repeat a message.</h2>	
 		<h3>Enter a message:</h3>
-		<form action="/text/repeatMessage" method="GET">	
-			<label for="msg">Message:</label>
-			<input type="text" name="msg" size="50"></input><br/>
-			<label for="numTimes">Number of times:</label>
-			<input type="text" name="numTimes" size="50"></input><br/>
-			<input type="submit"></input>
-			<br/>
-		</form>
+		<form action="#" th:action="@{/repeatMessage}" th:object="${greeting}" method="post">
+		    	<label>Id:</label> <input type="text" th:field="*{id3}" /><br/>
+		        <label>Message:</label>
+				<textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
+        		</textarea>
+		        <input type="submit" value="Submit" />
+		    </form>
+    
+     <p th:text="'id: ' + ${greeting.id3}" />
+    <p th:text="'content: ' + ${greeting.content8}" />
 </div>
 
 

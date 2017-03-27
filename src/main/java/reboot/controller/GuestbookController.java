@@ -8,7 +8,6 @@ import reboot.model.Guest;
 import reboot.repository.GuestbookRepository;
 
 @Controller
-@RequestMapping("/person")
 public class GuestbookController {
 
 	private GuestbookRepository guestbook;
@@ -18,8 +17,8 @@ public class GuestbookController {
 		this.guestbook = guestbook;
 	}
 	
-	@GetMapping(path="/add") // Map ONLY GET Requests
-	public @ResponseBody String addNewUser (@RequestParam Long ID, @RequestParam String name
+	@GetMapping(path="/person/add") // Map ONLY GET Requests
+	public String addNewUser (@RequestParam Long ID, @RequestParam String name
 			, @RequestParam String gender, @RequestParam Long age, @RequestParam String description, @RequestParam String occupation,
 			@RequestParam String hobbies) {
 
@@ -33,32 +32,44 @@ public class GuestbookController {
 		n.setOccupation(occupation);;
 		n.setHobbies(hobbies);
 		guestbook.save(n);
-		return "Saved";
+		return "guestbook";
 	}
 
-	@GetMapping(path="/delete")
+	@GetMapping(path="/person/delete")
 	public @ResponseBody void deleteSingleUsers(Long ID) {
 		guestbook.delete(ID);
 	}
-	@GetMapping(path="/deleteAll")
+	@GetMapping(path="/person/deleteAll")
 	public @ResponseBody void deleteAllUsers() {
 		guestbook.deleteAll();
 	}
-	@GetMapping(path="/all")
+	@GetMapping(path="/person/all")
 	public @ResponseBody Iterable<Guest> getAllUsers() {
 		// This returns a JSON or XML with the users
 		return guestbook.findAll();
 	}
-	@GetMapping(path="/toString")
+	@GetMapping(path="/person/toString")
 	public @ResponseBody String toStringAllUsers() {
 		return guestbook.toString();
 	}
-	@GetMapping(path="/count")
+	@GetMapping(path="/person/count")
 	public @ResponseBody long countAllUsers() {
 		return guestbook.count();
 	}
+	
+	// non working. as well as html form non working
 	@GetMapping(path="/find")
-	public @ResponseBody Guest findID(Long ID) {
-		return guestbook.findOne(ID);
+	public @ResponseBody Guest findID(@RequestParam Long id) {
+		return guestbook.findOne(id);
+		
+		/*
+		guest.setId(n.getId());
+		guest.setName(n.getName());
+		guest.setAge(n.getAge());
+		guest.setGender(n.getGender());
+		guest.setOccupation(n.getOccupation());
+		guest.setHobbies(n.getHobbies());
+		guest.setDescription(n.getDescription());
+		*/
 	}
 }

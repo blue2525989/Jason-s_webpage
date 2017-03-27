@@ -3,8 +3,6 @@ package reboot.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import reboot.model.Greeting;
@@ -29,13 +27,14 @@ public class MiscController {
 		return "hobbies";
 	}
 	
-	@RequestMapping("/guestbook")
-	String guestbook() {
+	@GetMapping("/guestbook")
+	public String guestbook() {
 		return "guestbook";
 	}
 	
-	@RequestMapping("/textfun")
-	String textFun() {
+	@GetMapping("/textfun")
+	public String textFun(Model model) {
+		model.addAttribute("greeting", new Greeting());
 		return "textfun";
 	}
 	
@@ -43,16 +42,4 @@ public class MiscController {
 	String blueDB() {
 		return "blueDB";
 	}
-	
-    @GetMapping("/test")
-    public String greetingForm(Model model) {
-        model.addAttribute("greeting", new Greeting());
-        return "test";
-    }
-
-    @PostMapping("/test")
-    public String greetingSubmit(@ModelAttribute Greeting greeting) {
-        return "test";
-    }
-
 }

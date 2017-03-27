@@ -2,14 +2,20 @@ package reboot.model;
 
 public class TextFunction {
 	/**
+	 * 
 	 * Jason Bierbrauer
+	 * 
 	 */
-
+	
+	
 	/**
+	 * 
 	 * Using a for loop to send a String to an Array.
 	 * @param s1 string to pass for breaking down
 	 * @return a formated String containing the Array
+	 * 
 	 */
+	
 	public String toArray(String s1) {
 		String[] chars = new String[s1.length()-1];
 		String newString = "";
@@ -24,10 +30,13 @@ public class TextFunction {
 	}
 	
 	/**
+	 * 
 	 * Using a for loop to send a String to an Array and find an element.
 	 * @param s1 string to pass for breaking down
 	 * @return a formated String containing the Array and Element chosen
+	 * 
 	 */
+	
 	public String toArrayFindElement(String s1, int ele) {
 		String[] chars = new String[s1.length()-1];
 		String newString = "";
@@ -59,7 +68,7 @@ public class TextFunction {
 		for (int i = 0; i < chars.length; i++) {
 			newString += "\n char[" + i + "] " + chars[i];
 		}
-		return "Your String has been broken down to chars,\n" + newString ;
+		return "Your String has been reversed down to chars,\n" + newString ;
 	}
 	
 	/**
@@ -114,6 +123,5 @@ public class TextFunction {
 		}
 		return newString;
 	}
-
 
 }

@@ -9,8 +9,8 @@
 	
 </head>
 
-
-<body  background="/pics/Rock.jpg">
+<!-- added background tag in html beczuse bgcolor doesnt seem to stay aftre save button is clicked -->
+<body  background="#0080ff">
 
 <h1><marquee>Jason's page GuestBook, feel free to fill it out...</marquee></h1>
 
@@ -24,22 +24,12 @@
 </p>
 </div>
 
-<div class="showEntry" align="center">
 
-
-</div>
-
-
-<div class="entryForm">
+<div class="entryForm" align="center">
 
 <!-- Enter Values to go with messages, different forms for each. -->
 <h2>Enter you info into the Person Book</h2>
-	
-	<table>
-		<tr>
-		<td th:text="${person}">1</td>
-		</tr>
-	</table>
+
 	
 
 <form action="/person/add" method="GET">	
@@ -61,6 +51,7 @@
 	<input type="submit" id="button"></input>
 	<br/>
 </form>
+
 
 <!-- Enter Values to go with messages, different forms for each. -->	
 <h2>List all</h2>
@@ -90,23 +81,16 @@
 <!-- Enter Values to go with messages, different forms for each. -->	
 <h2>Find entry based on ID number</h2>
 
-	<ul>
-	<li th:text="${name}"></li>
-	<li th:text="${age}"></li>
-	<li th:text="${descript}"></li>
-	<li th:text="${hobbies}"></li>
-	</ul>
 
-<form action="/person/find" method="GET">
-	<label for="ID">ID:</label>
-	<input type="text" name="ID" size="50" class="ID"></input><br/>	
-	<h3>Click this button to find entry</h3>
-	<input type="submit" id="button"></input>
-	<br/>
-</form>
+    <form action="/find" method="GET">
+    	<label>Id: </label><input type="text" name="id" />
+        <p><input type="submit" value="Submit" /> </p>
+    </form>
+
 </div>
 
 <!-- start of footer -->
+<div align="center">
  <footer>
      <!-- picture of my goat. -->
      <img th:src="@{/images/totes_face.jpg}" height="225" width="350" alt="Totes ma goats"
@@ -120,7 +104,7 @@
           Jason Bierbrauer, 2017
      </p>
 </footer>
-
+</div>
 
 </body>
 </html>
