@@ -24,7 +24,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
     	http
         .authorizeRequests()
-            .antMatchers("/", "/home").permitAll()
+            .antMatchers("/", "/home", "/resources/**", "/static/**").permitAll()
             .anyRequest().authenticated()
             .and()
         .formLogin()
@@ -44,11 +44,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		.authoritiesByUsernameQuery(
 			"select username, role from user_roles where username=?");
     }
-    
+     
     @Override
-	public void configure(WebSecurity web) throws Exception {
-	    web
-	       .ignoring()
-	       .antMatchers("/resources/**", "/static/**");
-}
+	public void configure(WebSecurity web) throws Exception{
+        web.ignoring().antMatchers("/css/**", "/images/**", "/resources/**", "/static/**");
+    }
 }

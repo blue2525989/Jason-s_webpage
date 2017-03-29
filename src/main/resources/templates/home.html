@@ -9,10 +9,27 @@
 	
 </head>
     
-     <body bgcolor="#0080ff" text="#400000">
+     <body class="security" th:background="@{/images/Rock.jpg}" background="../images/Rock.jpg" >
     
     <div align="center" >
-        <h1>Welcome!</h1>
+
+        <h1 class="security">Welcome!</h1>
+        
+        <p>Welcome to my website! This is my first dynamic web application. The purpose of this site is 
+        mainly to practice my Java and Spring skills in a live setting. I am hosting live on Amazon web services 
+        for free. 
+        </p>
+        
+        <p>To access the contents of this website, which I assure you are incredibly entertaining to say the 
+        least, you will have to create a username and password.<br/><br/>
+        
+        This is a simple process that only takes seconds and requires only a choice of username and password, no 
+        personal information is required.<br/><br/>
+        
+        The username and password are enabled to showcase the abilities of the Spring Security framework for Java. 
+        Every username and password is stored in a database for use when you return to check out all the awesome 
+        goat pictures.
+        </p>
         
         <p>If you already have a login username and password, please click <em>Login</em>.</p>
         
@@ -22,10 +39,26 @@
         <p>Else if you do not have an account, feel free to create one!</p>
         
         <p> <strong>
-        <a href="http://sample-env.hpjxmc8myy.us-west-2.elasticbeanstalk.com/">Create Login</a>       
+        <a class="security" href="http://sample-env.hpjxmc8myy.us-west-2.elasticbeanstalk.com/">Create Login</a>       
         </strong>
 		</p>
 		
 	</div>
+	
+	<!-- start of footer -->
+	 <footer>
+	     <!-- picture of my goat. -->
+	     <img th:src="@{/images/totes_face.jpg}" height="225" width="350" alt="Totes ma goats"
+	     src="../images/totes_face.jpg"/>
+	     <!-- paragraph tag with class tag for style.css -->
+	     <p class="footer">Written by: Jason Bierbrauer</p>
+	     <p class="footer">Contact information: <a href="mailto:jbierbrauer99@gmail.com">
+	         jbierbrauer99@gmail.com</a>.</p>
+	     <p class="footer">
+	         <!-- the special character -->
+	          Jason Bierbrauer, 2017
+	     </p>
+	</footer>
+	
     </body>
 </html>

@@ -9,8 +9,8 @@
 	
 </head>
     
-     <body bgcolor="#0080ff" text="#400000">
-     
+     <body class="security" th:background="@{/images/Rock.jpg}" background="../images/Rock.jpg" >
+          
         <div th:if="${param.error}" align="center">
             Invalid username and password.
         </div>
@@ -20,7 +20,12 @@
         </div>
         
         <div align="center">
-        <h1>Login</h1>
+        <h1 class="security">Login</h1>
+        <br/>
+        <br/>
+        
+        <img th:src="@{/images/goaterror.jpg}" src="../images/goaterror.jpg"
+			width="450" height="350" alt="Crazy goat from the internet"/>
         <p>
         Please enter your username and password. Then click <em>Sign In</em> to continue.
         </p>
@@ -30,5 +35,21 @@
             <div><input type="submit" value="Sign In"/></div>
         </form>
         </div>
+        
+        <!-- start of footer -->
+		 <footer>
+		     <!-- picture of my goat. -->
+		     <img th:src="@{/images/totes_face.jpg}" height="225" width="350" alt="Totes ma goats"
+		     src="../images/totes_face.jpg"/>
+		     <!-- paragraph tag with class tag for style.css -->
+		     <p class="footer">Written by: Jason Bierbrauer</p>
+		     <p class="footer">Contact information: <a href="mailto:jbierbrauer99@gmail.com">
+		         jbierbrauer99@gmail.com</a>.</p>
+		     <p class="footer">
+		         <!-- the special character -->
+		          Jason Bierbrauer, 2017
+		     </p>
+		</footer>
+        
     </body>
 </html>

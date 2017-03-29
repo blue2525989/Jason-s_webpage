@@ -1,8 +1,12 @@
 @CHARSET "UTF-8";
 
 body {
-	background-color: #0080ff;
+	background-color: #7eeeff;
 	font-family: arial,helvetica,sans-serif;
+}
+
+.security {
+	color: #4f1900;	
 }
 
 
@@ -12,6 +16,13 @@ label {
 
 h1 {
 	color : #400000;
+	text-align: center;
+	border : 2px ridge #ff8000;
+	padding : 2px;
+}
+
+h1.security {
+	color : #2b8904;
 	text-align: center;
 	border : 2px ridge #ff8000;
 	padding : 2px;
@@ -28,7 +39,15 @@ h3 {
 }
 
 a {
-	color: #8f5902;
+	color: #0a3101;
+}
+
+a.security {
+	color: #f57900;
+}
+
+a:visited {
+	color: #0a3101;
 }
 
 div.entryForm {
