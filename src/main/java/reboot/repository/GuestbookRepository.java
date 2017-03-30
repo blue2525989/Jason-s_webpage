@@ -7,6 +7,9 @@ import reboot.model.Guest;
 
 public interface GuestbookRepository extends JpaRepository<Guest, Long> {
 
-	List<Guest> findById(Long ID);
+	List<Guest> findByName(String name);
+
+	List<Guest> findById(Long count);
+		
 }
 

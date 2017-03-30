@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+	<title>Jason's Web Page</title>
+	<meta http-equiv="Content-Type" context="text/html; charset=UTF-8"/>
+	<link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet"/>
+	<link href="../static/css/normalize.css" th:href="@{css/normalize.css}" rel="stylesheet"/>
+	
+</head>
+
+     <body>
+
+	<div align="center">
+
+	<p><img th:src="@{/images/totes_face.jpg}" src="../images/totes_face.jpg" alt="Totes ma Goat"
+			width="600" height="375" align="middle"/>
+			<br/>
+			<a href="/guestbook"><img th:src="@{/images/Larrow.gif}" src="../images/Larrow.gif" 
+			width="40" height="25" alt="home"/></a>
+	</p>
+	</div>
+	
+		<div align="center">
+				<h2>Guestbook list</h2>
+			</div>
+				<div th:unless="${#lists.isEmpty(guests)}">
+				<dl th:each="guest : ${guests}">
+				<dt class="guestInfo">	
+				<label>ID:</label>
+				<span th:if="${guest.id}" th:text="${guest.id}">ID: </span> <br/>
+				<span th:if="${guest.id eq null}">No ID available</span> <br/>	
+				<label>Name:</label>
+				<span th:if="${guest.name}" th:text="${guest.name}">Name: </span> <br/>
+				<span th:if="${guest.name eq null}">No name available</span> <br/>
+				<label>Age:</label>
+				<span th:if="${guest.age}" th:text="${guest.age}">Age: </span> <br/>
+				<span th:if="${guest.age eq null}">No age available</span> <br/>
+				<label>Gender:</label>
+				<span th:if="${guest.gender}" th:text="${guest.gender}">Gender: </span> <br/>
+				<span th:if="${guest.gender eq null}">No gender available</span> <br/>
+				<label>Occupation:</label>
+				<span th:if="${guest.occupation}" th:text="${guest.occupation}">Occupation: </span> <br/>
+				<span th:if="${guest.occupation eq null}">No occupation available</span> <br/>
+				<label>Hobbies:</label>
+				<span th:if="${guest.hobbies}" th:text="${guest.hobbies}">Hobbies: </span> <br/>
+				<span th:if="${guest.hobbies eq null}">No hobbies available</span> <br/>
+				<label>Description:</label>
+				<span th:if="${guest.description}" th:text="${guest.description}">Description: </span> <br/>
+				<span th:if="${guest.description eq null}">No description available</span> <br/>
+				</dt>
+				</dl>
+				</div>
+				
+				<div th:if="${#lists.isEmpty(guests)}">	
+				<p>You have no guests in your Guestbook</p>
+				</div>
+				
+				<hr/>
+	
+<div align="center">
+<!-- start of footer -->
+ <footer>
+     <!-- picture of my goat. -->
+     <img th:src="@{/images/totes_face.jpg}" height="225" width="350" alt="Totes ma goats"
+     src="../images/totes_face.jpg"/>
+     <!-- paragraph tag with class tag for style.css -->
+     <p class="footer">Written by: Jason Bierbrauer</p>
+     <p class="footer">Contact information: <a href="mailto:jbierbrauer99@gmail.com">
+         jbierbrauer99@gmail.com</a>.</p>
+     <p class="footer">
+         <!-- the special character -->
+          Jason Bierbrauer, 2017
+     </p>
+</footer>
+
+</div>
+	</body>
+
+</html>

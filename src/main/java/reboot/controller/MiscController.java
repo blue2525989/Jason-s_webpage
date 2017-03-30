@@ -1,5 +1,6 @@
 package reboot.controller;
 
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,6 +33,11 @@ public class MiscController {
 		return "guestbook";
 	}
 	
+	@RequestMapping("/saved")
+	public String savedGB() {
+		return "saved";
+	}
+	
 	@GetMapping("/textfun")
 	public String textFun(Model model) {
 		model.addAttribute("greeting", new Greeting());
@@ -41,5 +47,10 @@ public class MiscController {
 	@RequestMapping("/blueDB")
 	String blueDB() {
 		return "blueDB";
+	}
+	
+	@RequestMapping("/poker")
+	String poker() {
+		return "poker";
 	}
 }

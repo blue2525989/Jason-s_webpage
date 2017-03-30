@@ -1,7 +1,10 @@
 package reboot.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import reboot.model.Guest;
@@ -17,11 +20,11 @@ public class GuestbookController {
 		this.guestbook = guestbook;
 	}
 	
-	@GetMapping(path="/person/add") // Map ONLY GET Requests
+	@GetMapping(path="/add")
 	public String addNewUser (@RequestParam Long ID, @RequestParam String name
-			, @RequestParam String gender, @RequestParam Long age, @RequestParam String description, @RequestParam String occupation,
+			, @RequestParam String gender, @RequestParam Long age, 
+			@RequestParam String description, @RequestParam String occupation,
 			@RequestParam String hobbies) {
-
 
 		Guest n = new Guest();
 		n.setId(ID);
@@ -32,44 +35,30 @@ public class GuestbookController {
 		n.setOccupation(occupation);;
 		n.setHobbies(hobbies);
 		guestbook.save(n);
-		return "guestbook";
+		return "redirect:/saved";
 	}
-
-	@GetMapping(path="/person/delete")
-	public @ResponseBody void deleteSingleUsers(Long ID) {
-		guestbook.delete(ID);
-	}
-	@GetMapping(path="/person/deleteAll")
-	public @ResponseBody void deleteAllUsers() {
-		guestbook.deleteAll();
-	}
-	@GetMapping(path="/person/all")
-	public @ResponseBody Iterable<Guest> getAllUsers() {
-		// This returns a JSON or XML with the users
-		return guestbook.findAll();
-	}
-	@GetMapping(path="/person/toString")
-	public @ResponseBody String toStringAllUsers() {
-		return guestbook.toString();
-	}
-	@GetMapping(path="/person/count")
-	public @ResponseBody long countAllUsers() {
-		return guestbook.count();
+		
+	@RequestMapping("/listallgb")
+	public String listAllGb(Model model) {
+		List<Guest> guestList = guestbook.findAll();
+		if (guestList != null) {
+			model.addAttribute("guests", guestList);
+		}	
+		return "listallgb";
 	}
 	
-	// non working. as well as html form non working
-	@GetMapping(path="/find")
-	public @ResponseBody Guest findID(@RequestParam Long id) {
-		return guestbook.findOne(id);
-		
-		/*
-		guest.setId(n.getId());
-		guest.setName(n.getName());
-		guest.setAge(n.getAge());
-		guest.setGender(n.getGender());
-		guest.setOccupation(n.getOccupation());
-		guest.setHobbies(n.getHobbies());
-		guest.setDescription(n.getDescription());
-		*/
+	@GetMapping("/all")
+	public String readersBooks(Model model) {
+		return "redirect:/listallgb";
 	}
+	
+	@RequestMapping("/find")
+	public String findOneGb(Model model, @RequestParam Long id) {
+		List<Guest> guestList = guestbook.findById(id);
+		if (guestList != null) {
+			model.addAttribute("guests", guestList);
+		}	
+		return "findonegb";
+	}
+
 }
