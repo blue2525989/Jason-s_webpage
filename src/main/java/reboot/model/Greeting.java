@@ -1,6 +1,12 @@
 package reboot.model;
 
 public class Greeting {
+	
+	/**
+	 * 
+	 * This class is used for the text functions controller
+	 * 
+	 */
 
     private int id;
     private String content;

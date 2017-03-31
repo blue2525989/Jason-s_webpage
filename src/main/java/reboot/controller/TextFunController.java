@@ -11,13 +11,15 @@ public class TextFunController {
 	
 	TextFunction text = new TextFunction();
 	
+	// send message to array
 	@PostMapping(path="/toArray")
 	public String toArray(@ModelAttribute Greeting greeting) {
 		greeting.setContent2(text.toArray(greeting.getContent()));
 		greeting.setContent("");
 		return "textfun";
 	}
-	// work on this and below
+	
+	// find specific element
 	@PostMapping(path="/toArrayFindElement")
 	public String toArrayFind(@ModelAttribute Greeting greeting) {
 		greeting.setContent3(text.toArrayFindElement(greeting.getContent(), (int) greeting.getId2()));
@@ -25,6 +27,7 @@ public class TextFunController {
 		return "textfun";
 	}
 	
+	// reverse string and breaks down to array
 	@PostMapping(path="/toArrayReverse")
 	public String toArrayReverse(@ModelAttribute Greeting greeting) {
 		greeting.setContent4(text.toArrayReverse(greeting.getContent()));
@@ -32,6 +35,7 @@ public class TextFunController {
 		return "textfun";
 	}
 	
+	// replace chars in a string
 	@PostMapping(path="/replace")
 	public String replace(@ModelAttribute Greeting greeting) {
 		greeting.setContent5(text.replaceChars(greeting.getContent(), greeting.getContent98(),
@@ -41,7 +45,8 @@ public class TextFunController {
 		greeting.setContent99("");
 		return "textfun";
 	}
-	//---------------------
+	
+	// reverse a string
 	@PostMapping(path="/reverseString")
 	public String reverseString(@ModelAttribute Greeting greeting) {
 		greeting.setContent6(text.reverse(greeting.getContent()));
@@ -49,6 +54,7 @@ public class TextFunController {
 		return "textfun";
 	}
 	
+	// checks to see if palidrome or not
 	@PostMapping(path="/isPalidrome")
 	public String isPalidrome(@ModelAttribute Greeting greeting) {
 		greeting.setContent7(text.isPalidrome(greeting.getContent()));
@@ -56,6 +62,7 @@ public class TextFunController {
 		return "textfun";
 	}
 	
+	// repeat a message
 	@PostMapping(path="/repeatMessage")
 	public String repeat(@ModelAttribute Greeting greeting) {
 		greeting.setContent8(text.repeatMessage(greeting.getContent(), (int) greeting.getId3()));

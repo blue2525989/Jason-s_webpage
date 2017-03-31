@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+	<title>Jason's Web Page</title>
+	<meta http-equiv="Content-Type" context="text/html; charset=UTF-8"/>
+	<link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet"/>
+	<link href="../static/css/normalize.css" th:href="@{css/normalize.css}" rel="stylesheet"/>
+	
+</head>
+
+	<body>
+	
+		<h1>Jason's Message Board</h1>
+		
+		<div align="center">
+		
+		<!-- how to add an image in thymeleaf -->
+		<img th:src="@{/images/space01.jpg}"
+          src="../images/space01.jpg" alt="space" width="550" height="375"/>
+		<br></br>
+		
+		<a href="/index"><img th:src="@{/images/Larrow.gif}" src="../images/Larrow.gif" 
+		width="40" height="25" alt="home"/></a>
+		</div>
+
+			<h2>Message board</h2><br/>
+			<div align="center">
+			<a href="#entermsg">Enter a message</a>
+			</div>
+			
+			<div th:unless="${#lists.isEmpty(messages)}">
+			<dl th:each="message : ${messages}">
+			<dt>
+			<label>Name:</label>
+			<span th:text="${message.name}">Name</span><br/>
+			<label>Message:</label>
+			<span th:text="${message.message}">Message</span><br/>
+			<label>#</label>
+			<span th:text="${message.id}">#</span>
+			</dt>
+			</dl>
+			</div>
+			
+			
+			<div th:if="${#lists.isEmpty(messages)}">
+			<p>You have no messages in your message list</p>
+			</div>
+			
+			<hr/>
+			
+			<h3>Add a Message</h3>
+			
+			<div align="center">
+			<form action="/addMessage" method="GET">
+			
+			<label for="name">Name:</label>
+			<input type="text" name="name" size="50"></input><br/>
+			
+			<label for="message">Message:</label><br/>
+			<textarea name="message" cols="80" rows="5">
+			</textarea><br/>
+			<input type="submit"></input>
+			</form>
+			
+ 			<a name="entermsg"></a>
+			</div>
+		
+	
+<!-- start of footer -->
+ <footer>
+     <!-- picture of my goat. -->
+     <img th:src="@{/images/totes_face.jpg}" height="225" width="350" alt="Totes ma goats"
+     src="../images/totes_face.jpg"/>
+     <!-- paragraph tag with class tag for style.css -->
+     <p class="footer">Written by: Jason Bierbrauer</p>
+     <p class="footer">Contact information: <a href="mailto:jbierbrauer99@gmail.com">
+         jbierbrauer99@gmail.com</a>.</p>
+     <p class="footer">
+         <!-- the special character -->
+          Jason Bierbrauer, 2017
+     </p>
+</footer>
+
+		
+	</body>
+
+</html>

@@ -2,6 +2,12 @@ package reboot.model;
 
 public class Numbers {
 	
+	/**
+	 * 
+	 * This class is used for the math controller 
+	 * 
+	 */
+	
 	public int sum1;
 	public int sum2;
 	public int sum3;

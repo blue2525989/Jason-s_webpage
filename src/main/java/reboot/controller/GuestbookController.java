@@ -13,19 +13,23 @@ import reboot.repository.GuestbookRepository;
 @Controller
 public class GuestbookController {
 
+	// instance of GuestBookRepository
 	private GuestbookRepository guestbook;
 	
+	// autowire the repository to the controller
 	@Autowired
 	public GuestbookController(GuestbookRepository guestbook) {
 		this.guestbook = guestbook;
 	}
 	
+	// saves the guest to the repositry
 	@GetMapping(path="/add")
+	// request params to save
 	public String addNewUser (@RequestParam Long ID, @RequestParam String name
 			, @RequestParam String gender, @RequestParam Long age, 
 			@RequestParam String description, @RequestParam String occupation,
 			@RequestParam String hobbies) {
-
+		// new instance of guest
 		Guest n = new Guest();
 		n.setId(ID);
 		n.setName(name);
@@ -38,6 +42,7 @@ public class GuestbookController {
 		return "redirect:/saved";
 	}
 		
+	// add all entires to listallgb.html
 	@RequestMapping("/listallgb")
 	public String listAllGb(Model model) {
 		List<Guest> guestList = guestbook.findAll();
@@ -47,11 +52,13 @@ public class GuestbookController {
 		return "listallgb";
 	}
 	
+	// returns all of the guests in database
 	@GetMapping("/all")
 	public String readersBooks(Model model) {
 		return "redirect:/listallgb";
 	}
 	
+	// finds a specific person based on ID
 	@RequestMapping("/find")
 	public String findOneGb(Model model, @RequestParam Long id) {
 		List<Guest> guestList = guestbook.findById(id);

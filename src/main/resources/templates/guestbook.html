@@ -56,8 +56,8 @@
 <h2>List all</h2>
 
 <form action="/all" method="GET">	
-	<h3>Click this button to see all entries</h3>
-	<input type="submit" id="button"></input>
+	<h3>Click this button to see all entries saved in the Guestbook.</h3>
+	<input type="submit" id="button" value="List all"></input>
 	<br/>
 </form>
 
@@ -65,10 +65,10 @@
 <!-- Enter Values to go with messages, different forms for each. -->	
 <h2>Find entry based on ID number</h2><br/>please note that when searching for an ID, they are 
 not always saved with the number entered above. Sometimes the database places them in the next 
-avaiable spot.
+avaiable spot. You can always check the correct ID number by clickng list all
     <form action="/find" method="GET">
     	<label>Id: </label><input type="text" name="id" />
-        <p><input type="submit" value="Submit" /> </p>
+        <p><input type="submit" value="Find" /> </p>
     </form>
 
 </div>
