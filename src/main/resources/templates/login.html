@@ -4,28 +4,53 @@
 
 	<title>Jason's Web Page</title>
 	<meta http-equiv="Content-Type" context="text/html; charset=UTF-8"/>
-	<link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet"/>
+	<link href="../static/css/style2.css" th:href="@{css/style2.css}" rel="stylesheet"/>
 	<link href="../static/css/normalize.css" th:href="@{css/normalize.css}" rel="stylesheet"/>
 	
 </head>
     
-     <body class="security" th:background="@{/images/Rock.jpg}" background="../images/Rock.jpg" >
+    <body>
+		<div class="container">
+	
+				<header><h1 class="security">Login</h1></header> 
+				<div align="center">
+        		<img th:src="@{/images/goaterror.jpg}" src="../images/goaterror.jpg"
+				width="450" height="350" alt="Crazy goat from the internet"/>
+				</div>
+			
+			<nav>
+				<hr/>
+				<label>Places to go,</label>
+				<ul>
+				<li><a href="/home">Home</a></li>
+				<li><a href="/login">Login/Logout</a></li>
+				<li><a href="/createlogin">Create Login</a></li>
+				</ul>
+				<hr/>
+			</nav>
+    
+    <article>
+    <hr/>
+    <div th:if="${#httpServletRequest.remoteUser != null}">
+    		<p>If you need to sign out click here.
+    		</p>
+            <form th:action="@{/logout}" method="post">
+    	        <input type="submit" value="Sign Out"/>
+ 	        </form>
+ 	        </div>
+    
           
-        <div th:if="${param.error}" align="center">
+        <div th:if="${param.error}">
             Invalid username and password.
         </div>
         
-        <div th:if="${param.logout}" align="center">
+        <div th:if="${param.logout}">
             You have been logged out.
         </div>
         
-        <div align="center">
-        <h1 class="security">Login</h1>
-        <br/>
-        <br/>
-        
-        <img th:src="@{/images/goaterror.jpg}" src="../images/goaterror.jpg"
-			width="450" height="350" alt="Crazy goat from the internet"/>
+        <div>
+		
+        <div th:if="${#httpServletRequest.remoteUser == null}">
         <p>
         Please enter your username and password. Then click <em>Sign In</em> to continue.
         </p>
@@ -35,7 +60,9 @@
             <div><input type="submit" value="Sign In"/></div>
         </form>
         </div>
-        
+        </div>
+        <hr/>
+        </article>
         <!-- start of footer -->
 		 <footer>
 		     <!-- picture of my goat. -->
@@ -50,6 +77,6 @@
 		          Jason Bierbrauer, 2017
 		     </p>
 		</footer>
-        
+        </div>
     </body>
 </html>

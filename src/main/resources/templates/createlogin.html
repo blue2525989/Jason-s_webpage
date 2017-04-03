@@ -4,19 +4,34 @@
 
 	<title>Jason's Web Page</title>
 	<meta http-equiv="Content-Type" context="text/html; charset=UTF-8"/>
-	<link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet"/>
+	<link href="../static/css/style2.css" th:href="@{css/style2.css}" rel="stylesheet"/>
 	<link href="../static/css/normalize.css" th:href="@{css/normalize.css}" rel="stylesheet"/>
 	
 </head>
     <body>
-              
-       <div align="center">   
+		<div class="container">
            		
-        <h1>Create a User Login:</h1>  
+        <header><h1>Create a User Login:</h1></header>  
+        <div align="center">
+        		<img th:src="@{/images/goaterror.jpg}" src="../images/goaterror.jpg"
+				width="450" height="350" alt="Crazy goat from the internet"/>
+				</div>
         
-    	<a href="/home">    
-		<img th:src="@{/images/Larrow.gif}" src="../images/Larrow.gif" 
-		width="40" height="25" alt="home"/></a>
+        	<nav>
+				<hr/>
+				<label>Places to go,</label>
+				<ul>
+				<li><a href="/home">Home</a></li>
+				<li><a href="/login">Login/Logout</a></li>
+				<li><a href="/createlogin">Create Login</a></li>
+				</ul>
+				<hr/>
+			</nav>
+			
+			
+			<article>
+			<hr/>
+        
 		
         <form action="/createUser/add" method="get">        
        		
@@ -24,15 +39,33 @@
             <label> Password: <input type="password" name="password"/> </label><br/>  
             <label> Only click once, then click below to login.</label><br/>
             <input type="submit" value="Create user"/>
-        </form>
-        
-        </div>
+        </form>        
         
         <div align="center">
         <p>Once you have new username and password go ahead and sign in <br/>
         <a href="/login">
         <button type="button">SIGN IN HERE</button></a> 
         </p>
+        </div>
+        <hr/>
+         </article>
+         
+         <!-- start of footer -->
+		 <footer>
+		     <!-- picture of my goat. -->
+		     <img th:src="@{/images/totes_face.jpg}" height="225" width="350" alt="Totes ma goats"
+		     src="../images/totes_face.jpg"/>
+		     <!-- paragraph tag with class tag for style.css -->
+		     <p class="footer">Written by: Jason Bierbrauer</p>
+		     <p class="footer">Contact information: <a href="mailto:jbierbrauer99@gmail.com">
+		         jbierbrauer99@gmail.com</a>.</p>
+		     <p class="footer">
+		         <!-- the special character -->
+		          Jason Bierbrauer, 2017
+		     </p>
+		</footer>
+        
+        
         </div>
     </body>
 </html>

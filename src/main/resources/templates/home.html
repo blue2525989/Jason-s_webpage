@@ -4,16 +4,38 @@
 
 	<title>Jason's Web Page</title>
 	<meta http-equiv="Content-Type" context="text/html; charset=UTF-8"/>
-	<link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet"/>
+	<link href="../static/css/style2.css" th:href="@{css/style2.css}" rel="stylesheet"/>
 	<link href="../static/css/normalize.css" th:href="@{css/normalize.css}" rel="stylesheet"/>
 	
 </head>
     
-     <body class="security" th:background="@{/images/Rock.jpg}" background="../images/Rock.jpg" >
+     <body>
+		<div class="container">
+		
+		<header> <h1 class="security">Welcome!</h1></header>
+		<div align="center">
+        		<img th:src="@{/images/goaterror.jpg}" src="../images/goaterror.jpg"
+				width="450" height="350" alt="Crazy goat from the internet"/>
+				</div>
+		
+		
+	<nav>
+				<hr/>
+				<label>Places to go,</label>
+				<ul>
+				<li><a href="/home">Home</a></li>
+				<li><a href="/login">Login/Logout</a></li>
+				<li><a href="/createlogin">Create Login</a></li>
+				</ul>
+				<hr/>
+			</nav>
+    
+    <article>
+    <hr/>
     
     <div align="center" >
 
-        <h1 class="security">Welcome!</h1>
+       
         
         <p>Welcome to my website! This is my first dynamic web application. The purpose of this site is 
         mainly to practice my Java and Spring skills in a live setting. I am hosting live on Amazon web services 
@@ -44,9 +66,10 @@
         <a class="security" href="/createlogin">Create Login</a>       
         </strong>
 		</p>
-		
+		<hr/>
 	</div>
 	
+	</article>
 	<!-- start of footer -->
 	 <footer>
 	     <!-- picture of my goat. -->
@@ -62,5 +85,6 @@
 	     </p>
 	</footer>
 	
+	</div>
     </body>
 </html>
