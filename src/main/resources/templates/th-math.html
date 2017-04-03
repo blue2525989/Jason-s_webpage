@@ -4,27 +4,51 @@
 
 	<title>Jason's Web Page</title>
 	<meta http-equiv="Content-Type" context="text/html; charset=UTF-8"/>
-	<link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet"/>
+	<link href="../static/css/style2.css" th:href="@{css/style2.css}" rel="stylesheet"/>
 	<link href="../static/css/normalize.css" th:href="@{css/normalize.css}" rel="stylesheet"/>
 	
 </head>
 
 	<body>
-		
-<h1><marquee>Java calculator</marquee></h1><br></br>
+	<div class="container">
+	
+	
 
+		<header>
+		<h1><marquee>Java calculator</marquee></h1><br></br>
+		</header>
 
 		<div align="center">
 		
 		<!-- how to add an image in thymeleaf -->
 		<img th:src="@{/images/space01.jpg}"
           src="../images/space01.jpg" alt="space" width="550" height="375"/>
-		<br></br>
-		
-		<a href="/index"><img th:src="@{/images/Larrow.gif}" src="../images/Larrow.gif" 
-		width="40" height="25" alt="home"/></a>
 		</div>
-		
+			
+			<nav>
+				<hr/>
+				<label>Places to go,</label>
+				<ul>
+				<li><a href="/hobbies">Hobbies</a></li>
+				<li><a href="/th-math">Calculator</a></li>
+				<li><a href="/textfun">Messing around with words</a></li>
+				</ul>
+				<label>Leave your mark,</label>
+				<ul>
+				<li><a href="/guestbook">Guestbook</a></li>
+				<li><a href="/allmessages">Message Board</a></li>
+				</ul>
+				<label>Projects,</label>
+				<ul>
+				<li><a href="/blueDB">Blue's database management</a></li>
+				<li><a href="/poker">Card games</a></li>
+				</ul>
+				<hr/>
+			</nav>
+			
+
+	<article>
+	<hr/>
 		<div class="funPages">		
 		
 		<h3>Calculator using Java:</h3>
@@ -133,6 +157,8 @@
 		
 
 </div>
+<hr/>
+</article>
 
 <!-- start of footer -->
  <footer>
@@ -149,7 +175,7 @@
      </p>
 </footer>
 
-		
+	</div>
 	</body>
 
 </html>

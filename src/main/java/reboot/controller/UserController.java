@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
 	/**
-	 * This creates a new user to access the mai site.
+	 * This creates a new user to access the main site.
 	 * @param username
 	 * @param password
 	 * @return saved message	

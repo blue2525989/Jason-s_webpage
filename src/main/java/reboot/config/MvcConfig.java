@@ -9,6 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 public class MvcConfig extends WebMvcConfigurerAdapter {
 
+	// these are the credentials to login to database
 	@Bean(name = "dataSource")
 	 public DriverManagerDataSource dataSource() {
 		 DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
@@ -20,11 +21,11 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 	 }
 	
 
+	// add view controllers for pages that deal with spring security
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
 	    registry.addViewController("/home").setViewName("home");
 	    registry.addViewController("/").setViewName("home");
-	    registry.addViewController("/hello").setViewName("hello");
 	    registry.addViewController("/login").setViewName("login");
     }
     

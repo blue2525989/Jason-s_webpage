@@ -4,23 +4,26 @@
 
 	<title>Jason's Web Page</title>
 	<meta http-equiv="Content-Type" context="text/html; charset=UTF-8"/>
-	<link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet"/>
+	<link href="../static/css/style2.css" th:href="@{css/style2.css}" rel="stylesheet"/>
 	<link href="../static/css/normalize.css" th:href="@{css/normalize.css}" rel="stylesheet"/>
 	
 </head>
 
      
 <body class="indexBody">
+<div class="container">
 
+<header>
 <h1>Jason's webpage... Welcome, please feel free to look around.</h1>
+</header>
 
 	<div align="center">
 	<img th:src="@{/images/kevin_coding.jpg}" src="../images/kevin_coding.jpg" 
 	height="400" width="525" alt="kevin the destructive cat"/>
 	</div>
 
-
-<div>
+	<nav>
+		<hr/>
 		<label>Places to go,</label>
 		<ul>
 		<li><a href="/hobbies">Hobbies</a></li>
@@ -37,7 +40,16 @@
 		<li><a href="/blueDB">Blue's database management</a></li>
 		<li><a href="/poker">Card games</a></li>
 		</ul>
+		<hr/>
+	</nav>
+	
 
+<article>
+	<hr/>
+	<h1 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]!</h1>
+	<hr/>
+	
+	
 	<p>Welcome to my homepage. This is built using the Spring Boot framework for Java.
 	
 	</p>
@@ -65,6 +77,15 @@
 	
 	<h2>Updates to site:</h2>
 	
+	<p>April, 3rd, Today I was reading about css styling and decided to update the look and feel of my web site. 
+	I spend a lot of hours staring at the computer screen so I went with a freindly dark theme. It is much easier 
+	on the eyes after a days of binge programming.
+	</p>
+	
+	<p>April 2nd, I finially figured out how to configure my security to allow my create user function to be 
+	built into this current application. Before it was a self contained application with access to the database.
+	</p>
+	
 	<p>March 31st, Added a basic message board. The messages are saved in the database. Just enter your name and 
 	a brief message and click submit.
 	</p>
@@ -91,8 +112,9 @@
 	link to my <a href="https://github.com/blue2525989">GitHub</a> account. There are a lot more projects 
 	to view.
 	</p>
+	<hr/>
 
-</div>
+</article>
 
 
 <!-- start of footer -->
@@ -110,6 +132,7 @@
      </p>
 </footer>
 
+</div>
 </body>
 
 </html>

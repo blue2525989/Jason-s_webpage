@@ -4,23 +4,48 @@
 
 	<title>Jason's Web Page</title>
 	<meta http-equiv="Content-Type" context="text/html; charset=UTF-8"/>
-	<link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet"/>
+	<link href="../static/css/style2.css" th:href="@{css/style2.css}" rel="stylesheet"/>
 	<link href="../static/css/normalize.css" th:href="@{css/normalize.css}" rel="stylesheet"/>
 	
 </head>
 
      <body>
+		<div class="container">
+		
+				<header>All entries.</header>
+					
 
-	<div align="center">
-
-	<p><img th:src="@{/images/totes_face.jpg}" src="../images/totes_face.jpg" alt="Totes ma Goat"
-			width="600" height="375" align="middle"/>
-			<br/>
-			<a href="/guestbook"><img th:src="@{/images/Larrow.gif}" src="../images/Larrow.gif" 
-			width="40" height="25" alt="home"/></a>
-	</p>
-	</div>
+				<div align="center">
+				<img th:src="@{/images/totes_face.jpg}" src="../images/totes_face.jpg" alt="Totes ma Goat"
+						width="600" height="375" align="middle"/>
+				
+				</div>
 	
+				<nav>
+					<hr/>
+					<label>Places to go,</label>
+					<ul>
+					<li><a href="/hobbies">Hobbies</a></li>
+					<li><a href="/th-math">Calculator</a></li>
+					<li><a href="/textfun">Messing around with words</a></li>
+					</ul>
+					<label>Leave your mark,</label>
+					<ul>
+					<li><a href="/guestbook">Guestbook</a></li>
+					<li><a href="/allmessages">Message Board</a></li>
+					</ul>
+					<label>Projects,</label>
+					<ul>
+					<li><a href="/blueDB">Blue's database management</a></li>
+					<li><a href="/poker">Card games</a></li>
+					</ul>
+					<hr/>
+				</nav>
+			
+
+	
+		<article>
+		<hr/>
 		<div align="center">
 				<h2>Guestbook list</h2>
 			</div>
@@ -57,8 +82,9 @@
 				</div>
 				
 				<hr/>
+				</article>
 	
-<div align="center">
+
 <!-- start of footer -->
  <footer>
      <!-- picture of my goat. -->

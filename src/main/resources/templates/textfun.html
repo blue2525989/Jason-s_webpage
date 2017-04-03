@@ -4,24 +4,47 @@
 
 	<title>Jason's Web Page</title>
 	<meta http-equiv="Content-Type" context="text/html; charset=UTF-8"/>
-	<link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet"/>
+	<link href="../static/css/style2.css" th:href="@{css/style2.css}" rel="stylesheet"/>
 	<link href="../static/css/normalize.css" th:href="@{css/normalize.css}" rel="stylesheet"/>
 	
 </head>
 
 <body>
-
-<h1>Fun with text</h1><br/>
-
+	<div class="container">
+	
+					
+		<header>
+		<h1>Fun with text</h1><br/>
+		</header>
+		
 		<div align="center">
 		<img th:src="@{/images/java-code01.jpg}" src="../images/java-code01.jpg" 
-		width="550" height="375" alt="java code" align="middle"/>
-		<br/>
-		
-		<a href="/index"><img th:src="@{/images/Larrow.gif}" src="../images/Larrow.gif" 
-		width="40" height="25" alt="home"/></a>
-		
+		width="550" height="375" alt="java code" align="middle"/>		
 		</div>
+		
+			<nav>
+				<hr/>
+				<label>Places to go,</label>
+				<ul>
+				<li><a href="/hobbies">Hobbies</a></li>
+				<li><a href="/th-math">Calculator</a></li>
+				<li><a href="/textfun">Messing around with words</a></li>
+				</ul>
+				<label>Leave your mark,</label>
+				<ul>
+				<li><a href="/guestbook">Guestbook</a></li>
+				<li><a href="/allmessages">Message Board</a></li>
+				</ul>
+				<label>Projects,</label>
+				<ul>
+				<li><a href="/blueDB">Blue's database management</a></li>
+				<li><a href="/poker">Card games</a></li>
+				</ul>
+				<hr/>
+			</nav>		
+		
+	<article>
+		<hr/>
 				
 	<div class="funPages">	
 			
@@ -30,9 +53,9 @@
 		<h2>Message to Array</h2>	
 		<h3>Enter a message:</h3>
     <form action="#" th:action="@{/toArray}" th:object="${greeting}" method="post">
-        <label>Message: </label>
+        <label>Message: </label><br/>
         <textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
-        </textarea>
+        </textarea><br/>
         
        <!--  <input type="text" th:field="*{content}" size="120"/><br/> -->
         <input type="submit" value="Submit" />
@@ -48,9 +71,9 @@
 		<h3>Enter a message:</h3>
 		    <form action="#" th:action="@{/toArrayFindElement}" th:object="${greeting}" method="post">
 		    	<label>Id:</label> <input type="text" th:field="*{id2}" /><br/>
-		        <label>Message:</label> 
+		        <label>Message:</label><br/> 
 		        <textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
-        		</textarea>
+        		</textarea><br/>
 		        <input type="submit" value="Submit" />
 		    </form>
     
@@ -63,9 +86,9 @@
 		<h2>Reverse message to Array:</h2>
 		<h3>Enter a message:</h3>
 			    <form action="#" th:action="@{/toArrayReverse}" th:object="${greeting}" method="post">
-			        <label>Message:</label>
+			        <label>Message:</label><br/>
 					<textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
-        			</textarea>
+        			</textarea><br/>
 			        <input type="submit" value="Submit" />
 			    </form>
     
@@ -77,9 +100,9 @@
 		<h2>Replace a character in a String:</h2>
 		<h3>Enter a message:</h3>
 		<form action="#" th:action="@{/replace}" th:object="${greeting}" method="post">
-			        <label>Message:</label> 
+			        <label>Message:</label><br/> 
 					<textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
-					        </textarea>
+					        </textarea><br/>
 			        <label>Old char:</label> <input type="text" th:field="*{content98}" size="20"/><br/>
 			        <label>New char:</label> <input type="text" th:field="*{content99}" size="20"/><br/>
 			        <input type="submit" value="Submit" />
@@ -93,9 +116,9 @@
 		<h2>Reverse String</h2>	
 		<h3>Enter a message:</h3>
 		<form action="#" th:action="@{/reverseString}" th:object="${greeting}" method="post">
-			        <label>Message:</label> 
+			        <label>Message:</label> <br/>
 					<textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
-        			</textarea>
+        			</textarea><br/>
 			        <input type="submit" value="Submit" />
 			    </form>
     
@@ -107,9 +130,9 @@
 		<h2>is Palidrome</h2>	
 		<h3>Enter a message:</h3>
 		<form action="#" th:action="@{/isPalidrome}" th:object="${greeting}" method="post">
-			        <label>Message:</label>
+			        <label>Message:</label><br/>
 					<textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
-        			</textarea>
+        			</textarea><br/>
 			        <input type="submit" value="Submit" />
 			    </form>
     
@@ -121,17 +144,19 @@
 		<h2>Repeat a message.</h2>	
 		<h3>Enter a message:</h3>
 		<form action="#" th:action="@{/repeatMessage}" th:object="${greeting}" method="post">
-		    	<label>Id:</label> <input type="text" th:field="*{id3}" /><br/>
-		        <label>Message:</label>
+		    	<label>Id:</label><br/> <input type="text" th:field="*{id3}" /><br/>
+		        <label>Message:</label><br/>
 				<textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
-        		</textarea>
+        		</textarea><br/>
 		        <input type="submit" value="Submit" />
 		    </form>
     
      <p th:text="'id: ' + ${greeting.id3}" />
     <p th:text="'content: ' + ${greeting.content8}" />
 </div>
+<hr/>
 
+</article>
 
 
 <!-- start of footer -->
@@ -149,5 +174,6 @@
      </p>
 </footer>
 
+</div>
 </body>
 </html>

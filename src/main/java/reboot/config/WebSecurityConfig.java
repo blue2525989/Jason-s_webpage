@@ -16,10 +16,12 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
-		
+	
+	// autowire the database credintials to
 	@Autowired
 	public DataSource ds;
 	
+	// set access to pages before and after login
     @Override
     protected void configure(HttpSecurity http) throws Exception {
     	http
@@ -29,16 +31,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .anyRequest().authenticated()
             .and()
         .formLogin()
-            .loginPage("/login").permitAll().defaultSuccessUrl("/hello", true)
+            .loginPage("/login").permitAll().defaultSuccessUrl("/index", true)
                 .and()
             .logout()
                 .permitAll();
     }
 
+    // autowire the credintials
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
    
-        
+        // select username and password from database
         auth.jdbcAuthentication().dataSource(ds)
 		.usersByUsernameQuery(
 			"select username,password, enabled from users where username=?")
@@ -46,6 +49,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			"select username, role from user_roles where username=?");
     }
      
+    // all access to these folders
     @Override
 	public void configure(WebSecurity web) throws Exception{
         web.ignoring().antMatchers("/css/**", "/images/**", "/resources/**", "/static/**");

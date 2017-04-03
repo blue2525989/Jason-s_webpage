@@ -4,26 +4,48 @@
 
 	<title>Jason's Web Page</title>
 	<meta http-equiv="Content-Type" context="text/html; charset=UTF-8"/>
-	<link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet"/>
+	<link href="../static/css/style2.css" th:href="@{css/style2.css}" rel="stylesheet"/>
 	<link href="../static/css/normalize.css" th:href="@{css/normalize.css}" rel="stylesheet"/>
 	
 </head>
 
      <body>
-    
-    <div align="center">
-	<img th:src="@{/images/kevin_coding.jpg}" src="../images/kevin_coding.jpg" 
-	height="400" width="525" alt="kevin the destructive cat"/>
-	</div>
-	
-		<br/>
-		<div align="center">
-		<a href="/index"><img th:src="@{/images/Larrow.gif}" src="../images/Larrow.gif" 
-		width="40" height="25" alt="home"/></a>
-		</div>
+		<div class="container">
 		
+						
+		    <header> <h1>Blue's database managment system</h1></header>
+		    <div align="center">
+			<img th:src="@{/images/kevin_coding.jpg}" src="../images/kevin_coding.jpg" 
+			height="400" width="525" alt="kevin the destructive cat"/>
+			</div>
+	
+				<nav>
+					<hr/>
+					<label>Places to go,</label>
+					<ul>
+					<li><a href="/hobbies">Hobbies</a></li>
+					<li><a href="/th-math">Calculator</a></li>
+					<li><a href="/textfun">Messing around with words</a></li>
+					</ul>
+					<label>Leave your mark,</label>
+					<ul>
+					<li><a href="/guestbook">Guestbook</a></li>
+					<li><a href="/allmessages">Message Board</a></li>
+					</ul>
+					<label>Projects,</label>
+					<ul>
+					<li><a href="/blueDB">Blue's database management</a></li>
+					<li><a href="/poker">Card games</a></li>
+					</ul>
+					<hr/>
+				</nav>
+			
+
+	
+		<article>
+		<hr/>
     <div align="center" >
-        <h1>Blue's database managment system</h1>
+       
         
         <p>This is an application for managing a MySQL database, or many. Right now it is in its first stages. 
         Still it is quite powerful. It allows the user to login to any host and view any database or table as 
@@ -87,6 +109,25 @@
         for tables. Deleting a database is also avaiable on the view. 
 		</p>
 		
+	</div>
+	<hr/>
+	</article>
+	
+	<!-- start of footer -->
+ <footer>
+     <!-- picture of my goat. -->
+     <img th:src="@{/images/totes_face.jpg}" height="225" width="350" alt="Totes ma goats"
+     src="../images/totes_face.jpg"/>
+     <!-- paragraph tag with class tag for style.css -->
+     <p class="footer">Written by: Jason Bierbrauer</p>
+     <p class="footer">Contact information: <a href="mailto:jbierbrauer99@gmail.com">
+         jbierbrauer99@gmail.com</a>.</p>
+     <p class="footer">
+         <!-- the special character -->
+          Jason Bierbrauer, 2017
+     </p>
+</footer>
+	
 	</div>
     </body>
 </html>

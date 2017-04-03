@@ -4,49 +4,61 @@
 
 	<title>Jason's Web Page</title>
 	<meta http-equiv="Content-Type" context="text/html; charset=UTF-8"/>
-	<link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet"/>
+	<link href="../static/css/style2.css" th:href="@{css/style2.css}" rel="stylesheet"/>
 	<link href="../static/css/normalize.css" th:href="@{css/normalize.css}" rel="stylesheet"/>
 	
 </head>
 
 <!-- body section -->
-<body>
-
-<!-- anchor for the back button -->
-<a name="top"></a>
-
-<!-- header, used div align="center" to center the image -->
-<div align="center">
-	<article>
-	<header>
+     <body>
+		<div class="container">
+		
+			<header>
 	
-        <!-- header image -->
-	    <img th:src="@{/images/buddy.jpg}" src="../images/buddy.jpg"
-			width="550" height="400" alt="Buddy the goat"/>
-	    <br></br>
-	    
-		<h2>Hobbies and Interests</h2>
-		
-	    <!-- links for embedded anchors -->
-		<a href="#programming">Programming</a>
-		<a href="#motorcycles">Motorcycles</a>
-		<a href="#farming">Farming</a>
-		<a href="#hiking">Hiking</a>
-		<a href="/index"><img th:src="@{/images/Larrow.gif}" src="../images/Larrow.gif" 
-		width="40" height="25" alt="home"/></a>
-		
-	</header>	
-</article>
+				<!-- anchor for the back button -->
+				<a name="top"></a>
+		        <!-- header image -->
+			    <img th:src="@{/images/buddy.jpg}" src="../images/buddy.jpg"
+					width="550" height="400" alt="Buddy the goat"/>
+			    <br></br>
+			    
+				<h2>Hobbies and Interests</h2>
+				
+			    <!-- links for embedded anchors -->
+				<a href="#programming">Programming</a>
+				<a href="#motorcycles">Motorcycles</a>
+				<a href="#farming">Farming</a>
+				<a href="#hiking">Hiking</a>
+				
+			</header>	
+				
+				<nav>
+					<hr/>
+					<label>Places to go,</label>
+					<ul>
+					<li><a href="/hobbies">Hobbies</a></li>
+					<li><a href="/th-math">Calculator</a></li>
+					<li><a href="/textfun">Messing around with words</a></li>
+					</ul>
+					<label>Leave your mark,</label>
+					<ul>
+					<li><a href="/guestbook">Guestbook</a></li>
+					<li><a href="/allmessages">Message Board</a></li>
+					</ul>
+					<label>Projects,</label>
+					<ul>
+					<li><a href="/blueDB">Blue's database management</a></li>
+					<li><a href="/poker">Card games</a></li>
+					</ul>
+					<hr/>
+				</nav>
+			
+	
 
-</div>
-<!-- end of header -->
-<br/>
-<!-- horizontal rule to break things up -->
 <hr/>
 
-<div>
+
 <article>
-<section>
     <!-- anchor -->
  	<a name="programming"></a>
  	
@@ -72,19 +84,16 @@
         <!-- Link to my GitHub -->
         <a href="https://github.com/blue2525989">GitHub</a>
     </p>
-	</section>
-	</article>
+	
 	
     <!-- using an image as a link back to the top anchor -->
 	<a href="#top"><img th:src="@{/images/Larrow.gif}" src="../images/Larrow.gif" alt="Back to the top!"
     height="25" width="40"/></a>
     
-</div>
+
 <hr/>
 
-<div>
-<article>
-<section>
+
  	<a name="motorcycles"></a>
  	
 	  <div align="center"><img th:src="@{/images/bike1.jpg}" src="../images/bike1.jpg" width="400" height="270" alt="Suzuki katana 750"/>
@@ -100,17 +109,13 @@
     girl friend and I enjoy going for a short cruise on the weekends.
 
     </p>
-	</section>
-	</article>
+	
     <!-- using an image as a link back to the top anchor -->
 	<a href="#top"><img th:src="@{/images/Larrow.gif}" src="../images/Larrow.gif" alt="Back to the top!"
     height="25" width="40"/></a>
-</div>
+
 <hr/>
 
-<div>
-<article>
-<section>
  	<a name="farming"></a>
 
         <div align="center"><img th:src="@{/images/garden.jpg}" src="../images/garden.jpg" width="350" height="270" alt="Organic garden"/>
@@ -135,19 +140,13 @@
         her tracks and locks up, or tips over and makes weird noises for about ten seconds then gets back to playing.
     </p>
 
-	</section>
-	</article>
 	
     <!-- using an image as a link back to the top anchor -->
 	<a href="#top"><img th:src="@{/images/Larrow.gif}" src="../images/Larrow.gif" alt="Back to the top!"
     height="25" width="40"/></a>
     
-</div>
 <hr/>
 
-<div>
- <article> 
- 	<section>
         <!-- anchor  -->
  	    <a name="hiking"></a>
  	    
@@ -166,16 +165,12 @@
             and highest peak in Missouri in one afternoon. Just be prepared for the hike to the waterfall, the trail is rough at
             best.
         </p>
-	</section>
-
-</article>
     <!-- using an image as a link back to the top anchor -->
 	<a href="#top"><img th:src="@{/images/Larrow.gif}" src="../images/Larrow.gif" alt="Back to the top!"
     height="25" width="40"/></a>
 
-</div>
 <hr/>
-
+</article>
 
 <!-- start of footer -->
  <footer>
@@ -192,5 +187,6 @@
      </p>
 </footer>
 
+</div>
 </body>
 </html>
