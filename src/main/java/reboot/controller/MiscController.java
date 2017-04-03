@@ -30,7 +30,7 @@ public class MiscController {
 	String hobbies() {
 		return "hobbies";
 	}
-	
+
 	// guestbook view
 	@GetMapping("/guestbook")
 	public String guestbook() {
@@ -42,7 +42,7 @@ public class MiscController {
 	public String savedGB() {
 		return "saved";
 	}
-	
+
 	// text-fun view with Greeting model added
 	@GetMapping("/textfun")
 	public String textFun(Model model) {
@@ -60,5 +60,16 @@ public class MiscController {
 	@RequestMapping("/poker")
 	String poker() {
 		return "poker";
+	}
+	
+	@RequestMapping("/createlogin")
+	String createlogin() {
+		return "createlogin";
+	}
+	
+	// saved view
+	@RequestMapping("/saved2")
+	public String saved2() {
+		return "saved2";
 	}
 }
