@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+	<title>Jason's Web Page</title>
+	<meta http-equiv="Content-Type" context="text/html; charset=UTF-8"/>
+	<link href="../static/css/style2.css" th:href="@{css/style2.css}" rel="stylesheet"/>
+	<link href="../static/css/normalize.css" th:href="@{css/normalize.css}" rel="stylesheet"/>
+	
+</head>
+
+	<body>
+	<div class="container">
+	
+	<header></header>
+	
+		<!-- put your image under the header -->
+		<div align="center">		
+		<!-- how to add an image in thymeleaf -->
+		<img th:src="@{/images/space01.jpg}"
+	         src="../images/space01.jpg" alt="space" width="550" height="375"/>
+		</div>
+	
+	
+			<!-- nav bar -->
+			<nav>
+				<hr/>
+				<label>Places to go,</label>
+				<ul>
+				<li><a href="/index">Index</a></li>
+				<li><a href="/login">Login/Logout</a></li>
+				<li><a href="/hobbies">Hobbies</a></li>
+				<li><a href="/th-math">Calculator</a></li>
+				<li><a href="/textfun">Messing around with words</a></li>
+				</ul>
+				<label>Leave your mark,</label>
+				<ul>
+				<li><a href="/guestbook">Guestbook</a></li>
+				<li><a href="/allmessages">Message Board</a></li>
+				</ul>
+				<label>Projects,</label>
+				<ul>
+				<li><a href="/blueDB">Blue's database management</a></li>
+				<li><a href="/poker">Card games</a></li>
+				</ul>
+				<label th:if="${session.adminrole == true}">Admin Pages</label>
+				<ul th:if="${session.adminrole == true}">
+				<li><a href="/adminpage">Admin Page</a></li>
+				</ul>
+				<hr/>
+			</nav>
+			
+			<!-- this is where all your main content goes -->
+			<article>
+			<hr/>
+				<div th:if="${session.adminrole == true}">
+				
+				<h2 th:if="${session.adminrole == true}">
+				This section is for editing the guestbook section of the page.
+				</h2>
+				
+				<h2>List all</h2>
+				<form action="/all" method="GET" th:if="${session.adminrole == true}">
+					<input type="submit" id="button" value="List all"></input><br/>
+				</form>
+								 
+				<h2>Find entry based on ID number</h2>
+				<form action="/find" method="GET" th:if="${session.adminrole == true}">
+			    	<label>Id: </label><input type="text" name="id" /><br/>
+			        <input type="submit" value="Find" />
+			    </form>
+				 
+				<h2>Delete all</h2>
+				<form action="/deleteAll" method="GET" th:if="${session.adminrole == true}">	
+					<h3>Click this button to delete all entries</h3><br/>
+					<input type="submit" id="button" value="Delete all"></input><br/>
+					<br/>
+				</form>	
+				 
+				<h2>Count all entries</h2>
+				<form action="/count" method="GET" th:if="${session.adminrole == true}">	
+					<h3>Click this button to count all entries</h3><br/>
+					<input type="submit" id="button" value="Count entries"></input><br/>
+					<br/>
+				</form>
+				
+				<h2>Delete entry based on ID number</h2>
+				<form action="/delete" method="GET" th:if="${session.adminrole == true}">
+					<label for="ID">ID:</label><br/>
+					<input type="text" name="ID" size="50" class="ID"></input><br/>	
+					<h3>Click this button to find entry</h3><br/>
+					<input type="submit" id="button" value="Delete"></input>
+					<br/>
+				</form>
+				
+				</div>	
+				
+				<hr/>
+				
+				<h2>This section is for editing the message board.</h2>				
+				
+				<h2>Delete entry based on ID number</h2>
+				<form action="/deleteMessage" method="GET" th:if="${session.adminrole == true}">
+					<label for="ID">ID:</label><br/>
+					<input type="text" name="ID" size="50" class="ID"></input><br/>	
+					<h3>Click this button to find entry</h3><br/>
+					<input type="submit" id="button" value="Delete"></input>
+					<br/>
+				</form>
+				
+				<hr/>
+				
+				<p>
+				This section is for editing the updates.
+				</p>
+				
+				<form action="/addUpdate" method="GET">
+					<label for="message">Message:</label><br/>
+					<textarea name="message" cols="80" rows="5">
+					</textarea><br/>
+					<input type="submit"></input>
+				</form>
+			
+			<hr/>
+			</article>
+
+	
+<!-- start of footer -->
+ <footer>
+     <!-- picture of my goat. -->
+     <img th:src="@{/images/totes_face.jpg}" height="225" width="350" alt="Totes ma goats"
+     src="../images/totes_face.jpg"/>
+     <!-- paragraph tag with class tag for style.css -->
+     <p class="footer">Written by: Jason Bierbrauer</p>
+     <p class="footer">Contact information: <a href="mailto:jbierbrauer99@gmail.com">
+         jbierbrauer99@gmail.com</a>.</p>
+     <p class="footer">
+         <!-- the special character -->
+          Jason Bierbrauer, 2017
+     </p>
+</footer>
+
+	</div>
+	</body>
+
+</html>

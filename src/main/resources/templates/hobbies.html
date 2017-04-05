@@ -32,7 +32,8 @@
 				
 			</header>	
 				
-				<nav>
+				<!-- nav bar -->
+			<nav>
 				<hr/>
 				<label>Places to go,</label>
 				<ul>
@@ -51,6 +52,10 @@
 				<ul>
 				<li><a href="/blueDB">Blue's database management</a></li>
 				<li><a href="/poker">Card games</a></li>
+				</ul>
+				<label th:if="${session.adminrole == true}">Admin Pages</label>
+				<ul th:if="${session.adminrole == true}">
+				<li><a href="/adminpage">Admin Page</a></li>
 				</ul>
 				<hr/>
 			</nav>

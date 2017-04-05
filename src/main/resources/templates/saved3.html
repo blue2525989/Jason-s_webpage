@@ -11,7 +11,7 @@
 
 	<body>
 	<div class="container">
-	
+	<!-- This is the saved page for the ADMIN methods -->
 	<header></header>
 	
 		<!-- put your image under the header -->
@@ -53,13 +53,13 @@
 			<!-- this is where all your main content goes -->
 			<article>
 			<hr/>
-	
-		<div th:if="${session.adminrole == true}" align="center">
-		<a href="/adminpage">Back to ADMIN page</a></div>
-	
 			
+			<div th:if="${session.adminrole == true}" align="center">
+			<a href="/adminpage">Back to ADMIN page</a></div>
 			
-			
+			<div align="center">
+			<h1 th:inline="text">[[${session.saved}]]</h1>
+			</div>
 			
 			<hr/>
 			</article>

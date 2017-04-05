@@ -30,7 +30,7 @@ public class UserController {
                 try{
                     String MySQL = "jdbc:mysql://jasonspage.cfqhitdy3uy2.us-west-2.rds.amazonaws.com:3306/jasonsPage?user=blue&password=jason987&useSSL=false";
                     String SQL = "insert into users (username, password, enabled, ID) values ('" + username + "', '" + password + "', true, 0)";
-                    String SQL2 = "insert into user_roles (username, role) values ('" + username + "', 'ROLE_ADMIN')";
+                    String SQL2 = "insert into user_roles (username, role) values ('" + username + "', 'ROLE_USER')";
                     //Opens connection to the new selection
                     Class.forName("com.mysql.jdbc.Driver");
                     con = DriverManager.getConnection(MySQL);

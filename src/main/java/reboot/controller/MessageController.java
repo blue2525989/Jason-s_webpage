@@ -1,4 +1,6 @@
 package reboot.controller;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.*;
@@ -23,7 +25,7 @@ public class MessageController {
 	
 	// add all entires to message.html
     @RequestMapping("/message")
-	public String listAllGb(Model model) {
+	public String listAllMsg(Model model) {
 		List<Message> messageList = messages.findAll();
 		if (messageList != null) {
 			model.addAttribute("messages", messageList);
@@ -39,12 +41,17 @@ public class MessageController {
 	
 	@GetMapping(path="/addMessage")
 	// request params to save
-	public String addNewUser (@RequestParam String name
+	public String addNewMessage (@RequestParam String name
 			, @RequestParam String message) {
-		// new instance of guest
+		
+		Calendar date = Calendar.getInstance();
+		Date curDate = date.getTime();
+		String current = curDate.toString();
+		// new instance of message
 		Message n = new Message();
 		n.setName(name);
 		n.setMessage(message);
+		n.setDate(current);
 		messages.save(n);
 		return "redirect:/allmessages";
 	}

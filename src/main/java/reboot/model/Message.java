@@ -1,9 +1,6 @@
 package reboot.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Message {
@@ -13,6 +10,7 @@ public class Message {
 	private Long id;
     private String name;
     private String message;
+    private String date;
 
 	public Long getId() {
 		return id;
@@ -36,6 +34,14 @@ public class Message {
 
     public void setMessage(String content) {
         this.message = content;
+    }
+    
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;;
     }
     
 }

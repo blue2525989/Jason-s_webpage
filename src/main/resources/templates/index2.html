@@ -42,18 +42,42 @@
 				<li><a href="/blueDB">Blue's database management</a></li>
 				<li><a href="/poker">Card games</a></li>
 				</ul>
+				<label th:if="${session.adminrole == true}">Admin Pages</label>
+				<ul th:if="${session.adminrole == true}">
+				<li><a href="/adminpage">Admin Page</a></li>
+				</ul>
 				<hr/>
 			</nav>
 	
 
 <article>
 	<hr/>
+	
+		<div th:if="${session.adminrole == true}" align="center">
+		<a href="/adminpage">Back to ADMIN page</a></div>
+	
 	<h1 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]!</h1>
+	<p th:inline="text">The current date is, [[${session.curdate}]].</p>
 	<hr/>
 	
+	<p th:if="${session.adminrole == true}">
+	If you are seeing this paragraph it is because your user privalge is set to ADMIN level.
+	Congratulations, you have full access to this website. Be responsible and dont delete anything 
+	to important. 
+	</p>	
 	
-	<p>Welcome to my homepage. This is built using the Spring Boot framework for Java.
+	<p th:if="${session.adminrole == true}">
+	A lot more admin feature will be on the way shortly. I have only just figured this trick out and havent 
+	yet explored it. I plan to add a page where I can edit the guestbook and message board easily. Also possibly 
+	the users incase i want to make some on the file editing of whos allowed and who is not.<br/><br/>
 	
+	</p>
+	<hr th:if="${session.adminrole == true}"/>
+	
+	<p th:if="${session.adminrole == true || session.userrole == true}">
+	Welcome to my homepage. This is built using the Spring Boot framework for Java. This paragraph is being 
+	displayed because your Spring Security level is set to regualar user. You have acceses to the everyday 
+	excitement of this site.	
 	</p>
 	
 	
@@ -78,6 +102,20 @@
 	</p>
 	
 	<h2>Updates to site:</h2>
+
+			
+	<p>April 5th, I have been adding a lot of behind the scenes features for myself. I have been using the Spring 
+	Secuirty user level and admin level features to build myself a more fluid way of updating my site. Right now 
+	I have a special page that only my account can get to or ones I set to ADMIN level. On this page I have forms 
+	to edit the guestbook entries and the message board posts. <br/><br/>
+	
+	This is just the start to a whole new world of options to me. Now I can make things a lot more dynamic by 
+	adding controls to where I can add these updates on the fly instead of having to publish a new application 
+	version to amazon everytime.<br/><br/>
+	
+	Also I will be able to edit pretty much anything that I add on the fly. This is very important because it 
+	saves me from constantly uploading and deploying new versions to the amazon server.
+	</p>
 	
 	<p>April, 3rd, Today I was reading about css styling and decided to update the look and feel of my web site. 
 	I spend a lot of hours staring at the computer screen so I went with a freindly dark theme. It is much easier 
