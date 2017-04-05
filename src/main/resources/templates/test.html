@@ -11,8 +11,41 @@
 
 	<body>
 	
+			
 		
-	<div th:unless="${#lists.isEmpty(updates)}">
+	// saves the update to the repositry
+	@GetMapping(path="/addUpdate")
+	// request params to save
+	public String addUpdate (@RequestParam String message, HttpSession session) {
+			
+	// this adds current date and time to a session attribute
+	Calendar date = Calendar.getInstance();
+	TimeZone timezone = date.getTimeZone();
+	Calendar date2 = Calendar.getInstance(timezone);
+	Date curDate = date2.getTime();
+	String current = curDate.toString();
+	
+	 
+	 // this adds the list of updates to index
+	List<UpdateMessages> updateList = updatelog.findAll();
+	if (updateList != null) {
+		session.setAttribute("updates", updateList);
+	}	
+			
+	// new instance of guest
+	UpdateMessages n = new UpdateMessages();
+	n.setUpdate(message);
+	n.setDate(current);
+	updatelog.save(n);
+			
+	String saved = "The update has been added to the main page.";
+	session.setAttribute("saved", saved);
+			
+		return "redirect:/saved3";
+	}
+	
+		
+		<div th:unless="${#lists.isEmpty(updates)}">
 			<dl th:each="update : ${updates}">
 			<dt>
 			<label>Date:</label>
@@ -21,7 +54,7 @@
 			<span th:text="${update.message}">Update</span><br/>
 			</dt>
 			</dl>
-			</div>
+		</div>
 			
 			
 			<div th:if="${#lists.isEmpty(updates)}">

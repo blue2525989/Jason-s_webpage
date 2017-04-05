@@ -4,6 +4,7 @@ import java.util.*;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -14,14 +15,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import reboot.model.Greeting;
 import reboot.model.Numbers;
+import reboot.model.UpdateMessages;
+import reboot.repository.UpdateRepository;
 
 @Controller
 public class MiscController {
 
+	// instance of UpdateRepsoitory
+		private UpdateRepository updatelog;
+		
+	//autowire the repository to the controller
+	@Autowired
+	public MiscController(UpdateRepository updatelog) {
+		this.updatelog = updatelog;
+	}
 	
 	// index view
 	@RequestMapping("/index")
-	String index(HttpSession session) {
+	String index(HttpSession session, Model model) {
+		
+		// add model for updates
+		List<UpdateMessages> updateList = updatelog.findAll();
+		if (updateList != null) {
+			model.addAttribute("updates", updateList);
+		}	
 		
 		// this adds current date and time to a session attribute
 		Calendar date = Calendar.getInstance();

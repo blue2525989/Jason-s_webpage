@@ -1,6 +1,5 @@
 package reboot.controller;
 
-
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -10,12 +9,16 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import reboot.model.UpdateMessages;
 import reboot.repository.GuestbookRepository;
 import reboot.repository.MessageRepository;
-//import reboot.repository.UpdateRepository;
+import reboot.repository.UpdateRepository;
 
 @Controller
 public class AdminController {
@@ -26,13 +29,17 @@ public class AdminController {
 	
 	// instance of MessageRepository
 	private MessageRepository messages;
-		
+	
+	// instance of UpdateRepsoitory
+	private UpdateRepository updatelog;
 	
 	//autowire the repository to the controller
 	@Autowired
-	public AdminController(GuestbookRepository guestbook, MessageRepository messages) {
+	public AdminController(GuestbookRepository guestbook, MessageRepository messages,
+			UpdateRepository updatelog) {
 		this.guestbook = guestbook;
 		this.messages = messages;
+		this.updatelog = updatelog;
 	}
 		
 	/**
@@ -92,37 +99,56 @@ public class AdminController {
 	 * These methods are for the updates
 	 * 
 	 */
-	/*
-	 * 
-	 * // this adds the list of updates to index
-		List<Update> updateList = updatelog.findAll();
-		if (updateList != null) {
-			session.setAttribute("updates", updateList);
-		}	
+	
+	
+	
+		// saves the update to the repositry
+		@GetMapping(path="/addUpdate")
+		// request params to save
+		public String addUpdate (@RequestParam String message, HttpSession session, 
+				@ModelAttribute UpdateMessages updates) {
+				
+			// this adds current date and time to a session attribute
+			Calendar date = Calendar.getInstance();
+			TimeZone timezone = date.getTimeZone();
+			Calendar date2 = Calendar.getInstance(timezone);
+			Date curDate = date2.getTime();
+			String current = curDate.toString();
+			
+			UpdateMessages update = new UpdateMessages();
+			update.setDate(current);
+			update.setContent(message);
+			updatelog.save(update);
+					
+			String saved = "The update has been added to the main page.";
+			session.setAttribute("saved", saved);
+				
+			return "redirect:/saved3";
+		}
+
+		@GetMapping(path="/deleteUpdate")
+		// request params to delete
+		public String deleteUpdate (@RequestParam Long ID, HttpSession session) {
+			messages.delete(ID);
+			String saved = "Update with ID " + ID + " has been deleted from the main page.";
+			session.setAttribute("saved", saved);
+			return "redirect:/saved3";
+		}
 		
+		// add all entires to listallgb.html
+		@RequestMapping("/listallupdates")
+		public String listAllUpdates(Model model) {
+			List<UpdateMessages> updateList = updatelog.findAll();
+			if (updateList != null) {
+				model.addAttribute("updates", updateList);
+			}	
+			return "listallupdates";
+		}
 		
-	// saves the update to the repositry
-	@GetMapping(path="/addUpdate")
-	// request params to save
-	public String addUpdate (@RequestParam String message, HttpSession session) {
-			
-	// this adds current date and time to a session attribute
-	Calendar date = Calendar.getInstance();
-	TimeZone timezone = date.getTimeZone();
-	Calendar date2 = Calendar.getInstance(timezone);
-	Date curDate = date2.getTime();
-	String current = curDate.toString();
-			
-	// new instance of guest
-	Update n = new Update();
-	n.setMessage(message);
-	n.setDate(current);
-	updatelog.save(n);
-			
-	String saved = "The update has been added to the main page.";
-	session.setAttribute("saved", saved);
-			
-		return "redirect:/saved3";
-	}
-*/
+		// returns all of the guests in database
+		@GetMapping("/allUpdates")
+		public String updates(Model model) {
+			return "redirect:/listallupdates";
+		}
+
 }

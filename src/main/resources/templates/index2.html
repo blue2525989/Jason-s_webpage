@@ -102,6 +102,23 @@
 	</p>
 	
 	<h2>Updates to site:</h2>
+		<hr/>
+	
+			<div th:unless="${#lists.isEmpty(updates)}">
+				<dl th:each="update : ${updates}">
+				<dt>
+				<label>Date:</label>
+				<span th:text="${update.date}">#</span><br/>
+				<label>Update:</label>
+				<span th:text="${update.content}">Update</span><br/>
+				<hr/>
+				</dt>
+				</dl>
+			</div>
+			
+			<div th:if="${#lists.isEmpty(updates)}">
+				<p>You have no current updates...</p>
+			</div>
 
 			
 	<p>April 5th, I have been adding a lot of behind the scenes features for myself. I have been using the Spring 

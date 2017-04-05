@@ -9,21 +9,19 @@
 	
 </head>
 
-	     
-	<body>
-	<div class="container">
+     <body>
+		<div class="container">
+		
+				<header>All entries.</header>
+					
+
+				<div align="center">
+				<img th:src="@{/images/totes_face.jpg}" src="../images/totes_face.jpg" alt="Totes ma Goat"
+						width="600" height="375" align="middle"/>
+				
+				</div>
 	
-		<header>
-		<h1>Jason's Message Board</h1>
-		</header>
-		
-		<div align="center">		
-		<!-- how to add an image in thymeleaf -->
-		<img th:src="@{/images/space01.jpg}"
-          src="../images/space01.jpg" alt="space" width="550" height="375"/>
-		</div>
-		
-			<!-- nav bar -->
+				<!-- nav bar -->
 			<nav>
 				<hr/>
 				<label>Places to go,</label>
@@ -50,65 +48,42 @@
 				</ul>
 				<hr/>
 			</nav>
-		
-	
-	<article>
+			
 
-	<hr/>
-	<h1 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]!</h1>
-	<hr/>
 	
-			<div th:if="${session.adminrole == true}" align="center">
-			<a href="/adminpage">Back to ADMIN page</a></div>
-	
-			<h2>Message board</h2><br/>
-			<div align="center">
-			<a href="#entermsg">Enter a message</a>
-			</div>
-			
-			<div th:unless="${#lists.isEmpty(messages)}">
-			<dl th:each="message : ${messages}">
-			<dt>
-			<label>Name:</label>
-			<span th:text="${message.name}">Name</span><br/>
-			<label>Date:</label>
-			<span th:text="${message.date}">#</span><br/>
-			<label>#:</label>
-			<span th:text="${message.id}">#</span><br/>
-			<label>Message:</label>
-			<span th:text="${message.message}">Message</span><br/>
-			</dt>
-			</dl>
-			</div>
-			
-			
-			<div th:if="${#lists.isEmpty(messages)}">
-			<p>You have no messages in your message list</p>
-			</div>
-			
-			<hr/>
-			
-			
-			<div align="center">
-				
-			<h3>Enter a Message</h3>
-			
-			<form action="/addMessage" method="GET">
-			
-			<input type="hidden" name="name" th:value="${#httpServletRequest.remoteUser}" size="50"></input><br/>
-			
-			<label for="message">Message:</label><br/>
-			<textarea name="message" cols="80" rows="5">
-			</textarea><br/>
-			<input type="submit"></input>
-			</form>
-			
- 			<a name="entermsg"></a>
-			</div>
+		<article>
 		<hr/>
-</article>
-
 	
+		<div th:if="${session.adminrole == true}" align="center">
+		<a href="/adminpage">Back to ADMIN page</a></div>
+	
+		<div align="center">
+				<h2>Updates list</h2>
+			</div>
+				<div th:unless="${#lists.isEmpty(updates)}">
+				<dl th:each="update : ${updates}">
+				<dt>	
+				<label>ID:</label>
+				<span th:if="${update.id}" th:text="${update.id}">ID: </span> <br/>
+				<span th:if="${update.id eq null}">No ID available</span> <br/>	
+				<label>Content:</label>
+				<span th:if="${update.content}" th:text="${update.content}">Content: </span> <br/>
+				<span th:if="${update.content eq null}">No name available</span> <br/>
+				<label>Date:</label>
+				<span th:if="${update.date}" th:text="${update.date}">Date: </span> <br/>
+				<span th:if="${update.date eq null}">No age available</span> <br/>
+				</dt>
+				</dl>
+				</div>
+				
+				<div th:if="${#lists.isEmpty(updates)}">	
+				<p>You have no updates...</p>
+				</div>
+				
+				<hr/>
+				</article>
+	
+
 <!-- start of footer -->
  <footer>
      <!-- picture of my goat. -->
@@ -124,7 +99,7 @@
      </p>
 </footer>
 
-	</div>	
+</div>
 	</body>
 
 </html>

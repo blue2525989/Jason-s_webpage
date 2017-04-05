@@ -66,7 +66,8 @@
 								 
 				<h2>Find entry based on ID number</h2>
 				<form action="/find" method="GET" th:if="${session.adminrole == true}">
-			    	<label>Id: </label><input type="text" name="id" /><br/>
+			    	<label>Id: </label><br/>
+			    	<input type="text" name="id" /><br/>
 			        <input type="submit" value="Find" />
 			    </form>
 				 
@@ -88,7 +89,7 @@
 				<form action="/delete" method="GET" th:if="${session.adminrole == true}">
 					<label for="ID">ID:</label><br/>
 					<input type="text" name="ID" size="50" class="ID"></input><br/>	
-					<h3>Click this button to find entry</h3><br/>
+					<h3>Click this button to delete entry</h3><br/>
 					<input type="submit" id="button" value="Delete"></input>
 					<br/>
 				</form>
@@ -119,6 +120,20 @@
 					<textarea name="message" cols="80" rows="5">
 					</textarea><br/>
 					<input type="submit"></input>
+				</form>
+				
+				<h2>List all</h2>
+				<form action="/allUpdates" method="GET" th:if="${session.adminrole == true}">
+					<input type="submit" id="button" value="List all"></input><br/>
+				</form>
+				
+				<h2>Delete entry based on ID number</h2>
+				<form action="/deleteUpdate" method="GET" th:if="${session.adminrole == true}">
+					<label for="ID">ID:</label><br/>
+					<input type="text" name="ID" size="50" class="ID"></input><br/>	
+					<h3>Click this button to delete update</h3><br/>
+					<input type="submit" id="button" value="Delete"></input>
+					<br/>
 				</form>
 			
 			<hr/>
