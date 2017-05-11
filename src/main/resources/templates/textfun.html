@@ -1,7 +1,5 @@
-
 <!DOCTYPE html>
-
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 
 	<title>Jason's Web Page</title>
@@ -56,88 +54,124 @@
 				<article>
 <hr />
 
-
-<!-- Enter Values to go with messages, different forms for each. -->
-<h2>Enter you info into the Person Book</h2>
-
-<form action="/add" method="GET">	
-			<div class="form-group row">
-			  <label class="col-2 col-form-label">ID</label>
-			  <div class="col-6">
-			    <input class="form-control" type="text" name="id" />
-			  </div>
-			</div>
-			<div class="form-group row">
-			  <label class="col-2 col-form-label">Name</label>
-			  <div class="col-6">
-			    <input class="form-control" type="text" name="name" />
-			  </div>
-			</div>
-			<div class="form-group row">
-			  <label class="col-2 col-form-label">Gender</label>
-			  <div class="col-6">
-			    <input class="form-control" type="text" name="gender" />
-			  </div>
-			</div>
-			<div class="form-group row">
-			  <label class="col-2 col-form-label">Age</label>
-			  <div class="col-6">
-			    <input class="form-control" type="text" name="age" />
-			  </div>
-			</div>
-			<div class="form-group">
-			    <label for="exampleTextarea">Description</label>
-			    <textarea class="form-control" name="description" rows="3"></textarea>
-			  </div>
-			<div class="form-group row">
-			  <label class="col-2 col-form-label">Occupation</label>
-			  <div class="col-6">
-			    <input class="form-control" type="text" name="occupation" />
-			  </div>
-			</div>
-			<div class="form-group">
-			    <label>Hobbies</label>
-			    <textarea class="form-control" name="hobbies" rows="3"></textarea>
-			  </div>
-  
-	
-			<button type="submit" class="btn btn-success">Sign Guestbook</button> 
-			<br />
-		</form><br /><br />
-
-
-<!-- Enter Values to go with messages, different forms for each. -->	
-<h2>List all</h2>
-
-<form action="/all" method="GET">	
-	<h3>Click this button to see all entries saved in the Guestbook.</h3>
-	<button type="submit" class="btn btn-success">List all</button> <br />
-</form>
-<br /><br />
-
-<!-- Enter Values to go with messages, different forms for each. -->	
-<h2>Find entry based on ID number</h2><br />please note that when searching for an ID, they are 
-not always saved with the number entered above. Sometimes the database places them in the next 
-avaiable spot. You can always check the correct ID number by clickng list all
-    <form action="/find" method="GET">
-    	<div class="form-group row">
-			  <label class="col-2 col-form-label">ID</label>
-			  <div class="col-6">
-			    <input class="form-control" type="text" name="id" size="10" />
-			  </div>
-			</div>
-        <button type="submit" class="btn btn-success">Find</button> 
+<div class="funPages">	
+			
+		<br/>
+		<!-- Enter Values to go with messages, different forms for each. -->
+		<h2>Message to Array</h2>	
+		<h3>Enter a message:</h3>
+    <form action="#" th:action="@{/toArray}" th:object="${greeting}" method="post">
+        <label>Message: </label><br/>
+        <textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
+        </textarea><br/>
+        
+       <!--  <input type="text" th:field="*{content}" size="120"/><br/> -->
+        <input type="submit" value="Submit" />
     </form>
+        
+    <p th:text="'content: ' + ${greeting.content2}" />
+    
+    
+    
+		
+		<!-- Enter Values to go with messages, different forms for each. -->
+		<h2>Message to Array and select an element</h2>	
+		<h3>Enter a message:</h3>
+		    <form action="#" th:action="@{/toArrayFindElement}" th:object="${greeting}" method="post">
+		    	<label>Id:</label> <input type="text" th:field="*{id2}" /><br/>
+		        <label>Message:</label><br/> 
+		        <textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
+        		</textarea><br/>
+		        <input type="submit" value="Submit" />
+		    </form>
+    
+     <p th:text="'id: ' + ${greeting.id2}" />
+    <p th:text="'content: ' + ${greeting.content3}" />
+		
+		
+		
+		<!-- Enter Values to go with messages, different forms for each. -->	
+		<h2>Reverse message to Array:</h2>
+		<h3>Enter a message:</h3>
+			    <form action="#" th:action="@{/toArrayReverse}" th:object="${greeting}" method="post">
+			        <label>Message:</label><br/>
+					<textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
+        			</textarea><br/>
+			        <input type="submit" value="Submit" />
+			    </form>
+    
+    <p th:text="'content: ' + ${greeting.content4}" />
+		
+		
+		
+		<!-- Enter Values to go with messages, different forms for each. -->	
+		<h2>Replace a character in a String:</h2>
+		<h3>Enter a message:</h3>
+		<form action="#" th:action="@{/replace}" th:object="${greeting}" method="post">
+			        <label>Message:</label><br/> 
+					<textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
+					        </textarea><br/>
+			        <label>Old char:</label> <input type="text" th:field="*{content98}" size="20"/><br/>
+			        <label>New char:</label> <input type="text" th:field="*{content99}" size="20"/><br/>
+			        <input type="submit" value="Submit" />
+			    </form>
+    
+    <p th:text="'content: ' + ${greeting.content5}" />
+		
+		
+		
+		<!-- Enter Values to go with messages, different forms for each. -->
+		<h2>Reverse String</h2>	
+		<h3>Enter a message:</h3>
+		<form action="#" th:action="@{/reverseString}" th:object="${greeting}" method="post">
+			        <label>Message:</label> <br/>
+					<textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
+        			</textarea><br/>
+			        <input type="submit" value="Submit" />
+			    </form>
+    
+    <p th:text="'content: ' + ${greeting.content6}" />
+		
+		
+		
+		<!-- Enter Values to go with messages, different forms for each. -->
+		<h2>is Palidrome</h2>	
+		<h3>Enter a message:</h3>
+		<form action="#" th:action="@{/isPalidrome}" th:object="${greeting}" method="post">
+			        <label>Message:</label><br/>
+					<textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
+        			</textarea><br/>
+			        <input type="submit" value="Submit" />
+			    </form>
+    
+    <p th:text="'content: ' + ${greeting.content7}" />
+		
+		
+		
+		<!-- Enter Values to go with messages, different forms for each. -->
+		<h2>Repeat a message.</h2>	
+		<h3>Enter a message:</h3>
+		<form action="#" th:action="@{/repeatMessage}" th:object="${greeting}" method="post">
+		    	<label>Id:</label><br/> <input type="text" th:field="*{id3}" /><br/>
+		        <label>Message:</label><br/>
+				<textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
+        		</textarea><br/>
+		        <input type="submit" value="Submit" />
+		    </form>
+    
+     <p th:text="'id: ' + ${greeting.id3}" />
+    <p th:text="'content: ' + ${greeting.content8}" />
+</div>
+<hr/>
 
-
-<hr />
 </article>
 
+
 <!-- start of footer -->
-<div align="center">
  <footer>
      <!-- picture of my goat. -->
-     <img height="225" width="350" alt="Totes ma goats" src="/images/totes_face.jpg" />
+     <img th:src="@{/images/totes_face.jpg}" height="225" width="350" alt="Totes ma goats"
+     src="../images/totes_face.jpg"/>
      <!-- paragraph tag with class tag for style.css -->
      <p class="footer">Written by: Jason Bierbrauer</p>
      <p class="footer">Contact information: <a href="mailto:jbierbrauer99@gmail.com">
@@ -147,8 +181,7 @@ avaiable spot. You can always check the correct ID number by clickng list all
           Jason Bierbrauer, 2017
      </p>
 </footer>
-</div>
-</div>
 
+</div>
 </body>
 </html>

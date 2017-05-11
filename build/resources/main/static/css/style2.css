@@ -1,6 +1,6 @@
 body {
-	color: #ffffff;
-    background-color: black;
+	color: #000000;
+    background-color: #5faee5;
 }
 
 div.container {
@@ -9,9 +9,8 @@ div.container {
 }
 
 header {
-    padding: 1em;
-    color: #ffffff;
-    background-color: black;
+    color: #000000;
+    background-color: #000000;
     clear: left;
     text-align: center;
 }
@@ -27,8 +26,18 @@ footer {
 	text-align: center;
 }
 
+input[type=submit] {
+    background-color: #000000;
+    border-radius: 12px;
+    color: #cc0000;
+    padding: 6px 6px;
+    text-align: center;
+    font-size: 14px;
+}
+
 nav {
-   color: #ffffff;
+   background-color: #5faee5;
+   color: #000000;
    float: left;
    max-width: 160px;
    margin: 0;
@@ -37,11 +46,40 @@ nav {
 
 nav ul {
     list-style-type: none;
+    margin: 0;
     padding: 0;
+    width: auto;
+    background-color: #5faee5;
 }
 
 nav ul a {
    text-decoration: none;
+}
+
+nav li a {
+	
+	background-color: #6f0378; /* purple */
+    display: block;
+    border-radius: 3px;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color on hover */
+nav li a:hover {
+    background-color: #555;
+    color: white;
+}
+
+input[type=text] {
+    border: 2px solid red;
+    border-radius: 4px;
+}
+
+input[type=password] {
+    border: 2px solid red;
+    border-radius: 4px;
 }
 
 article {

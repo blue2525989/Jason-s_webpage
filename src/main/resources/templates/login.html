@@ -1,7 +1,5 @@
-
 <!DOCTYPE html>
-
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 
 	<title>Jason's Web Page</title>
@@ -37,26 +35,34 @@
     
     <article>
     <hr />
-    
+   <div th:if="${#httpServletRequest.remoteUser != null}">
+    		<p>If you need to sign out click here.
+    		</p>
+            <form th:action="@{/logout}" method="post">
+    	        <input type="submit" value="Sign Out"/>
+ 	        </form>
+ 	        </div>
     
           
+        <div th:if="${param.error}">
+            Invalid username and password.
+        </div>
         
-        
-        
-        
+        <div th:if="${param.logout}">
+            You have been logged out.
+        </div>
         <div>
 		
-        <div>
+        <div th:if="${#httpServletRequest.remoteUser == null}">
         
          <div class="container2">
-	      <form method="post" class="form-signin" action="/login">
+	      <form method="post" class="form-signin" th:action="@{/login}">
 	        <h2 class="form-signin-heading">Please sign in</h2>
 	        <label for="username" class="sr-only">User-name</label>
 	        <input type="text" name="username" class="form-control" placeholder="Username" />
 	        <label for="inputPassword" class="sr-only">Password</label>
 	        <input type="password" name="password" class="form-control" placeholder="Password" />
-	        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-	      <input type="hidden" name="_csrf" value="7a72295e-5c67-4f97-8de7-a3ccccd0a296" /></form>
+	        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button></form>
 	
 	    </div>
         

@@ -1,7 +1,5 @@
-
 <!DOCTYPE html>
-
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 
 	<title>Jason's Web Page</title>
@@ -66,164 +64,155 @@
 		<!-- Enter Values to go with messages, different forms for each. -->
 		<h2>Add.</h2>	
 		<h3>Enter a number:</h3>
-		<p>sum: 0</p>
-		<form action="/th-math" method="post">
+		<p th:text="'sum: ' + ${numbers.sum1}" />
+		<form action="#" th:action="@{/th-math}" th:object="${numbers}" method="post">
 			<div class="form-group row">
 			  <label class="col-2 col-form-label">number 1:</label>
 			  <div class="col-6">
-			    <input class="form-control" type="text" name="num1" id="num1" value="0" />
+			    <input class="form-control" type="text" name="num1"   th:field="*{num1}" id="num1" value="0" />
 			  </div>
 			</div>
 			<div class="form-group row">
 			  <label class="col-2 col-form-label">number 2:</label>
 			  <div class="col-6">
-			    <input class="form-control" type="text" name="num2" id="num2" value="0" />
+			    <input class="form-control" type="text" name="num2"   th:field="*{num2}" id="num2" value="0" />
 			  </div>
 			</div>
 			<button type="submit" class="btn btn-success">Solve</button> 
-			
-		<input type="hidden" name="_csrf" value="096a9270-f1b3-4194-91b5-43a9cf427f2d" /></form>
+			</form>
 		
 		<!-- Enter Values to go with messages, different forms for each. -->	
 		<h2>Subtract.</h2>	
 		<h3>Enter a number:</h3>
-		<p>sum: 0</p>
-		<form action="/th-math2" method="post">
+		<p th:text="'sum: ' + ${numbers.sum2}" />
+		<form action="#" th:action="@{/th-math2}" th:object="${numbers}" method="post">
 			<div class="form-group row">
 			  <label class="col-2 col-form-label">number 1:</label>
 			  <div class="col-6">
-			    <input class="form-control" type="text" name="num1" id="num1" value="0" />
+			    <input class="form-control" type="text" name="num1"   th:field="*{num1}" id="num1" value="0" />
 			  </div>
 			</div>
 			<div class="form-group row">
 			  <label class="col-2 col-form-label">number 2:</label>
 			  <div class="col-6">
-			    <input class="form-control" type="text" name="num2" id="num2" value="0" />
+			    <input class="form-control" type="text" name="num2"   th:field="*{num2}" id="num2" value="0" />
 			  </div>
 			</div>
-			<button type="submit" class="btn btn-success">Solve</button> 
-			
-		<input type="hidden" name="_csrf" value="096a9270-f1b3-4194-91b5-43a9cf427f2d" /></form>
+			<button type="submit" class="btn btn-success">Solve</button> </form>
 		
 		<!-- Enter Values to go with messages, different forms for each. -->	
 		<h2>Multiply.</h2>	
 		<h3>Enter a number:</h3>
-		<p>sum: 0</p>
-		<form action="/th-math3" method="post">
+		<p th:text="'sum: ' + ${numbers.sum3}" />
+		<form action="#" th:action="@{/th-math3}" th:object="${numbers}" method="post">
 			<div class="form-group row">
 			  <label class="col-2 col-form-label">number 1:</label>
 			  <div class="col-6">
-			    <input class="form-control" type="text" name="num1" id="num1" value="0" />
+			    <input class="form-control" type="text" name="num1"   th:field="*{num1}" id="num1" value="0" />
 			  </div>
 			</div>
 			<div class="form-group row">
 			  <label class="col-2 col-form-label">number 2:</label>
 			  <div class="col-6">
-			    <input class="form-control" type="text" name="num2" id="num2" value="0" />
+			    <input class="form-control" type="text" name="num2"   th:field="*{num2}" id="num2" value="0" />
 			  </div>
 			</div>
 			<button type="submit" class="btn btn-success">Solve</button> 
-			
-		<input type="hidden" name="_csrf" value="096a9270-f1b3-4194-91b5-43a9cf427f2d" /></form>
+			</form>
 		
 		<!-- Enter Values to go with messages, different forms for each. -->	
 		<h2>Divide.</h2>	
 		<h3>Enter a number:</h3>
-		<p>sum: 0</p>
-		<form action="/th-math4" method="post">
+		<p th:text="'sum: ' + ${numbers.sum4}" />
+		<form action="#" th:action="@{/th-math4}" th:object="${numbers}" method="post">
 			<div class="form-group row">
 			  <label class="col-2 col-form-label">number 1:</label>
 			  <div class="col-6">
-			    <input class="form-control" type="text" name="num1" id="num1" value="0" />
+			    <input class="form-control" type="text" name="num1"   th:field="*{num1}" id="num1" value="0" />
 			  </div>
 			</div>
 			<div class="form-group row">
 			  <label class="col-2 col-form-label">number 2:</label>
 			  <div class="col-6">
-			    <input class="form-control" type="text" name="num2" id="num2" value="0" />
+			    <input class="form-control" type="text" name="num2"   th:field="*{num2}" id="num2" value="0" />
 			  </div>
 			</div>
 			<button type="submit" class="btn btn-success">Solve</button> 
-			
-		<input type="hidden" name="_csrf" value="096a9270-f1b3-4194-91b5-43a9cf427f2d" /></form>
+			</form>
 		
 		<!-- Enter Values to go with messages, different forms for each. -->	
 		<h2>Add Three.</h2>	
 		<h3>Enter a number:</h3>
-		<p>sum: 0</p>
-		<form action="/th-math5" method="post">
+		<p th:text="'sum: ' + ${numbers.sum5}" />
+		<form action="#" th:action="@{/th-math5}" th:object="${numbers}" method="post">
 			<div class="form-group row">
 			  <label class="col-2 col-form-label">number 1:</label>
 			  <div class="col-6">
-			    <input class="form-control" type="text" name="num1" id="num1" value="0" />
+			    <input class="form-control" type="text" name="num1"  th:field="*{num1}" id="num1" value="0" />
 			  </div>
 			</div>
 			<div class="form-group row">
 			  <label class="col-2 col-form-label">number 2:</label>
 			  <div class="col-6">
-			    <input class="form-control" type="text" name="num2" id="num2" value="0" />
+			    <input class="form-control" type="text" name="num2"  th:field="*{num2}" id="num2" value="0" />
 			  </div>
 			</div>
 			<div class="form-group row">
 			  <label class="col-2 col-form-label">number 3:</label>
 			  <div class="col-6">
-			    <input class="form-control" type="text" name="num3" id="num3" value="0" />
+			    <input class="form-control" type="text" name="num3"   th:field="*{num3}" id="num3" value="0" />
 			  </div>
 			</div>
 			<button type="submit" class="btn btn-success">Solve</button> 
-			
-		<input type="hidden" name="_csrf" value="096a9270-f1b3-4194-91b5-43a9cf427f2d" /></form>
+			</form>
 		
 		<!-- Enter Values to go with messages, different forms for each. -->	
 		<h2>Square.</h2>	
 		<h3>Enter a number:</h3>
-		<p>sum: 0</p>
-		<form action="/th-math6" method="post">
+		<p th:text="'sum: ' + ${numbers.sum6}" />
+		<form action="#" th:action="@{/th-math6}" th:object="${numbers}" method="post">
 			<div class="form-group row">
 			  <label class="col-2 col-form-label">number 1:</label>
 			  <div class="col-6">
-			    <input class="form-control" type="text" name="num1" id="num1" value="0" />
+			    <input class="form-control" type="text" name="num1"   th:field="*{num1}" id="num1" value="0" />
 			  </div>
 			</div>
 			<button type="submit" class="btn btn-success">Solve</button> 
-			
-		<input type="hidden" name="_csrf" value="096a9270-f1b3-4194-91b5-43a9cf427f2d" /></form>
+			</form>
 		
 		<!-- Enter Values to go with messages, different forms for each. -->	
 		<h2>Square root.</h2>	
 		<h3>Enter a number:</h3>
-		<p>sum: 0</p>
-		<form action="/th-math7" method="post">
+		<p th:text="'sum: ' + ${numbers.sum7}" />
+		<form action="#" th:action="@{/th-math7}" th:object="${numbers}" method="post">
 			<div class="form-group row">
 			  <label class="col-2 col-form-label">number 1:</label>
 			  <div class="col-6">
-			    <input class="form-control" type="text" name="num1" id="num1" value="0" />
+			    <input class="form-control" type="text" name="num1"   th:field="*{num1}" id="num1" value="0" />
 			  </div>
 			</div>
 			<button type="submit" class="btn btn-success">Solve</button> 
-			
-		<input type="hidden" name="_csrf" value="096a9270-f1b3-4194-91b5-43a9cf427f2d" /></form>
+			</form>
 		
 		<!-- Enter Values to go with messages, different forms for each. -->	
 		<h2>Power of.</h2>	
 		<h3>Enter a number:</h3>
-		<p>sum: 0</p>
-		<form action="/th-math8" method="post">
+		<p th:text="'sum: ' + ${numbers.sum8}" />
+		<form action="#" th:action="@{/th-math8}" th:object="${numbers}" method="post">
 			<div class="form-group row">
 			  <label class="col-2 col-form-label">number 1:</label>
 			  <div class="col-6">
-			    <input class="form-control" type="text" name="num1" id="num1" value="0" />
+			    <input class="form-control" type="text" name="num1"   th:field="*{num1}" id="num1" value="0" />
 			  </div>
 			</div>
 			<div class="form-group row">
 			  <label class="col-2 col-form-label">number 2:</label>
 			  <div class="col-6">
-			    <input class="form-control" type="text" name="num2" id="num2" value="0" />
+			    <input class="form-control" type="text" name="num2"   th:field="*{num2}" id="num2" value="0" />
 			  </div>
 			</div>
 			<button type="submit" class="btn btn-success">Solve</button> 
-			
-		<input type="hidden" name="_csrf" value="096a9270-f1b3-4194-91b5-43a9cf427f2d" /></form>
+			</form>
 		
 
 </div>
