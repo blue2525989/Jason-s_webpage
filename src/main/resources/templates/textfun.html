@@ -1,180 +1,143 @@
+
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+
+<html>
 <head lang="en">
 
 	<title>Jason's Web Page</title>
-	<meta http-equiv="Content-Type" context="text/html; charset=UTF-8"/>
-	<link href="../static/css/style2.css" th:href="@{css/style2.css}" rel="stylesheet"/>
-	<link href="../static/css/normalize.css" th:href="@{css/normalize.css}" rel="stylesheet"/>
+	<meta http-equiv="Content-Type" context="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous" />
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 	
+	<link href="css/style2.css" rel="stylesheet" />
 </head>
 
-<body>
-	<div class="container">
+<!-- body section -->
+     <body>
+		<div class="container">
+		
+				<header>
+					<div align="center">
+					<img src="/images/space01.jpg" height="400" width="600" />
+					</div>
+				</header>
+
 	
-					
-		<header>
-		<h1>Fun with text</h1><br/>
-		</header>
-		
-		<div align="center">
-		<img th:src="@{/images/java-code01.jpg}" src="../images/java-code01.jpg" 
-		width="550" height="375" alt="java code" align="middle"/>		
-		</div>
-		
-			<!-- nav bar -->
-			<nav>
-				<hr/>
+				<!-- nav bar -->
+			<nav class="nav flex-column">
+				<hr />
 				<label>Places to go,</label>
 				<ul>
-				<li><a href="/index">Index</a></li>
-				<li><a href="/login">Login/Logout</a></li>
-				<li><a href="/hobbies">Hobbies</a></li>
-				<li><a href="/th-math">Calculator</a></li>
-				<li><a href="/textfun">Messing around with words</a></li>
+				<li><a class="nav-link" href="/index">Index</a></li>
+				<li><a class="nav-link" href="/login">Login/Logout</a></li>
+				<li><a class="nav-link" href="/hobbies">Hobbies</a></li>
+				<li><a class="nav-link" href="/th-math">Calculator</a></li>
+				<li><a class="nav-link" href="/textfun">Messing around with words</a></li>
 				</ul>
 				<label>Leave your mark,</label>
 				<ul>
-				<li><a href="/guestbook">Guestbook</a></li>
-				<li><a href="/allmessages">Message Board</a></li>
+				<li><a class="nav-link" href="/guestbook">Guestbook</a></li>
+				<li><a class="nav-link" href="/allmessages">Message Board</a></li>
 				</ul>
 				<label>Projects,</label>
 				<ul>
-				<li><a href="/blueDB">Blue's database management</a></li>
-				<li><a href="/poker">Card games</a></li>
+				<li><a class="nav-link" href="/blueDB">Blue's database management</a></li>
+				<li><a class="nav-link" href="/poker">Card games</a></li>
 				</ul>
-				<label th:if="${session.adminrole == true}">Admin Pages</label>
-				<ul th:if="${session.adminrole == true}">
-				<li><a href="/adminpage">Admin Page</a></li>
+				<label>Admin Pages</label>
+				<ul>
+				<li><a class="nav-link" href="/adminpage">Admin Page</a></li>
 				</ul>
-				<hr/>
+				<hr />
 			</nav>
-		
-	<article>
-		<hr/>
-	
-		<div th:if="${session.adminrole == true}" align="center">
-		<a href="/adminpage">Back to ADMIN page</a></div>
-	
 				
-	<div class="funPages">	
-			
-		<br/>
-		<!-- Enter Values to go with messages, different forms for each. -->
-		<h2>Message to Array</h2>	
-		<h3>Enter a message:</h3>
-    <form action="#" th:action="@{/toArray}" th:object="${greeting}" method="post">
-        <label>Message: </label><br/>
-        <textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
-        </textarea><br/>
-        
-       <!--  <input type="text" th:field="*{content}" size="120"/><br/> -->
-        <input type="submit" value="Submit" />
-    </form>
-        
-    <p th:text="'content: ' + ${greeting.content2}" />
-    
-    
-    
-		
-		<!-- Enter Values to go with messages, different forms for each. -->
-		<h2>Message to Array and select an element</h2>	
-		<h3>Enter a message:</h3>
-		    <form action="#" th:action="@{/toArrayFindElement}" th:object="${greeting}" method="post">
-		    	<label>Id:</label> <input type="text" th:field="*{id2}" /><br/>
-		        <label>Message:</label><br/> 
-		        <textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
-        		</textarea><br/>
-		        <input type="submit" value="Submit" />
-		    </form>
-    
-     <p th:text="'id: ' + ${greeting.id2}" />
-    <p th:text="'content: ' + ${greeting.content3}" />
-		
-		
-		
-		<!-- Enter Values to go with messages, different forms for each. -->	
-		<h2>Reverse message to Array:</h2>
-		<h3>Enter a message:</h3>
-			    <form action="#" th:action="@{/toArrayReverse}" th:object="${greeting}" method="post">
-			        <label>Message:</label><br/>
-					<textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
-        			</textarea><br/>
-			        <input type="submit" value="Submit" />
-			    </form>
-    
-    <p th:text="'content: ' + ${greeting.content4}" />
-		
-		
-		
-		<!-- Enter Values to go with messages, different forms for each. -->	
-		<h2>Replace a character in a String:</h2>
-		<h3>Enter a message:</h3>
-		<form action="#" th:action="@{/replace}" th:object="${greeting}" method="post">
-			        <label>Message:</label><br/> 
-					<textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
-					        </textarea><br/>
-			        <label>Old char:</label> <input type="text" th:field="*{content98}" size="20"/><br/>
-			        <label>New char:</label> <input type="text" th:field="*{content99}" size="20"/><br/>
-			        <input type="submit" value="Submit" />
-			    </form>
-    
-    <p th:text="'content: ' + ${greeting.content5}" />
-		
-		
-		
-		<!-- Enter Values to go with messages, different forms for each. -->
-		<h2>Reverse String</h2>	
-		<h3>Enter a message:</h3>
-		<form action="#" th:action="@{/reverseString}" th:object="${greeting}" method="post">
-			        <label>Message:</label> <br/>
-					<textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
-        			</textarea><br/>
-			        <input type="submit" value="Submit" />
-			    </form>
-    
-    <p th:text="'content: ' + ${greeting.content6}" />
-		
-		
-		
-		<!-- Enter Values to go with messages, different forms for each. -->
-		<h2>is Palidrome</h2>	
-		<h3>Enter a message:</h3>
-		<form action="#" th:action="@{/isPalidrome}" th:object="${greeting}" method="post">
-			        <label>Message:</label><br/>
-					<textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
-        			</textarea><br/>
-			        <input type="submit" value="Submit" />
-			    </form>
-    
-    <p th:text="'content: ' + ${greeting.content7}" />
-		
-		
-		
-		<!-- Enter Values to go with messages, different forms for each. -->
-		<h2>Repeat a message.</h2>	
-		<h3>Enter a message:</h3>
-		<form action="#" th:action="@{/repeatMessage}" th:object="${greeting}" method="post">
-		    	<label>Id:</label><br/> <input type="text" th:field="*{id3}" /><br/>
-		        <label>Message:</label><br/>
-				<textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
-        		</textarea><br/>
-		        <input type="submit" value="Submit" />
-		    </form>
-    
-     <p th:text="'id: ' + ${greeting.id3}" />
-    <p th:text="'content: ' + ${greeting.content8}" />
-</div>
-<hr/>
+				<article>
+<hr />
 
+
+<!-- Enter Values to go with messages, different forms for each. -->
+<h2>Enter you info into the Person Book</h2>
+
+<form action="/add" method="GET">	
+			<div class="form-group row">
+			  <label class="col-2 col-form-label">ID</label>
+			  <div class="col-6">
+			    <input class="form-control" type="text" name="id" />
+			  </div>
+			</div>
+			<div class="form-group row">
+			  <label class="col-2 col-form-label">Name</label>
+			  <div class="col-6">
+			    <input class="form-control" type="text" name="name" />
+			  </div>
+			</div>
+			<div class="form-group row">
+			  <label class="col-2 col-form-label">Gender</label>
+			  <div class="col-6">
+			    <input class="form-control" type="text" name="gender" />
+			  </div>
+			</div>
+			<div class="form-group row">
+			  <label class="col-2 col-form-label">Age</label>
+			  <div class="col-6">
+			    <input class="form-control" type="text" name="age" />
+			  </div>
+			</div>
+			<div class="form-group">
+			    <label for="exampleTextarea">Description</label>
+			    <textarea class="form-control" name="description" rows="3"></textarea>
+			  </div>
+			<div class="form-group row">
+			  <label class="col-2 col-form-label">Occupation</label>
+			  <div class="col-6">
+			    <input class="form-control" type="text" name="occupation" />
+			  </div>
+			</div>
+			<div class="form-group">
+			    <label>Hobbies</label>
+			    <textarea class="form-control" name="hobbies" rows="3"></textarea>
+			  </div>
+  
+	
+			<button type="submit" class="btn btn-success">Sign Guestbook</button> 
+			<br />
+		</form><br /><br />
+
+
+<!-- Enter Values to go with messages, different forms for each. -->	
+<h2>List all</h2>
+
+<form action="/all" method="GET">	
+	<h3>Click this button to see all entries saved in the Guestbook.</h3>
+	<button type="submit" class="btn btn-success">List all</button> <br />
+</form>
+<br /><br />
+
+<!-- Enter Values to go with messages, different forms for each. -->	
+<h2>Find entry based on ID number</h2><br />please note that when searching for an ID, they are 
+not always saved with the number entered above. Sometimes the database places them in the next 
+avaiable spot. You can always check the correct ID number by clickng list all
+    <form action="/find" method="GET">
+    	<div class="form-group row">
+			  <label class="col-2 col-form-label">ID</label>
+			  <div class="col-6">
+			    <input class="form-control" type="text" name="id" size="10" />
+			  </div>
+			</div>
+        <button type="submit" class="btn btn-success">Find</button> 
+    </form>
+
+
+<hr />
 </article>
 
-
 <!-- start of footer -->
+<div align="center">
  <footer>
      <!-- picture of my goat. -->
-     <img th:src="@{/images/totes_face.jpg}" height="225" width="350" alt="Totes ma goats"
-     src="../images/totes_face.jpg"/>
+     <img height="225" width="350" alt="Totes ma goats" src="/images/totes_face.jpg" />
      <!-- paragraph tag with class tag for style.css -->
      <p class="footer">Written by: Jason Bierbrauer</p>
      <p class="footer">Contact information: <a href="mailto:jbierbrauer99@gmail.com">
@@ -184,7 +147,8 @@
           Jason Bierbrauer, 2017
      </p>
 </footer>
-
 </div>
+</div>
+
 </body>
 </html>

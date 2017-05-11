@@ -1,0 +1,102 @@
+@CHARSET "UTF-8";
+
+body {
+	background-color: #7eeeff;
+	font-family: arial,helvetica,sans-serif;
+}
+
+.security {
+	color: #4f1900;	
+}
+
+
+label {
+	font-weight: bold;
+}
+
+h1 {
+	color : #400000;
+	text-align: center;
+	border : 2px ridge #ff8000;
+	padding : 2px;
+}
+
+h1.security {
+	color : #2b8904;
+	text-align: center;
+	border : 2px ridge #ff8000;
+	padding : 2px;
+}
+
+h2 {
+	color : #400000;
+	text-align: center;
+}
+
+h3 {
+	color : #400000;
+	text-align: center;
+}
+
+a {
+	color: #0a3101;
+}
+
+a.security {
+	color: #f57900;
+}
+
+a:visited {
+	color: #0a3101;
+}
+
+div.entryForm {
+	width: 400px;
+	margin: auto;
+}
+
+div.body {
+	width: 400px;
+	margin: auto;
+}
+
+div.greetings {
+	width: 300px;
+	margin: auto;
+}
+
+div.funPages {
+	width: 350px;
+	margin: auto;
+}
+
+.errorBody {
+	background-color: #00ff40;
+	text-align: center;
+	font-family: arial,helvetica,sans-serif;
+}
+
+
+div {
+    width: 900px;
+    margin: auto;
+	font-family: verdana;
+    font-size: 20px;
+    padding: 25px 50px;
+    align: center;
+}
+
+footer {
+    background-color: lightgreen;
+    width: 350px;
+    margin: auto;
+}
+
+p {
+	text-indent: 3em;
+}
+p.footer {
+	font-family: verdana;
+    font-size: 12px;
+    color: magenta;
+}

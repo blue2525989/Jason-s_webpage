@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+	<title>Jason's Web Page</title>
+	<meta http-equiv="Content-Type" context="text/html; charset=UTF-8"/>
+	<link href="../static/css/style2.css" th:href="@{css/style2.css}" rel="stylesheet"/>
+	<link href="../static/css/normalize.css" th:href="@{css/normalize.css}" rel="stylesheet"/>
+	
+</head>
+
+	<body>
+	<div class="container">
+	
+	<header></header>
+	
+		<!-- put your image under the header -->
+		<div align="center">		
+		<!-- how to add an image in thymeleaf change this image to whatever -->
+		<img th:src="@{/images/space01.jpg}"
+	         src="../images/space01.jpg" alt="space" width="550" height="375"/>
+		</div>
+	
+	
+			<!-- nav bar -->
+			<nav>
+				<hr/>
+				<label>Places to go,</label>
+				<ul>
+				<li><a href="/index">Index</a></li>
+				<li><a href="/login">Login/Logout</a></li>
+				<li><a href="/hobbies">Hobbies</a></li>
+				<li><a href="/th-math">Calculator</a></li>
+				<li><a href="/textfun">Messing around with words</a></li>
+				</ul>
+				<label>Leave your mark,</label>
+				<ul>
+				<li><a href="/guestbook">Guestbook</a></li>
+				<li><a href="/allmessages">Message Board</a></li>
+				</ul>
+				<label>Projects,</label>
+				<ul>
+				<li><a href="/blueDB">Blue's database management</a></li>
+				<li><a href="/poker">Card games</a></li>
+				</ul>
+				<label th:if="${session.adminrole == true}">Admin Pages</label>
+				<ul th:if="${session.adminrole == true}">
+				<li><a href="/adminpage">Admin Page</a></li>
+				</ul>
+				<hr/>
+			</nav>
+			
+			<!-- this is where all your main content goes -->
+			<article>
+			<hr/>
+	
+		<div th:if="${session.adminrole == true}" align="center">
+		<a href="/adminpage">Back to ADMIN page</a></div>
+	
+			
+			
+			
+			
+			<hr/>
+			</article>
+
+	
+<!-- start of footer -->
+ <footer>
+     <!-- picture of my goat. -->
+     <img th:src="@{/images/totes_face.jpg}" height="225" width="350" alt="Totes ma goats"
+     src="../images/totes_face.jpg"/>
+     <!-- paragraph tag with class tag for style.css -->
+     <p class="footer">Written by: Jason Bierbrauer</p>
+     <p class="footer">Contact information: <a href="mailto:jbierbrauer99@gmail.com">
+         jbierbrauer99@gmail.com</a>.</p>
+     <p class="footer">
+         <!-- the special character -->
+          Jason Bierbrauer, 2017
+     </p>
+</footer>
+
+	</div>
+	</body>
+
+</html>
