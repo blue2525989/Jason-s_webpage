@@ -1,6 +1,6 @@
 body {
-	color: #ffffff;
-    background-color: black;
+	color: #000000;
+    background-color: #729fcf;
 }
 
 div.container {
@@ -8,12 +8,23 @@ div.container {
     border: 1px solid gray;
 }
 
-header, footer {
+header {
     padding: 1em;
     color: #ffffff;
     background-color: black;
     clear: left;
     text-align: center;
+}
+
+footer {
+	border-radius: 20px;
+	font-size: 10px;
+	color: #ffffff;
+	background-color: #000000;
+	clear: left;
+	width: 350px;
+    margin: auto;
+	text-align: center;
 }
 
 nav {
