@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+
+	<body>
+	<div class="container">
+	
+		<header>
+			<div align="center">
+			<img src="/images/space01.jpg" height="400" width="600" />
+			</div>
+		</header>
+	
+	
+			<nav th:replace="fragments :: navigation"></nav>
+			
+	<article>
+
+	<hr/>
+	<h1 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]!</h1>
+	<hr/>
+	
+			<div th:if="${session.adminrole == true}" align="center">
+			<a href="/adminpage">Back to ADMIN page</a></div>
+	
+			<h2>Message board</h2><br/>
+			<div align="center">
+			</div>
+			
+			<div th:unless="${#lists.isEmpty(messages)}">
+			<div th:each="message : ${messages}">
+			
+			<label>Post Topic: </label>
+			<a th:href="@{/view-message?id=} + ${message.id}">
+			<span th:text="${message.name}">Name</span></a>
+			
+			<label>Date:</label>
+			<span th:text="${message.date}">#</span><br/>
+
+			
+			</div>
+			</div>
+			
+			
+			<div th:if="${#lists.isEmpty(messages)}">
+			<p>You have no messages in your message list</p>
+			</div>
+			
+			<hr/>
+			<a th:href="@{/message-add}">New Topic</a>
+			<hr/>
+
+</article>
+
+	
+<!-- start of footer -->
+ <footer>
+     <!-- picture of my goat. -->
+     <img th:src="@{/images/totes_face.jpg}" height="225" width="350" alt="Totes ma goats"
+     src="../images/totes_face.jpg"/>
+     <!-- paragraph tag with class tag for style.css -->
+     <p class="footer">Written by: Jason Bierbrauer</p>
+     <p class="footer">Contact information: <a href="mailto:jbierbrauer99@gmail.com">
+         jbierbrauer99@gmail.com</a>.</p>
+     <p class="footer">
+         <!-- the special character -->
+          Jason Bierbrauer, 2017
+     </p>
+</footer>
+
+	</div>	
+	</body>
+
+</html>

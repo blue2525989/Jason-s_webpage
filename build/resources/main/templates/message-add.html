@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+
+	<body>
+	<div class="container">
+	
+		<header>
+			<div align="center">
+			<img src="/images/space01.jpg" height="400" width="600" />
+			</div>
+		</header>
+	
+	
+			<nav th:replace="fragments :: navigation"></nav>
+			
+	<article>
+
+	<hr/>
+	<h1 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]!</h1>
+	<hr/>
+	
+			<div th:if="${session.adminrole == true}" align="center">
+			<a href="/adminpage">Back to ADMIN page</a></div>
+	
+			<h2>Enter a message</h2><br/>
+						
+			<div align="center">				
+			
+			<form action="/addPost" method="GET">
+			
+			<label for="topic">Topic name:</label><br/>
+			<input type="text" name="name" size="20"/>
+			
+			<label for="message">Message:</label><br/>
+			<textarea name="message" cols="80" rows="5">
+			</textarea><br/>
+			<input type="hidden" name="userName" th:value="${#httpServletRequest.remoteUser}"/>
+			<input type="submit"></input>
+			</form>
+			
+			</div>
+		<hr/>
+</article>
+
+	
+<!-- start of footer -->
+ <footer>
+     <!-- picture of my goat. -->
+     <img th:src="@{/images/totes_face.jpg}" height="225" width="350" alt="Totes ma goats"
+     src="../images/totes_face.jpg"/>
+     <!-- paragraph tag with class tag for style.css -->
+     <p class="footer">Written by: Jason Bierbrauer</p>
+     <p class="footer">Contact information: <a href="mailto:jbierbrauer99@gmail.com">
+         jbierbrauer99@gmail.com</a>.</p>
+     <p class="footer">
+         <!-- the special character -->
+          Jason Bierbrauer, 2017
+     </p>
+</footer>
+
+	</div>	
+	</body>
+
+</html>

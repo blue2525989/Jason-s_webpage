@@ -1,75 +1,48 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head lang="en">
+<head th:replace="fragments :: head"></head>
 
-	<title>Jason's Web Page</title>
-	<meta http-equiv="Content-Type" context="text/html; charset=UTF-8" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous" />
-	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	<body>
+	<div class="container">
 	
-	<link href="css/style2.css" rel="stylesheet" />
-</head>
-
-<!-- body section -->
-     <body>
-		<div class="container">
-		
-				<header>
-					<div align="center">
-					<img src="/images/space01.jpg" height="400" width="600" />
-					</div>
-				</header>
-
+		<header>
+			<div align="center">
+			<img src="/images/space01.jpg" height="400" width="600" />
+			</div>
+		</header>
 	
-				<!-- nav bar -->
-			<nav class="nav flex-column">
-				<hr />
-				<label>Places to go,</label>
-				<ul>
-				<li><a class="nav-link" href="/index">Index</a></li>
-				<li><a class="nav-link" href="/login">Login/Logout</a></li>
-				<li><a class="nav-link" href="/hobbies">Hobbies</a></li>
-				<li><a class="nav-link" href="/th-math">Calculator</a></li>
-				<li><a class="nav-link" href="/textfun">Messing around with words</a></li>
-				</ul>
-				<label>Leave your mark,</label>
-				<ul>
-				<li><a class="nav-link" href="/guestbook">Guestbook</a></li>
-				<li><a class="nav-link" href="/allmessages">Message Board</a></li>
-				</ul>
-				<label>Projects,</label>
-				<ul>
-				<li><a class="nav-link" href="/blueDB">Blue's database management</a></li>
-				<li><a class="nav-link" href="/poker">Card games</a></li>
-				</ul>
-				<label>Admin Pages</label>
-				<ul>
-				<li><a class="nav-link" href="/adminpage">Admin Page</a></li>
-				</ul>
-				<hr />
-			</nav>
+	
+			<nav th:replace="fragments :: navigation"></nav>
 				
 				<article>
-<hr />
+	<hr />
 
-<div class="funPages">	
+		<div th:if="${session.adminrole == true}" align="center">
+			<a href="/adminpage">Back to ADMIN page</a>
+		</div>	
+
+	<div class="funPages">	
+
 			
 		<br/>
 		<!-- Enter Values to go with messages, different forms for each. -->
 		<h2>Message to Array</h2>	
 		<h3>Enter a message:</h3>
-    <form action="#" th:action="@{/toArray}" th:object="${greeting}" method="post">
-        <label>Message: </label><br/>
-        <textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
-        </textarea><br/>
-        
-       <!--  <input type="text" th:field="*{content}" size="120"/><br/> -->
-        <input type="submit" value="Submit" />
-    </form>
-        
-    <p th:text="'content: ' + ${greeting.content2}" />
+		    <form action="#" th:action="@{/toArray}" th:object="${greeting}" method="post">
+		        <label>Message: </label><br/>
+		        <textarea name="message"  class="form-control" th:field="*{content}" style="height: 100px; width: 400px;">
+		        </textarea><br/>
+		        
+		       <!--  <input type="text" th:field="*{content}" size="120"/><br/> -->
+		        <button type="submit" class="btn btn-success">Submit</button> 
+		    </form>
+	    
+	    <div th:if="${greeting.content2 != null}">
+	    	<p th:text="'content: ' + ${greeting.content2}" />
+	    </div>    
+    
+    
+    
     
     
     
@@ -78,15 +51,23 @@
 		<h2>Message to Array and select an element</h2>	
 		<h3>Enter a message:</h3>
 		    <form action="#" th:action="@{/toArrayFindElement}" th:object="${greeting}" method="post">
-		    	<label>Id:</label> <input type="text" th:field="*{id2}" /><br/>
+		    	
+		    	<div class="form-group row">
+				  <label class="col-2 col-form-label">Character Spot(number 1-?):</label>
+				  <div class="col-2">
+				    <input class="form-control" type="text" th:field="*{id2}"/>
+				  </div>
+				</div>		    	
 		        <label>Message:</label><br/> 
-		        <textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
+		        <textarea name="message"  class="form-control" th:field="*{content}" style="height: 100px; width: 400px;">
         		</textarea><br/>
-		        <input type="submit" value="Submit" />
+		        <button type="submit" class="btn btn-success">Submit</button> 
 		    </form>
     
-     <p th:text="'id: ' + ${greeting.id2}" />
-    <p th:text="'content: ' + ${greeting.content3}" />
+        <div th:if="${greeting.content3 != null}">    		
+    		<p th:text="'id: ' + ${greeting.id2}" />
+    		<p th:text="'content: ' + ${greeting.content3}" />
+    	</div>   
 		
 		
 		
@@ -95,12 +76,16 @@
 		<h3>Enter a message:</h3>
 			    <form action="#" th:action="@{/toArrayReverse}" th:object="${greeting}" method="post">
 			        <label>Message:</label><br/>
-					<textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
+					<textarea name="message"  class="form-control" th:field="*{content}" style="height: 100px; width: 400px;">
         			</textarea><br/>
-			        <input type="submit" value="Submit" />
+			        <button type="submit" class="btn btn-success">Submit</button> 
 			    </form>
+			    
+			        <div th:if="${greeting.content4 != null}">
+    					<p th:text="'content: ' + ${greeting.content4}" />
+    				</div>   
     
-    <p th:text="'content: ' + ${greeting.content4}" />
+    
 		
 		
 		
@@ -109,14 +94,27 @@
 		<h3>Enter a message:</h3>
 		<form action="#" th:action="@{/replace}" th:object="${greeting}" method="post">
 			        <label>Message:</label><br/> 
-					<textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
+					<textarea name="message"  class="form-control" th:field="*{content}" style="height: 100px; width: 400px;">
 					        </textarea><br/>
-			        <label>Old char:</label> <input type="text" th:field="*{content98}" size="20"/><br/>
-			        <label>New char:</label> <input type="text" th:field="*{content99}" size="20"/><br/>
-			        <input type="submit" value="Submit" />
+			        <div class="form-group row">
+					  <label class="col-2 col-form-label">Old Character:</label>
+					  <div class="col-2">
+					    <input class="form-control" type="text" th:field="*{content98}"/>
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label class="col-2 col-form-label">New Character:</label>
+					  <div class="col-2">
+					    <input class="form-control" type="text" th:field="*{content99}"/>
+					  </div>
+					</div>
+			        <button type="submit" class="btn btn-success">Submit</button> 
 			    </form>
+			    
+        <div th:if="${greeting.content5 != null}">
+    		<p th:text="'content: ' + ${greeting.content5}" />
+   		 </div>   
     
-    <p th:text="'content: ' + ${greeting.content5}" />
 		
 		
 		
@@ -125,12 +123,15 @@
 		<h3>Enter a message:</h3>
 		<form action="#" th:action="@{/reverseString}" th:object="${greeting}" method="post">
 			        <label>Message:</label> <br/>
-					<textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
+					<textarea name="message"  class="form-control" th:field="*{content}" style="height: 100px; width: 400px;">
         			</textarea><br/>
-			        <input type="submit" value="Submit" />
+			        <button type="submit" class="btn btn-success">Submit</button> 
 			    </form>
+			    
+        <div th:if="${greeting.content6 != null}">
+    		<p th:text="'content: ' + ${greeting.content6}" />
+   		 </div>   
     
-    <p th:text="'content: ' + ${greeting.content6}" />
 		
 		
 		
@@ -139,12 +140,15 @@
 		<h3>Enter a message:</h3>
 		<form action="#" th:action="@{/isPalidrome}" th:object="${greeting}" method="post">
 			        <label>Message:</label><br/>
-					<textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
+					<textarea name="message"  class="form-control" th:field="*{content}" style="height: 100px; width: 400px;">
         			</textarea><br/>
-			        <input type="submit" value="Submit" />
+			        <button type="submit" class="btn btn-success">Submit</button> 
 			    </form>
+			    
+        <div th:if="${greeting.content7 != null}">
+    		<p th:text="'content: ' + ${greeting.content7}" />
+   		 </div>   
     
-    <p th:text="'content: ' + ${greeting.content7}" />
 		
 		
 		
@@ -152,15 +156,23 @@
 		<h2>Repeat a message.</h2>	
 		<h3>Enter a message:</h3>
 		<form action="#" th:action="@{/repeatMessage}" th:object="${greeting}" method="post">
-		    	<label>Id:</label><br/> <input type="text" th:field="*{id3}" /><br/>
+		    	<div class="form-group row">
+				  <label class="col-2 col-form-label">Number of times:</label>
+				  <div class="col-2">
+				    <input class="form-control" type="text" th:field="*{id3}"/>
+				  </div>
+				</div>
 		        <label>Message:</label><br/>
-				<textarea name="message" th:field="*{content}" style="height: 100px; width: 400px;">
+				<textarea name="message"  class="form-control" th:field="*{content}" style="height: 100px; width: 400px;">
         		</textarea><br/>
-		        <input type="submit" value="Submit" />
+		        <button type="submit" class="btn btn-success">Submit</button> 
 		    </form>
-    
-     <p th:text="'id: ' + ${greeting.id3}" />
-    <p th:text="'content: ' + ${greeting.content8}" />
+		    
+        <div th:if="${greeting.content8 != null}">
+    		<p th:text="'id: ' + ${greeting.id3}" />
+    		<p th:text="'content: ' + ${greeting.content8}" />
+   		 </div>   
+     
 </div>
 <hr/>
 

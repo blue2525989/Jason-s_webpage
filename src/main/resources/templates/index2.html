@@ -1,66 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head lang="en">
+<head th:replace="fragments :: head"></head>
 
-	<title>Jason's Web Page</title>
-	<meta http-equiv="Content-Type" context="text/html; charset=UTF-8" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous" />
-	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	<body>
+	<div class="container">
 	
-	<link href="css/style2.css" rel="stylesheet" />
-</head>
-
-     
-<body class="indexBody">
-<div class="container">
-
 		<header>
 			<div align="center">
 			<img src="/images/space01.jpg" height="400" width="600" />
 			</div>
 		</header>
-
-			<nav class="nav flex-column">
-				<hr />
-				<label>Places to go,</label>
-				<ul>
-				<li><a class="nav-link" href="/index">Index</a></li>
-				<li><a class="nav-link" href="/login">Login/Logout</a></li>
-				<li><a class="nav-link" href="/hobbies">Hobbies</a></li>
-				<li><a class="nav-link" href="/th-math">Calculator</a></li>
-				<li><a class="nav-link" href="/textfun">Messing around with words</a></li>
-				</ul>
-				<label>Leave your mark,</label>
-				<ul>
-				<li><a class="nav-link" href="/guestbook">Guestbook</a></li>
-				<li><a class="nav-link" href="/allmessages">Message Board</a></li>
-				</ul>
-				<label>Projects,</label>
-				<ul>
-				<li><a class="nav-link" href="/blueDB">Blue's database management</a></li>
-				<li><a class="nav-link" href="/poker">Card games</a></li>
-				</ul>
-				<label>Admin Pages</label>
-				<ul>
-				<li><a class="nav-link" href="/adminpage">Admin Page</a></li>
-				</ul>
-				<hr />
-			</nav>
+	
+	
+			<nav th:replace="fragments :: navigation"></nav>
 	
 
 <article>
 	<hr />
 	
-		<div align="center">
-		<a href="/adminpage">Back to ADMIN page</a></div>
+		<div th:if="${session.adminrole == true}" align="center">
+			<a href="/adminpage">Back to ADMIN page</a>
+		</div>	
 	
-	<h1>Welcome blue!</h1>
-	<p>The current date is, Wed May 10 20:05:33 UTC 2017.</p>
+	<h1 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]!</h1>
 	<hr />
 	
-	<p>
+	<p th:if="${session.adminrole == true}">
 	If you are seeing this paragraph it is because your user level is set to ADMIN.
 	Congratulations, you have full access to this web-site. Be responsible and don't delete anything 
 	to important. 
@@ -98,62 +63,20 @@
 	<h2>Updates to site:</h2>
 		<hr />
 	
-			<div>
-				<dl>
+			<div th:unless="${#lists.isEmpty(updates)}">
+				<dl th:each="update : ${updates}">
 				<dt>
 				<label>Date:</label>
-				<span>Wed Apr 05 11:57:25 CDT 2017</span><br />
+				<span th:text="${update.date}">#</span><br/>
 				<label>Update:</label>
-				<span>					This is the first update to the updates section using the new ADMIN feature. Now I can edit the updates through here instead of having to upload and deploy to amazon all the time.</span><br />
-				<hr />
+				<span th:text="${update.content}">Update</span><br/>
+				<hr/>
 				</dt>
 				</dl>
-				<dl>
-				<dt>
-				<label>Date:</label>
-				<span>Wed Apr 05 17:28:54 UTC 2017</span><br />
-				<label>Update:</label>
-				<span>					I am adding this update from my kitchen on my cell phone. This new ADMIN page will add so much functionality to this site!</span><br />
-				<hr />
-				</dt>
-				</dl>
-				<dl>
-				<dt>
-				<label>Date:</label>
-				<span>Wed Apr 05 17:31:15 UTC 2017</span><br />
-				<label>Update:</label>
-				<span>					Please note that the date at the top doesn&#39;t always display the correct time. The reason for this being is where your actual IP is connecting to the internet may differ from your physical location.</span><br />
-				<hr />
-				</dt>
-				</dl>
-				<dl>
-				<dt>
-				<label>Date:</label>
-				<span>Fri Apr 07 14:47:49 UTC 2017</span><br />
-				<label>Update:</label>
-				<span>					Awesome! I finished all my homework for the upcoming week, looks like I will get to work on my personal projects all weekend.</span><br />
-				<hr />
-				</dt>
-				</dl>
-				<dl>
-				<dt>
-				<label>Date:</label>
-				<span>Mon Apr 10 17:40:31 UTC 2017</span><br />
-				<label>Update:</label>
-				<span>Started building my girlfriend a web site to host all of her inventory. She sells a lot of various items on ebay and would also like a main place to keep track and allow others to view her inventory. Soon to come.</span><br />
-				<hr />
-				</dt>
-				</dl>
-				<dl>
-				<dt>
-				<label>Date:</label>
-				<span>Wed Apr 26 12:08:13 UTC 2017</span><br />
-				<label>Update:</label>
-				<span>There haven&#39;t been many updates to this site lately due to the fact I have launched another website and spend a lot of time working on that.	HTTP://wanderingwonderland.com
-It is a clone of my girlfriend&#39;s eBay store.				</span><br />
-				<hr />
-				</dt>
-				</dl>
+			</div>
+			
+			<div th:if="${#lists.isEmpty(updates)}">
+				<p>You have no current updates...</p>
 			</div>
 			
 			

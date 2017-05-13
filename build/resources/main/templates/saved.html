@@ -1,38 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head lang="en">
-
-	<title>Jason's Web Page</title>
-	<meta http-equiv="Content-Type" context="text/html; charset=UTF-8" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous" />
-	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-	
-	<link href="css/style2.css" rel="stylesheet" />
-</head>
-
-	<body>
-	<div class="container">
-	<!-- This is the saved page for the ADMIN methods -->
-				<header>
-					<div align="center">
-					<img src="/images/space01.jpg" height="400" width="600" />
-					</div>
-				</header>
-	
-	
-			<!-- nav bar -->
-			<nav class="nav flex-column">
-				<hr />
-				<label>Places to go,</label>
-				<ul>
-				<li><a class="nav-link" href="/home">Home</a></li>
-				<li><a class="nav-link" href="/login">Login/Logout</a></li>
-				<li><a class="nav-link" href="/createlogin">Create Login</a></li>
-				</ul>
-				<hr />
-			</nav>
+<head th:replace="fragments :: head"></head>
+    
+      <body>
+		<div class="container">
+		
+		<header>
+			<div align="center">
+			<img src="/images/space01.jpg" height="400" width="600" />
+			</div>
+		</header>
+		
+		
+	<nav th:replace="fragments :: navigationPrelogin"></nav>
+    
 
 	<article>
 		<div align="center">

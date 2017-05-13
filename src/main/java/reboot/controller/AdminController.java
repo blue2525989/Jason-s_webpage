@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import reboot.model.UpdateMessages;
 import reboot.repository.GuestbookRepository;
-import reboot.repository.MessageRepository;
+import reboot.repository.PostRepository;
 import reboot.repository.UpdateRepository;
 
 @Controller
@@ -28,14 +28,14 @@ public class AdminController {
 	private GuestbookRepository guestbook;
 	
 	// instance of MessageRepository
-	private MessageRepository messages;
+	private PostRepository messages;
 	
 	// instance of UpdateRepsoitory
 	private UpdateRepository updatelog;
 	
 	//autowire the repository to the controller
 	@Autowired
-	public AdminController(GuestbookRepository guestbook, MessageRepository messages,
+	public AdminController(GuestbookRepository guestbook, PostRepository messages,
 			UpdateRepository updatelog) {
 		this.guestbook = guestbook;
 		this.messages = messages;
