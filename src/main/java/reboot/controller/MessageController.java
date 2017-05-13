@@ -42,8 +42,13 @@ public class MessageController {
     @RequestMapping("/message")
 	public String listAllMsg(Model model) {
 		List<Post> messageList = messages.findAll();
+		// reverse the list so newest post is first
+		List<Post> reversedList = new ArrayList<>();
+		for (int i = messageList.size()-1; i >= 0; i--) {
+			reversedList.add(messageList.get(i));
+		}
 		if (messageList != null) {
-			model.addAttribute("messages", messageList);
+			model.addAttribute("messages", reversedList);
 		}	
 		return "message-board/message";
 	}
@@ -85,6 +90,7 @@ public class MessageController {
 		
 	/**
 	 * add a new post view
+	 * Has to be GetMapping, RequestMapping doesn't work on live server.
 	 * @return message-add.html
 	 */
 	
@@ -127,11 +133,11 @@ public class MessageController {
 		List<Post> messageList = messages.findAll();
 		List<Post> reversedList = new ArrayList<>();
 		// reverse the list so the newest shows up first
-		for (int i = messageList.size() -1; i > 0; i--) { 
+		for (int i = messageList.size() -1; i >= 0; i--) { 
 			reversedList.add(messageList.get(i));
 		}
 		if (messageList != null) {
-			model.addAttribute("messages", messageList);
+			model.addAttribute("messages", reversedList);
 		}
 		return "redirect:/allmessages";
 	}
@@ -141,7 +147,7 @@ public class MessageController {
 	 * @param model add attributes to view
 	 * @param message content of sub post
 	 * @param masterId id of the master post
-	 * @param userName id of the user who posted
+	 * @param userName for getting the id of the user who posted
 	 * @return the masterPost view
 	 */
 	

@@ -1,6 +1,7 @@
 package reboot.model;
 
 import javax.persistence.*;
+import java.util.*;
 
 @Entity
 public class Post {
@@ -65,6 +66,5 @@ public class Post {
 	public void setUsername(String userName) {
 		this.username = userName;
 		
-	}
-    
+	}    
 }
