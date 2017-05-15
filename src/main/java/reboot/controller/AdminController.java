@@ -21,7 +21,7 @@ import reboot.repository.PostRepository;
 import reboot.repository.UpdateRepository;
 
 @Controller
-public class AdminController {
+public class AdminController extends PermissionController{
 	
 	// these are methods for the admin to use on the guestbook.
 	// instance of GuestBookRepository
@@ -50,11 +50,22 @@ public class AdminController {
 	 * 
 	 */
 	
-	/**
-	 * 
-	 * These methods are for the guestbook 
-	 * 
-	 */
+
+	
+	@RequestMapping("/adminpage")
+	String admin(HttpSession session) {
+		boolean hasUserRole = hasUserRole();
+		boolean hasAdminRole = hasAdminRole();
+		if (hasAdminRole) {
+			session.setAttribute("adminrole", hasAdminRole);
+		}
+		// this shouldn't be possible but just in case.
+		else if (hasUserRole) {
+			session.setAttribute("userrole", hasUserRole);
+		}
+		return "sys-views/admin";
+	}
+	
 	
 	@GetMapping(path="/delete")
 	public String deleteSingleUsers(Long ID, HttpSession session) {
@@ -110,6 +121,7 @@ public class AdminController {
 				
 			// this adds current date and time to a session attribute
 			Calendar date = Calendar.getInstance();
+			date.setTimeZone(TimeZone.getTimeZone("CDT"));
 			TimeZone timezone = date.getTimeZone();
 			Calendar date2 = Calendar.getInstance(timezone);
 			Date curDate = date2.getTime();
@@ -142,7 +154,7 @@ public class AdminController {
 			if (updateList != null) {
 				model.addAttribute("updates", updateList);
 			}	
-			return "listallupdates";
+			return "sys-views/listallupdates";
 		}
 		
 		// returns all of the guests in database
@@ -150,5 +162,34 @@ public class AdminController {
 		public String updates(Model model) {
 			return "redirect:/listallupdates";
 		}
+		
+		// saved view
+		@RequestMapping("/saved2")
+		public String saved2(HttpSession session) {
+			boolean hasUserRole = hasUserRole();
+			boolean hasAdminRole = hasAdminRole();		
+			if (hasUserRole) {
+				session.setAttribute("userrole", hasUserRole);
+			}
+			else if (hasAdminRole) {
+				session.setAttribute("adminrole", hasAdminRole);
+			}
+			return "sys-views/saved2";
+		}
+		
+		// saved view for admin
+		@RequestMapping("/saved3")
+		public String saved3(HttpSession session) {
+			boolean hasUserRole = hasUserRole();
+			boolean hasAdminRole = hasAdminRole();		
+			if (hasUserRole) {
+				session.setAttribute("userrole", hasUserRole);
+			}
+			else if (hasAdminRole) {
+				session.setAttribute("adminrole", hasAdminRole);
+			}
+			return "sys-views/saved3";
+		}
+
 
 }

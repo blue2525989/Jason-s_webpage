@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+
+	<body>
+	<div class="container">
+	
+		<header>
+			<div align="center">
+			<img src="/images/space01.jpg" height="400" width="600" />
+			</div>
+		</header>
+	
+	
+			<nav th:replace="fragments :: navigation"></nav>
+	
+		
+		
+		<article>
+		<hr />
+	
+		<div th:if="${session.adminrole == true}" align="center">
+			<a href="/adminpage">Back to ADMIN page</a>
+		</div>	
+	
+			<div align="center">
+			<a href="/guestbook"><img src="/images/Larrow.gif" width="40" height="25" alt="back" /></a>
+				
+			</div>
+				<div>
+				<dl>
+				<dt class="guestInfo">	
+				<label>ID:</label>
+				<span>1</span> <br />
+				 <br />	
+				<label>Name:</label>
+				<span>Jason Bierbrauer</span> <br />
+				 <br />
+				<label>Age:</label>
+				<span>29</span> <br />
+				 <br />
+				<label>Gender:</label>
+				<span>programmer</span> <br />
+				 <br />
+				<label>Occupation:</label>
+				<span>programming student</span> <br />
+				 <br />
+				<label>Hobbies:</label>
+				<span>java, spring boot, hiking, gardening, goats</span> <br />
+				 <br />
+				<label>Description:</label>
+				<span>student learning to become computer programmer</span> <br />
+				 <br />
+				</dt>
+				</dl>
+				</div>
+				
+				
+				
+				<hr />
+			
+			</article>
+
+	
+<!-- start of footer -->
+ <footer>
+     <!-- picture of my goat. -->
+     <img height="225" width="350" alt="Totes ma goats" src="/images/totes_face.jpg" />
+     <!-- paragraph tag with class tag for style.css -->
+     <p class="footer">Written by: Jason Bierbrauer</p>
+     <p class="footer">Contact information: <a href="mailto:jbierbrauer99@gmail.com">
+         jbierbrauer99@gmail.com</a>.</p>
+     <p class="footer">
+         <!-- the special character -->
+          Jason Bierbrauer, 2017
+     </p>
+</footer>
+
+		</div>
+	</body>
+
+</html>

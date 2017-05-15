@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+
+	<body>
+	<div class="container">
+	
+		<header>
+			<div align="center">
+			<img src="/images/space01.jpg" height="400" width="600" />
+			</div>
+		</header>
+	
+	
+			<nav th:replace="fragments :: navigation"></nav>
+			
+	
+
+		<article>
+		<hr />
+	
+		<div th:if="${session.adminrole == true}" align="center">
+			<a href="/adminpage">Back to ADMIN page</a>
+		</div>	
+	
+    <div align="center">
+        
+        <p>This consists of two card games, five-card poker and blackjack. When the application starts 
+        the user is prompted to select which game they want to play. I have found myself playing these games 
+        for large chunks of time, surprisingly fun for text based games.<br /><br />
+        
+        Here is a link to the source code, <a href="https://github.com/blue2525989/Card_Games">GitHub</a>
+        <br /><br />
+        
+        I started writing blackjack first and based it off a version I wrote in Python. I wanted to 
+        add some visual elements so I re-wrote it in Java. There is a 'yes' button which lets you 
+        take a hit. Also there is a 'no' button which makes the dealer take his turn and displays the 
+        winner.<br /><br />
+        
+        I enjoyed making the blackjack game so much I decided to make another card game whose model inherited 
+        from the original games model, so I made a PokerCard class and ended up dividing my original Card class 
+        down even more into Card class and BlackjackCard class.
+        In poker there is a 'deal' button which deals the cards. A 'hit' button where you can choose the 
+        number of cards to trade and their spots in your hand, And a 'call' button which will cause the 
+        dealer to take his turn and then display the winner.
+        </p>
+        <br /><br />
+        <img src="/images/main.png" height="300" width="240" alt="Card games" />
+		
+		<br /><br />
+        <p>
+        This is the main loading screen where the user chooses which game to play.
+        </p>
+        
+        <br /><br />
+        <div align="center">
+        <img src="/images/poker01.jpg" height="600" width="485" alt="Card games" />
+		</div>
+		<br /><br />
+        <p>
+        This is the main screen before the cards are dealt.
+        </p>
+        
+        <br /><br />
+        <img src="/images/poker02.jpg" height="600" width="485" alt="Card games" />
+		<br /><br />
+		
+		<p>
+        Notice the score shows I have two of a kind and so does the dealer So I will take a hit.
+        </p>
+        
+		<br /><br />
+        <img src="/images/poker03.jpg" height="600" width="485" alt="Card games" />
+		<br /><br />
+		
+		<p>
+        The dealer ended up getting three of a kind even though I got two pairs after my hit. Dealer wins.
+        </p>
+		
+		<br /><br />
+        <img src="/images/blackjack01.jpg" height="600" width="485" alt="Card games" />
+		<br /><br />
+		
+		 <p>
+        Here is the main screen of blackjack before the deal button is pressed.
+        </p>
+        
+        <br /><br />     
+        <img src="/images/blackjack02.jpg" height="600" width="485" alt="Card games" />
+		<br /><br />
+		
+		<p>
+        Once the cards are dealt I have 17 and the dealer has 16. The dealer is programmed to hit until 
+        his total is over 17 so I will stay in hopes that he bust.
+        </p>
+		
+		<br /><br />     
+        <img src="/images/blackjack03.jpg" height="600" width="485" alt="Card games" />
+		<br /><br />
+		
+        <p>
+        No such luck! The dealer ended up getting a four of clubs which gives him a total of 20!<br /><br />
+        Maybe next game the cards will be better.
+        </p>
+		
+	</div>
+	<hr />
+	</article>
+	
+<!-- start of footer -->
+ <footer>
+     <!-- picture of my goat. -->
+     <img height="225" width="350" alt="Totes ma goats" src="/images/totes_face.jpg" />
+     <!-- paragraph tag with class tag for style.css -->
+     <p class="footer">Written by: Jason Bierbrauer</p>
+     <p class="footer">Contact information: <a href="mailto:jbierbrauer99@gmail.com">
+         jbierbrauer99@gmail.com</a>.</p>
+     <p class="footer">
+         <!-- the special character -->
+          Jason Bierbrauer, 2017
+     </p>
+</footer>
+	
+	</div>
+    </body>
+</html>

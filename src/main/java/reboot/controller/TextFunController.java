@@ -4,19 +4,39 @@ import org.springframework.web.bind.annotation.*;
 
 import reboot.model.Greeting;
 import reboot.model.TextFunction;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 
 @Controller
-public class TextFunController {
+public class TextFunController extends PermissionController{
 	
 	TextFunction text = new TextFunction();
+
+	// text-fun view with Greeting model added
+	@GetMapping("/textfun")
+	public String textFun(Model model, HttpSession session) {
+		model.addAttribute("greeting", new Greeting());
+		
+		boolean hasUserRole = hasUserRole();
+		boolean hasAdminRole = hasAdminRole();		
+		if (hasUserRole) {
+			session.setAttribute("userrole", hasUserRole);
+		}
+		else if (hasAdminRole) {
+			session.setAttribute("adminrole", hasAdminRole);
+		}
+		return "misc/textfun";
+	}
 	
 	// send message to array
 	@PostMapping(path="/toArray")
 	public String toArray(@ModelAttribute Greeting greeting) {
 		greeting.setContent2(text.toArray(greeting.getContent()));
 		greeting.setContent("");
-		return "textfun";
+		return "misc/textfun";
 	}
 	
 	// find specific element
@@ -24,7 +44,7 @@ public class TextFunController {
 	public String toArrayFind(@ModelAttribute Greeting greeting) {
 		greeting.setContent3(text.toArrayFindElement(greeting.getContent(), (int) greeting.getId2()));
 		greeting.setContent("");
-		return "textfun";
+		return "misc/textfun";
 	}
 	
 	// reverse string and breaks down to array
@@ -32,7 +52,7 @@ public class TextFunController {
 	public String toArrayReverse(@ModelAttribute Greeting greeting) {
 		greeting.setContent4(text.toArrayReverse(greeting.getContent()));
 		greeting.setContent("");
-		return "textfun";
+		return "misc/textfun";
 	}
 	
 	// replace chars in a string
@@ -43,7 +63,7 @@ public class TextFunController {
 		greeting.setContent("");
 		greeting.setContent98("");
 		greeting.setContent99("");
-		return "textfun";
+		return "misc/textfun";
 	}
 	
 	// reverse a string
@@ -51,7 +71,7 @@ public class TextFunController {
 	public String reverseString(@ModelAttribute Greeting greeting) {
 		greeting.setContent6(text.reverse(greeting.getContent()));
 		greeting.setContent("");
-		return "textfun";
+		return "misc/textfun";
 	}
 	
 	// checks to see if palidrome or not
@@ -59,7 +79,7 @@ public class TextFunController {
 	public String isPalidrome(@ModelAttribute Greeting greeting) {
 		greeting.setContent7(text.isPalidrome(greeting.getContent()));
 		greeting.setContent("");
-		return "textfun";
+		return "misc/textfun";
 	}
 	
 	// repeat a message
@@ -67,7 +87,7 @@ public class TextFunController {
 	public String repeat(@ModelAttribute Greeting greeting) {
 		greeting.setContent8(text.repeatMessage(greeting.getContent(), (int) greeting.getId3()));
 		greeting.setContent("");
-		return "textfun";
+		return "misc/textfun";
 	}
 
 }

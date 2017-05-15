@@ -2,6 +2,8 @@ package reboot.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
 import org.springframework.ui.Model;
@@ -11,7 +13,7 @@ import reboot.model.Guest;
 import reboot.repository.GuestbookRepository;
 
 @Controller
-public class GuestbookController {
+public class GuestbookController extends PermissionController{
 
 	// instance of GuestBookRepository
 	private GuestbookRepository guestbook;
@@ -21,6 +23,34 @@ public class GuestbookController {
 	public GuestbookController(GuestbookRepository guestbook) {
 		this.guestbook = guestbook;
 	}
+
+	// guestbook view
+	@GetMapping("/guestbook")
+	public String guestbook(HttpSession session) {
+		boolean hasUserRole = hasUserRole();
+		boolean hasAdminRole = hasAdminRole();		
+		if (hasUserRole) {
+			session.setAttribute("userrole", hasUserRole);
+		}
+		else if (hasAdminRole) {
+			session.setAttribute("adminrole", hasAdminRole);
+		}
+		return "guestbook/guestbook";
+	}
+	
+	// saved view
+	@RequestMapping("/saved")
+	public String savedGB(HttpSession session) {
+		boolean hasUserRole = hasUserRole();
+		boolean hasAdminRole = hasAdminRole();		
+		if (hasUserRole) {
+			session.setAttribute("userrole", hasUserRole);
+		}
+		else if (hasAdminRole) {
+			session.setAttribute("adminrole", hasAdminRole);
+		}
+		return "sys-views/saved";
+	}	
 	
 	// saves the guest to the repositry
 	@GetMapping(path="/add")
@@ -49,7 +79,7 @@ public class GuestbookController {
 		if (guestList != null) {
 			model.addAttribute("guests", guestList);
 		}	
-		return "listallgb";
+		return "guestbook/listallgb";
 	}
 	
 	// returns all of the guests in database
@@ -65,7 +95,7 @@ public class GuestbookController {
 		if (guestList != null) {
 			model.addAttribute("guests", guestList);
 		}	
-		return "findonegb";
+		return "guestbook/findonegb";
 	}
 
 }

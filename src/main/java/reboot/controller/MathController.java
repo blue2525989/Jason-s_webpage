@@ -1,15 +1,35 @@
 package reboot.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.*;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import reboot.model.CalcFunctions;
 import reboot.model.Numbers;
 
 @Controller
-public class MathController {
+public class MathController extends PermissionController{
 
 		private CalcFunctions calc = new CalcFunctions();
+		
+
+
+		// math view with Numbers model added
+		@GetMapping("/th-math")
+		public String math(Model model, HttpSession session) {
+	        model.addAttribute("numbers", new Numbers());
+	        boolean hasUserRole = hasUserRole();
+			boolean hasAdminRole = hasAdminRole();		
+			if (hasUserRole) {
+				session.setAttribute("userrole", hasUserRole);
+			}
+			else if (hasAdminRole) {
+				session.setAttribute("adminrole", hasAdminRole);
+			}
+			return "misc/th-math";
+		}
 		
 		@PostMapping(path="/th-math")
 		public String addNums(
@@ -18,7 +38,7 @@ public class MathController {
 			numbers.sum1 = calc.add(numbers.getNum1(), numbers.getNum2());
 			numbers.setNum1(0);
 			numbers.setNum2(0);
-			return "th-math";
+			return "misc/th-math";
 		}
 		
 		@PostMapping(path="/th-math2")
@@ -28,7 +48,7 @@ public class MathController {
 			numbers.sum2 = calc.subtract(numbers.getNum1(), numbers.getNum2());
 			numbers.setNum1(0);
 			numbers.setNum2(0);
-			return "th-math";
+			return "misc/th-math";
 		}
 		
 		@PostMapping(path="/th-math3")
@@ -38,7 +58,7 @@ public class MathController {
 			numbers.sum2 = calc.multiply(numbers.getNum1(), numbers.getNum2());
 			numbers.setNum1(0);
 			numbers.setNum2(0);
-			return "th-math";
+			return "misc/th-math";
 		}
 		
 		@PostMapping(path="/th-math4")
@@ -48,7 +68,7 @@ public class MathController {
 			numbers.sum2 = calc.divide(numbers.getNum1(), numbers.getNum2());
 			numbers.setNum1(0);
 			numbers.setNum2(0);
-			return "th-math";
+			return "misc/th-math";
 		}
 		
 		@PostMapping(path="/th-math5")
@@ -59,7 +79,7 @@ public class MathController {
 			numbers.setNum1(0);
 			numbers.setNum2(0);
 			numbers.setNum3(0);
-			return "th-math";
+			return "misc/th-math";
 		}
 		
 		@PostMapping(path="/th-math6")
@@ -68,7 +88,7 @@ public class MathController {
 			numbers.sum6 = 0;
 			numbers.sum6 = calc.square(numbers.getNum1());
 			numbers.setNum1(0);
-			return "th-math";
+			return "misc/th-math";
 		}
 		
 		@PostMapping(path="/th-math7")
@@ -77,7 +97,7 @@ public class MathController {
 			numbers.sum7 = 0;
 			numbers.sum7 = calc.squareRoot(numbers.getNum1());
 			numbers.setNum1(0);
-			return "th-math";
+			return "misc/th-math";
 		}
 		
 		@PostMapping(path="/th-math8")
@@ -87,6 +107,6 @@ public class MathController {
 			numbers.sum8 = calc.pow(numbers.getNum1(), numbers.getNum2());
 			numbers.setNum1(0);
 			numbers.setNum2(0);
-			return "th-math";
+			return "misc/th-math";
 		}
 	}

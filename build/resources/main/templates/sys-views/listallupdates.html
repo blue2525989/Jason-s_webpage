@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+
+	<body>
+	<div class="container">
+	
+		<header>
+			<div align="center">
+			<img src="/images/space01.jpg" height="400" width="600" />
+			</div>
+		</header>
+	
+	
+			<nav th:replace="fragments :: navigation"></nav>
+
+	
+		<article>
+		<hr/>
+	
+		<div th:if="${session.adminrole == true}" align="center">
+		<a href="/adminpage">Back to ADMIN page</a></div>
+	
+		<div align="center">
+				<h2>Updates list</h2>
+			</div>
+				<div th:unless="${#lists.isEmpty(updates)}">
+				<dl th:each="update : ${updates}">
+				<dt>	
+				<label>ID:</label>
+				<span th:if="${update.id}" th:text="${update.id}">ID: </span> <br/>
+				<span th:if="${update.id eq null}">No ID available</span> <br/>	
+				<label>Content:</label>
+				<span th:if="${update.content}" th:text="${update.content}">Content: </span> <br/>
+				<span th:if="${update.content eq null}">No name available</span> <br/>
+				<label>Date:</label>
+				<span th:if="${update.date}" th:text="${update.date}">Date: </span> <br/>
+				<span th:if="${update.date eq null}">No age available</span> <br/>
+				</dt>
+				</dl>
+				</div>
+				
+				<div th:if="${#lists.isEmpty(updates)}">	
+				<p>You have no updates...</p>
+				</div>
+				
+				<hr/>
+				</article>
+	
+
+<!-- start of footer -->
+ <footer>
+     <!-- picture of my goat. -->
+     <img th:src="@{/images/totes_face.jpg}" height="225" width="350" alt="Totes ma goats"
+     src="../images/totes_face.jpg"/>
+     <!-- paragraph tag with class tag for style.css -->
+     <p class="footer">Written by: Jason Bierbrauer</p>
+     <p class="footer">Contact information: <a href="mailto:jbierbrauer99@gmail.com">
+         jbierbrauer99@gmail.com</a>.</p>
+     <p class="footer">
+         <!-- the special character -->
+          Jason Bierbrauer, 2017
+     </p>
+</footer>
+
+</div>
+	</body>
+
+</html>

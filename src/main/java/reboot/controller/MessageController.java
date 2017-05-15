@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
@@ -96,7 +97,7 @@ public class MessageController {
 	
 	@GetMapping("/message-add")
 	public String messageAddPage() {
-		return "message-add";
+		return "message-board/message-add";
 	}
 	
 	/**
@@ -108,18 +109,27 @@ public class MessageController {
 	 * @return the main message board view message.html
 	 */
 	
-	@GetMapping(path="/addPost")
+	@PostMapping(path="/addPost")
 	// request params to save
 	public String addNewPost (Model model, @RequestParam String name
 			, @RequestParam String message,
 			@RequestParam String userName) {
+		// if no message was entered
+		if (name == null) {
+			String error = "You must enter a message.";
+			model.addAttribute("error", error);
+			return "redirect:/message-add";
+		}
 		// find user's info by checking username
 		Users user = userRepo.findByUsername(userName);
 		// get user's id
 		Long userId = user.getId();
 		// get date time // need to add time zone or soemthing
 		Calendar date = Calendar.getInstance();
-		Date curDate = date.getTime();
+		date.setTimeZone(TimeZone.getTimeZone("CDT"));
+		TimeZone timezone = date.getTimeZone();
+		Calendar date2 = Calendar.getInstance(timezone);
+		Date curDate = date2.getTime();
 		String current = curDate.toString();
 		// new instance of message
 		Post post = new Post();
@@ -151,18 +161,25 @@ public class MessageController {
 	 * @return the masterPost view
 	 */
 	
-	@GetMapping(path="/addMessage")
+	@PostMapping(path="/addMessage")
 	public String addNewMessage (Model model, @RequestParam String message, 
 			@RequestParam Long masterId,
 			@RequestParam String userName) {
-		
+		if (message == null) {
+			String error = "Please enter a message.";
+			model.addAttribute("error", error);
+			return "redirect:/view-message?id=" + masterId;
+		}
 		// get user's info by checking username
 		Users user = userRepo.findByUsername(userName);
 		// get user's id
 		Long userId = user.getId();
 		// get current date time // need to add time zone to this one too
 		Calendar date = Calendar.getInstance();
-		Date curDate = date.getTime();
+		date.setTimeZone(TimeZone.getTimeZone("CDT"));
+		TimeZone timezone = date.getTimeZone();
+		Calendar date2 = Calendar.getInstance(timezone);
+		Date curDate = date2.getTime();
 		String current = curDate.toString();
 		// new instance of message
 		PostSub sub = new PostSub();

@@ -70,7 +70,7 @@
 			<h3>Enter a Message</h3>
 			<div th:unless="${#lists.isEmpty(messages)}">
 			<div th:each="message : ${messages}">
-			<form action="/addMessage" method="GET">			
+			<form action="/addMessage" method="POST">			
 			
 			<label for="message">Message:</label><br/>
 			<textarea name="message" cols="80" rows="5">
