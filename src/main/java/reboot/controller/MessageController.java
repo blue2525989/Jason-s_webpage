@@ -109,7 +109,7 @@ public class MessageController {
 	 * @return the main message board view message.html
 	 */
 	
-	@PostMapping(path="/addPost")
+	@GetMapping(path="/addPost")
 	// request params to save
 	public String addNewPost (Model model, @RequestParam String name
 			, @RequestParam String message,
@@ -161,7 +161,7 @@ public class MessageController {
 	 * @return the masterPost view
 	 */
 	
-	@PostMapping(path="/addMessage")
+	@GetMapping(path="/addMessage")
 	public String addNewMessage (Model model, @RequestParam String message, 
 			@RequestParam Long masterId,
 			@RequestParam String userName) {

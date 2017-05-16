@@ -1,7 +1,6 @@
 package reboot.model;
 
 import javax.persistence.*;
-import java.util.*;
 
 @Entity
 public class Post {
