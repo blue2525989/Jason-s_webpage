@@ -3,6 +3,9 @@
 
 <head lang="en">
 
+    <meta name="author" content="Jason Bierbrauer"/>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 	<title>Jason's Web Page</title>
 	<meta http-equiv="Content-Type" context="text/html; charset=UTF-8" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous" />
@@ -10,7 +13,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 	
-	<link href="css/style2.css" rel="stylesheet" />
+	<link href="css/layout-version-2.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -20,7 +23,7 @@
 				<hr />
 				<label>Places to go,</label>
 				<ul>
-				<li><a class="nav-link" href="/index">Index</a></li>
+				<li><a class="nav-link" href="/">Index</a></li>
 				<li><a class="nav-link" href="/login">Login/Logout</a></li>
 				<li><a class="nav-link" href="/hobbies">Hobbies</a></li>
 				<li><a class="nav-link" href="/th-math">Calculator</a></li>
@@ -38,7 +41,8 @@
 				</ul>
 				<label th:if="${session.adminrole == true}">Admin Pages</label>
 				<ul th:if="${session.adminrole == true}">
-				<li><a class="nav-link" href="/adminpage">Admin Page</a></li>
+				<li><a class="nav-link" th:if="${session.adminrole == true}"
+				 href="/adminpage">Admin Page</a></li>
 				</ul>
 			</nav>
 			<!-- nav bar for pre-login pages -->
@@ -52,6 +56,74 @@
 				</ul>
 				<hr />
 			</nav>
+			
+			<!-- Layout version 2 -->
+			 <nav th:fragment="navigationVersion2" class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
+		      <button class="navbar-toggler navbar-toggler-right" type="button" 
+		      	data-toggle="collapse" data-target="#navbar" 
+		      	aria-controls="navbar" aria-expanded="false" 	
+		      	aria-label="Toggle navigation">
+		      	
+		        <span class="navbar-toggler-icon"></span>
+		      </button>
+		      <div class="collapse navbar-collapse" id="navbar">
+		        <ul class="navbar-nav mr-auto">
+		          <li class="nav-item active">
+		            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+		          </li>
+		          
+		          <li class="nav-item active">
+		            <a class="nav-link" href="/allmessages">Message Board</a>
+		          </li>
+		                    
+		          <li class="nav-item dropdown">
+				    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Projects</a>
+				    <div class="dropdown-menu">
+		              <a class="dropdown-item" href="/blueDB">Database Management</a>
+		              <a class="dropdown-item" href="/poker">Card Games</a>
+		              <a class="nav-link" th:if="${session.adminrole == true}"
+						 href="/adminpage">Admin Page</a>
+				    </div>
+				  </li>
+				  
+				  <li class="nav-item dropdown">
+				    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Tutorials</a>
+				    <div class="dropdown-menu">
+		              <a class="dropdown-item" href="#">Coming soon!</a>
+		              <a class="dropdown-item" href="#">Coming soon!</a>
+				    </div>
+				  </li>
+		          
+		          <li class="nav-item dropdown">
+				    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Misc</a>
+				    <div class="dropdown-menu">
+				      <a class="dropdown-item" href="/login">Login/Logout</a>
+				      <a class="dropdown-item" href="/createlogin">Create Login</a>		      
+		              <a class="dropdown-item" href="/guestbook">Guest book</a>
+		              <a class="dropdown-item" href="/hobbies">Hobbies</a>
+					  <a class="dropdown-item" href="/th-math">Calculator</a>
+					  <a class="dropdown-item" href="/textfun">Messing around with words</a>
+				    </div>
+				  </li>
+		          
+		        </ul>
+		        
+		      </div>
+		    </nav>
+			
+			<!-- start of footer -->
+			 <footer th:fragment="footer">
+			     <!-- picture of my goat. -->
+			     <img height="225" width="350" alt="Totes ma goats" src="/images/totes_face.jpg" />
+			     <!-- paragraph tag with class tag for style.css -->
+			     <p class="footer">Written by: Jason Bierbrauer</p>
+			     <p class="footer">Contact information: <a href="mailto:jbierbrauer99@gmail.com">
+			         jbierbrauer99@gmail.com</a>.</p>
+			     <p class="footer">
+			         <!-- the special character -->
+			          Jason Bierbrauer, 2017
+			     </p>
+			</footer>
 
 </body>
 </html>

@@ -53,7 +53,7 @@ public class GuestbookController extends PermissionController{
 	}	
 	
 	// saves the guest to the repositry
-	@GetMapping(path="/add")
+	@GetMapping(path="/addGuestbook")
 	// request params to save
 	public String addNewUser (@RequestParam Long ID, @RequestParam String name
 			, @RequestParam String gender, @RequestParam Long age, 

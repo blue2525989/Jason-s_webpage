@@ -25,8 +25,14 @@ public class MiscController extends PermissionController{
 		this.updatelog = updatelog;
 	}
 	
+	// view for template 2 for testing
+	@RequestMapping("/temp2")
+	public String template2() {
+		return "template2";
+	}
+	
 	// index view
-	@RequestMapping("/index")
+	@RequestMapping("/")
 	String index(HttpSession session, Model model) {
 		
 		// add model for updates

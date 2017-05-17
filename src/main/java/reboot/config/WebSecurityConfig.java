@@ -29,17 +29,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     	http
         .authorizeRequests()
             .antMatchers("/", "/home", "/resources/**", "/static/**", "/createlogin", "/createUser/**",
-            		"/saved2").permitAll()
+            		"/saved2", "/findonegb", "/guestbook", "/view-message**",
+            		"/message", "/listallgb", "/find**", "/allmessages", 
+            		"/addGuestbook**", "/th-math**", "/hobbies", "/textfun", "/toArray**", "/toArrayFindElement**",
+            		"/toArrayReverse**", "/replace**", "/reverseString**", "/repeatMessage**",
+            		"/isPalidrome**", "/index", "/poker", "/blueDB").permitAll()
             .anyRequest().authenticated()
             .and()
         .formLogin()
-            .loginPage("/login").permitAll().defaultSuccessUrl("/index", true)
+            .loginPage("/login").permitAll().defaultSuccessUrl("/message", true)
                 .and()
             .logout()
                 .permitAll();
     }
 
-    // autowire the credintials
+    // autowire the credentials
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
    

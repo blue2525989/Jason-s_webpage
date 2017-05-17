@@ -8,6 +8,14 @@ div.container {
     border: 1px solid gray;
 }
 
+div.container2 {
+    max-width: 550px;
+}
+.carouselExampleControls {
+    max-width: 500px;
+    margin: 200px;
+}
+
 header {
     color: #000000;
     background-color: #000000;

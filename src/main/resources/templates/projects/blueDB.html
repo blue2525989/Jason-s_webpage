@@ -5,14 +5,7 @@
 	<body>
 	<div class="container">
 	
-		<header>
-			<div align="center">
-			<img src="/images/space01.jpg" height="400" width="600" />
-			</div>
-		</header>
-	
-	
-			<nav th:replace="fragments :: navigation"></nav>
+			<nav th:replace="fragments :: navigationVersion2"></nav>
 	
 			
 
@@ -57,31 +50,31 @@
 		<br /><br />
 		 The results of the executed statement are now visible.
 		 
-		
+		<br/><br/>
         Also users are able to create new databases and tables at will. Simply goto the 
         create interface and enter the name of what you what in the field or a SQL statement 
         for tables. Deleting a database is also avaiable on the view. 
 		
-		
+		<div class="container2">
 		<div id="carouselExampleControls" class="carousel slide" data-ride="carousel" align="center">
 		  <div class="carousel-inner" role="listbox">
 		    <div class="carousel-item active">
        		  <img class="d-block img-fluid" src="/images/main.jpg" height="600" width="485" alt="Blue's database managment system" />
 		    </div>
 		    <div class="carousel-item">
-		       <img class="d-block img-fluid" src="/images/edit01.jpg" height="600" width="485" alt="Blue's database managment system" />
+		       <img class="b-block img-fluid" src="/images/edit01.jpg" height="600" width="485" alt="Blue's database managment system" />
 		    </div>
 		    <div class="carousel-item">
-		       <img class="d-block img-fluid" src="/images/edit02.jpg" height="600" width="485" alt="Blue's database managment system" />
+		       <img class="b-block img-fluid" src="/images/edit02.jpg" height="600" width="485" alt="Blue's database managment system" />
 		    </div>
 		    <div class="carousel-item">
-		       <img class="d-block img-fluid" src="/images/edit03.jpg" height="600" width="485" alt="Blue's database managment system" />
+		       <img class="b-block img-fluid" src="/images/edit03.jpg" height="600" width="485" alt="Blue's database managment system" />
 		    </div>
 		    <div class="carousel-item">
-		       <img class="d-block img-fluid" src="/images/edit04.jpg" height="600" width="485" alt="Blue's database managment system" />
+		       <img class="b-block img-fluid" src="/images/edit04.jpg" height="600" width="485" alt="Blue's database managment system" />
 		    </div>
 		    <div class="carousel-item">
-		       <img class="d-block img-fluid" src="/images/create01.jpg" height="600" width="485" alt="Blue's database managment system" />
+		       <img class="b-block img-fluid" src="/images/create01.jpg" height="600" width="485" alt="Blue's database managment system" />
 		    </div>
 		  </div>
 		  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -93,24 +86,13 @@
 		    <span class="sr-only">Next</span>
 		  </a>
 		</div>
-		
+		</div>
 	</div>
 	<hr />
 	</article>
 	
-	<!-- start of footer -->
- <footer>
-     <!-- picture of my goat. -->
-     <img height="225" width="350" alt="Totes ma goats" src="/images/totes_face.jpg" />
-     <!-- paragraph tag with class tag for style.css -->
-     <p class="footer">Written by: Jason Bierbrauer</p>
-     <p class="footer">Contact information: <a href="mailto:jbierbrauer99@gmail.com">
-         jbierbrauer99@gmail.com</a>.</p>
-     <p class="footer">
-         <!-- the special character -->
-          Jason Bierbrauer, 2017
-     </p>
-</footer>
+<!-- start of footer -->
+ <footer th:replace="fragments :: footer"></footer>
 	
 	</div>
     </body>
