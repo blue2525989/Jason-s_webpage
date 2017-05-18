@@ -4,26 +4,19 @@
 
 	<body>
 	<div class="container">
-	
-		<header>
-			<div align="center">
-			<img src="/images/space01.jpg" height="400" width="600" />
-			</div>
-		</header>
-	
-	
-			<nav th:replace="fragments :: navigation"></nav>
+			<header th:replace="fragments :: header"></header>
+			<nav th:replace="fragments :: navigationVersion2"></nav>
+			
 	
 
 <article>
-	<hr />
-	
 		<div th:if="${session.adminrole == true}" align="center">
 			<a href="/adminpage">Back to ADMIN page</a>
 		</div>	
 	
-	<h1 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]!</h1>
-	<hr />
+	<h1 th:if="${#httpServletRequest.remoteUser != null}" 
+		th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]!</h1>
+	<hr th:if="${#httpServletRequest.remoteUser != null}" />
 	
 	<p th:if="${session.adminrole == true}">
 	If you are seeing this paragraph it is because your user level is set to ADMIN.

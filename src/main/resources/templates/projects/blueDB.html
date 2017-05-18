@@ -4,9 +4,9 @@
 
 	<body>
 	<div class="container">
-	
+			<header th:replace="fragments :: header"></header>
 			<nav th:replace="fragments :: navigationVersion2"></nav>
-	
+			
 			
 
 	
@@ -54,6 +54,7 @@
         Also users are able to create new databases and tables at will. Simply goto the 
         create interface and enter the name of what you what in the field or a SQL statement 
         for tables. Deleting a database is also avaiable on the view. 
+		<br/><br/>
 		
 		<div class="container2">
 		<div id="carouselExampleControls" class="carousel slide" data-ride="carousel" align="center">

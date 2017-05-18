@@ -4,21 +4,15 @@
 
 	<body>
 	<div class="container">
-	
-		<header>
-			<div align="center">
-			<img src="/images/space01.jpg" height="400" width="600" />
-			</div>
-		</header>
-	
-	
-			<nav th:replace="fragments :: navigation"></nav>
+			<header th:replace="fragments :: header"></header>
+			<nav th:replace="fragments :: navigationVersion2"></nav>
 			
-	<article>
+	<article class="messageView">
 
-	<hr/>
-	<h1 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]!</h1>
-	<hr/>
+	<hr th:if="${#httpServletRequest.remoteUser != null}" />
+	<h1 th:if="${#httpServletRequest.remoteUser != null}" 
+		th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]!</h1>
+	<hr th:if="${#httpServletRequest.remoteUser != null}" />
 	
 			<div th:if="${session.adminrole == true}" align="center">
 			<a href="/adminpage">Back to ADMIN page</a></div>
@@ -64,13 +58,18 @@
 			
 			<hr/>
 			
+			<div align="center" th:if="${#httpServletRequest.remoteUser == null}" >
+				<p>
+				Login in to post a reply. <a href="/login">Login</a>
+				</p>
+			</div>
 			
-			<div align="center">
+			<div align="center" th:if="${#httpServletRequest.remoteUser != null}" >
 				
 			<h3>Enter a Message</h3>
 			<div th:unless="${#lists.isEmpty(messages)}">
 			<div th:each="message : ${messages}">
-			<form action="/addMessage" method="POST">			
+			<form action="/addMessage" method="GET">			
 			
 			<label for="message">Message:</label><br/>
 			<textarea name="message" cols="80" rows="5">

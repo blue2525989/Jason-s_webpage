@@ -4,15 +4,9 @@
 
 	<body>
 	<div class="container">
-	
-		<header>
-			<div align="center">
-			<img src="/images/space01.jpg" height="400" width="600" />
-			</div>
-		</header>
-	
-	
-			<nav th:replace="fragments :: navigation"></nav>
+			<header th:replace="fragments :: header"></header>
+			<nav th:replace="fragments :: navigationVersion2"></nav>
+			
 			
 	
 
@@ -25,7 +19,7 @@
 	
     <div align="center">
         
-        <p>This consists of two card games, five-card poker and blackjack. When the application starts 
+        This consists of two card games, five-card poker and blackjack. When the application starts 
         the user is prompted to select which game they want to play. I have found myself playing these games 
         for large chunks of time, surprisingly fun for text based games.<br /><br />
         
@@ -43,83 +37,64 @@
         In poker there is a 'deal' button which deals the cards. A 'hit' button where you can choose the 
         number of cards to trade and their spots in your hand, And a 'call' button which will cause the 
         dealer to take his turn and then display the winner.
-        </p>
-        <br /><br />
-        <img src="/images/main.png" height="300" width="240" alt="Card games" />
-		
-		<br /><br />
-        <p>
+        <br/><br/>
         This is the main loading screen where the user chooses which game to play.
-        </p>
-        
-        <br /><br />
-        <div align="center">
-        <img src="/images/poker01.jpg" height="600" width="485" alt="Card games" />
-		</div>
-		<br /><br />
-        <p>
+       <br/><br/>
         This is the main screen before the cards are dealt.
-        </p>
-        
-        <br /><br />
-        <img src="/images/poker02.jpg" height="600" width="485" alt="Card games" />
-		<br /><br />
-		
-		<p>
+        <br/><br/>
         Notice the score shows I have two of a kind and so does the dealer So I will take a hit.
-        </p>
-        
-		<br /><br />
-        <img src="/images/poker03.jpg" height="600" width="485" alt="Card games" />
-		<br /><br />
-		
-		<p>
+        <br/><br/>
         The dealer ended up getting three of a kind even though I got two pairs after my hit. Dealer wins.
-        </p>
-		
-		<br /><br />
-        <img src="/images/blackjack01.jpg" height="600" width="485" alt="Card games" />
-		<br /><br />
-		
-		 <p>
+        <br/><br/>
         Here is the main screen of blackjack before the deal button is pressed.
-        </p>
-        
-        <br /><br />     
-        <img src="/images/blackjack02.jpg" height="600" width="485" alt="Card games" />
-		<br /><br />
-		
-		<p>
+        <br/><br/>
         Once the cards are dealt I have 17 and the dealer has 16. The dealer is programmed to hit until 
         his total is over 17 so I will stay in hopes that he bust.
-        </p>
-		
-		<br /><br />     
-        <img src="/images/blackjack03.jpg" height="600" width="485" alt="Card games" />
-		<br /><br />
-		
-        <p>
+       <br/><br/>
         No such luck! The dealer ended up getting a four of clubs which gives him a total of 20!<br /><br />
         Maybe next game the cards will be better.
-        </p>
+        <br/><br/>
+        
+        <div class="container2">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" align="center">
+		  <div class="carousel-inner" role="listbox">
+		    <div class="carousel-item active">
+		       <img class="b-block img-fluid" src="/images/main.png" height="300" width="240" alt="Card games" />
+		    </div>
+		    <div class="carousel-item">
+        	  <img class="b-block img-fluid" src="/images/poker02.jpg" height="600" width="485" alt="Card games" />
+		    </div>
+		    <div class="carousel-item">
+        	  <img class="b-block img-fluid" src="/images/poker03.jpg" height="600" width="525" alt="Card games" />
+		  	</div>
+		    <div class="carousel-item">
+        	  <img class="b-block img-fluid" src="/images/blackjack01.jpg" height="600" width="485" alt="Card games" />
+		    </div>
+		    <div class="carousel-item">
+        	  <img class="b-block img-fluid" src="/images/blackjack02.jpg" height="600" width="485" alt="Card games" />
+		    </div>
+		    <div class="carousel-item">
+        	  <img class="b-block img-fluid" src="/images/blackjack03.jpg" height="600" width="485" alt="Card games" />
+		    </div>
+		    
+		  </div>
+		  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+		    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		    <span class="sr-only">Previous</span>
+		  </a>
+		  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+		    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+		    <span class="sr-only">Next</span>
+		  </a>
+		</div>
+		</div>
 		
 	</div>
 	<hr />
 	</article>
 	
 <!-- start of footer -->
- <footer>
-     <!-- picture of my goat. -->
-     <img height="225" width="350" alt="Totes ma goats" src="/images/totes_face.jpg" />
-     <!-- paragraph tag with class tag for style.css -->
-     <p class="footer">Written by: Jason Bierbrauer</p>
-     <p class="footer">Contact information: <a href="mailto:jbierbrauer99@gmail.com">
-         jbierbrauer99@gmail.com</a>.</p>
-     <p class="footer">
-         <!-- the special character -->
-          Jason Bierbrauer, 2017
-     </p>
-</footer>
+ <footer th:replace="fragments :: footer"></footer>
 	
 	</div>
     </body>

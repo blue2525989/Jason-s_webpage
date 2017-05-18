@@ -1,18 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments :: head"></head>
-    
-      <body>
-		<div class="container">
-		
-		<header>
-			<div align="center">
-			<img src="/images/space01.jpg" height="400" width="600" />
-			</div>
-		</header>
-		
-		
-	<nav th:replace="fragments :: navigationPrelogin"></nav>
+
+	<body>
+	<div class="container">
+			<header th:replace="fragments :: header"></header>
+			<nav th:replace="fragments :: navigationVersion2"></nav>
+			
     
     
     <article>
@@ -37,7 +31,7 @@
 		
         <div th:if="${#httpServletRequest.remoteUser == null}">
         
-         <div class="container2">
+         <div class="container3">
 	      <form method="post" class="form-signin" th:action="@{/login}">
 	        <h2 class="form-signin-heading">Please sign in</h2>
 	        <label for="username" class="sr-only">User-name</label>
@@ -45,6 +39,11 @@
 	        <label for="inputPassword" class="sr-only">Password</label>
 	        <input type="password" name="password" class="form-control" placeholder="Password" />
 	        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button></form>
+	        
+	        <br/><br/>
+	        
+	        <h2 class="form-signin-heading">Create a login</h2>
+	        If you do not have a username, create one <a href="/createlogin">here</a>
 	
 	    </div>
         
