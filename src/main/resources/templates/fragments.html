@@ -4,7 +4,7 @@
 <head lang="en">
 
     <meta name="author" content="Jason Bierbrauer"/>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 	<title>Jason's Web Page</title>
 	<meta http-equiv="Content-Type" context="text/html; charset=UTF-8" />
 	<link rel="stylesheet" href="css/bootstrap.css" />
@@ -16,45 +16,6 @@
 </head>
 
 <body>
-
-			<!-- nav bar for main page -->
-			<nav th:fragment="navigation" class="nav flex-column">
-				<hr />
-				<label>Places to go,</label>
-				<ul>
-				<li><a class="nav-link" href="/">Index</a></li>
-				<li><a class="nav-link" href="/login">Login/Logout</a></li>
-				<li><a class="nav-link" href="/hobbies">Hobbies</a></li>
-				<li><a class="nav-link" href="/th-math">Calculator</a></li>
-				<li><a class="nav-link" href="/textfun">Messing around with words</a></li>
-				</ul>
-				<label>Leave your mark,</label>
-				<ul>
-				<li><a class="nav-link" href="/guestbook">Guestbook</a></li>
-				<li><a class="nav-link" href="/allmessages">Message Board</a></li>
-				</ul>
-				<label>Projects,</label>
-				<ul>
-				<li><a class="nav-link" href="/blueDB">Blue's database management</a></li>
-				<li><a class="nav-link" href="/poker">Card games</a></li>
-				</ul>
-				<label th:if="${session.adminrole == true}">Admin Pages</label>
-				<ul th:if="${session.adminrole == true}">
-				<li><a class="nav-link" th:if="${session.adminrole == true}"
-				 href="/adminpage">Admin Page</a></li>
-				</ul>
-			</nav>
-			<!-- nav bar for pre-login pages -->
-			<nav th:fragment="navigationPrelogin" class="nav flex-column">
-				<hr />
-				<label>Places to go,</label>
-				<ul>
-				<li><a class="nav-link" href="/home">Home</a></li>
-				<li><a class="nav-link" href="/login">Login/Logout</a></li>
-				<li><a class="nav-link" href="/createlogin">Create Login</a></li>
-				</ul>
-				<hr />
-			</nav>
 			
 			<!--  header -->
 			<header th:fragment="header">
@@ -63,7 +24,7 @@
 				</div>
 			</header>
 			
-			<!-- Layout version 2 -->
+			<!-- nav bar layout version 2 -->
 			 <nav th:fragment="navigationVersion2" class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
 		      <button class="navbar-toggler navbar-toggler-right" type="button" 
 		      	data-toggle="collapse" data-target="#navbar" 
@@ -81,17 +42,21 @@
 		          <li class="nav-item active">
 		            <a class="nav-link" href="/allmessages">Message Board</a>
 		          </li>
+		          
+		          <li class="nav-item active">
+		            <a class="nav-link" href="/alltutorials">Tutorials</a>
+		          </li>
 		                    
 		          <li class="nav-item dropdown">
 				    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Projects</a>
 				    <div class="dropdown-menu">
 		              <a class="dropdown-item" href="/blueDB">Database Management</a>
 		              <a class="dropdown-item" href="/poker">Card Games</a>
-		              <a class="nav-link" th:if="${session.adminrole == true}"
+		              <a class="dropdown-item" th:if="${session.adminrole == true}"
 						 href="/adminpage">Admin Page</a>
 				    </div>
 				  </li>
-				  
+				  <!-- 
 				  <li class="nav-item dropdown">
 				    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Tutorials</a>
 				    <div class="dropdown-menu">
@@ -99,7 +64,7 @@
 		              <a class="dropdown-item" href="#">Coming soon!</a>
 				    </div>
 				  </li>
-		          
+		          -->
 		          <li class="nav-item dropdown">
 				    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Misc</a>
 				    <div class="dropdown-menu">
@@ -116,6 +81,9 @@
 		        
 		      </div>
 		    </nav>
+			
+			<!-- this is 20% of left hand side of page -->
+			<div th:fragment="container4"></div>
 			
 			<!-- start of footer -->
 			 <footer th:fragment="footer">

@@ -8,20 +8,42 @@
 			<nav th:replace="fragments :: navigationVersion2"></nav>
 			
 			
+	<article>
+
+	<hr th:if="${#httpServletRequest.remoteUser != null}" />
+	<h1 th:if="${#httpServletRequest.remoteUser != null}" 
+		th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]!</h1>
+	<hr th:if="${#httpServletRequest.remoteUser != null}" />
 	
-			<!-- this is where all your main content goes -->
-			<article>
-			<hr/>
-			
 			<div th:if="${session.adminrole == true}" align="center">
 			<a href="/adminpage">Back to ADMIN page</a></div>
+	
 			
 			<div align="center">
-			<h1 th:inline="text">[[${session.saved}]]</h1>
+			<h2>Tutorials</h2><br/>
 			</div>
 			
+			<div th:unless="${#lists.isEmpty(tutorials)}">
+			<div th:each="tutorial : ${tutorials}">
+			
+			<label>Tutorial Topic: </label>
+			<a th:href="@{/view-tutorial?id=} + ${tutorial.id}">
+			<span th:text="${tutorial.name}">Name</span></a>
+			
+			</div>
+			</div>
+			
+			
+			<div th:if="${#lists.isEmpty(tutorials)}">
+			<p>You have no tutorials in your tutorials list</p>
+			</div>
+			
+			<hr th:if="${session.adminrole == true}"/>
+			<a th:if="${session.adminrole == true}" 
+			   th:href="@{/tutorial-add}">New Tutorial</a>
 			<hr/>
-			</article>
+
+</article>
 
 	
 <!-- start of footer -->
@@ -39,7 +61,7 @@
      </p>
 </footer>
 
-	</div>
+	</div>	
 	</body>
 
 </html>

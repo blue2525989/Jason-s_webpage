@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,9 +23,21 @@ public class UserController {
 	
 	@GetMapping(path="/add") // Map ONLY GET Requests
 	public String addNewUser (@RequestParam String username
-			, @RequestParam String password) {
+			, @RequestParam String password, HttpSession session) {
 
         //Get connection
+		String error = "";
+		if (username.length() < 4 || username.length() > 16) {
+			error = "Username must be between 4 and 16 characters.";
+			session.setAttribute("error", error);
+			return "redirect:/createlogin";
+		}
+		else if (password.length() < 4 || password.length() > 16) {
+			error = "Password must be between 4 and 16 characters.";
+			session.setAttribute("error", error);
+			return "redirect:/createlogin";
+		}
+		
     	Connection con;
         Connection con2;
         Statement stmt = null;

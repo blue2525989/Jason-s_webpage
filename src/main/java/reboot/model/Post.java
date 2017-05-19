@@ -13,6 +13,7 @@ public class Post {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
     private String name; // title of post
+    @Lob
     private String message;
     private String date;
     private Long userId;

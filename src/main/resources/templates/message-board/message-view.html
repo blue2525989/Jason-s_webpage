@@ -29,7 +29,7 @@
 			<span th:text="${message.username}">Name</span><br/>
 			<label>Date:</label>
 			<span th:text="${message.date}">#</span><br/>
-			<label>Message:</label>
+			<label>Message:</label><br/>
 			<span th:text="${message.message}">Message</span><br/>
 			</dt>
 			</dl>
@@ -44,7 +44,7 @@
 			<span th:text="${subpost.username}">Name</span><br/>
 			<label>Date:</label>
 			<span th:text="${subpost.date}">#</span><br/>
-			<label>Message:</label>
+			<label>Message:</label><br/>
 			<span th:text="${subpost.message}">Message</span><br/>
 			</dt>
 			</dl>
@@ -66,10 +66,12 @@
 			
 			<div align="center" th:if="${#httpServletRequest.remoteUser != null}" >
 				
+			
 			<h3>Enter a Message</h3>
+			
 			<div th:unless="${#lists.isEmpty(messages)}">
 			<div th:each="message : ${messages}">
-			<form action="/addMessage" method="GET">			
+			<form action="/addMessage" method="POST">			
 			
 			<label for="message">Message:</label><br/>
 			<textarea name="message" cols="80" rows="5">

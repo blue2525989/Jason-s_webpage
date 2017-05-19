@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 @Entity
 public class PostSub {
@@ -15,6 +16,7 @@ public class PostSub {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
     private Long masterId;
+    @Lob
     private String message;
     private String date;
     private Long userId;

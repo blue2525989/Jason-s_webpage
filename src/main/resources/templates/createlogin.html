@@ -11,7 +11,9 @@
 			
 			<article>
 			<hr />
-        
+        <!-- error for username/password -->
+		<h2 th:if="${session.error != null}" 
+		th:text="${session.error}"></h2>
 		
         <form action="/createUser/add" method="get">        
        		<div class="form-group row">

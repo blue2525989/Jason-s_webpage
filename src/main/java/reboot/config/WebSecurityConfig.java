@@ -33,14 +33,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             		"/message", "/listallgb", "/find**", "/allmessages", 
             		"/addGuestbook**", "/th-math**", "/hobbies", "/textfun", "/toArray**", "/toArrayFindElement**",
             		"/toArrayReverse**", "/replace**", "/reverseString**", "/repeatMessage**",
-            		"/isPalidrome**", "/index", "/poker", "/blueDB").permitAll()
+            		"/isPalidrome**", "/index", "/poker", "/blueDB", "/alltutorials", "/tutorial",
+            		"/view-tutorial**").permitAll()
             .anyRequest().authenticated()
             .and()
         .formLogin()
-            .loginPage("/login").permitAll().defaultSuccessUrl("/message", true)
+            .loginPage("/login").permitAll().defaultSuccessUrl("/login", true)
                 .and()
             .logout()
                 .permitAll();
+    	// did this to disable csrf error from post methods
+    	http.csrf().disable();
     }
 
     // autowire the credentials

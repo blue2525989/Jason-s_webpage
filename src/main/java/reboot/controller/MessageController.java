@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
 import org.springframework.ui.Model;
@@ -18,7 +20,7 @@ import reboot.repository.SubPostRepository;
 import reboot.repository.UserRepository;
 
 @Controller
-public class MessageController {
+public class MessageController extends PermissionController{
 
 	// instance of Repositories
 	private PostRepository messages;
@@ -41,7 +43,7 @@ public class MessageController {
 	 */
 	
     @RequestMapping("/message")
-	public String listAllMsg(Model model) {
+	public String listAllMsg(Model model, HttpSession session) {
 		List<Post> messageList = messages.findAll();
 		// reverse the list so newest post is first
 		List<Post> reversedList = new ArrayList<>();
@@ -51,6 +53,14 @@ public class MessageController {
 		if (messageList != null) {
 			model.addAttribute("messages", reversedList);
 		}	
+		boolean hasUserRole = hasUserRole();
+		boolean hasAdminRole = hasAdminRole();		
+		if (hasUserRole) {
+			session.setAttribute("userrole", hasUserRole);
+		}
+		else if (hasAdminRole) {
+			session.setAttribute("adminrole", hasAdminRole);
+		}
 		return "message-board/message";
 	}
     
@@ -62,7 +72,7 @@ public class MessageController {
      */ 
     
     @RequestMapping("/view-message")
-    public String viewMessage(Model model, @RequestParam Long id) {
+    public String viewMessage(Model model, @RequestParam Long id, HttpSession session) {
     	Post messageList = messages.findById(id);
     	// find all subposts with matching masterId from main post
     	List<PostSub> subList = subPostRepo.findAll();
@@ -76,6 +86,14 @@ public class MessageController {
     		model.addAttribute("messages", messageList);
     		model.addAttribute("subposts", realSubList);
     	}
+    	boolean hasUserRole = hasUserRole();
+		boolean hasAdminRole = hasAdminRole();		
+		if (hasUserRole) {
+			session.setAttribute("userrole", hasUserRole);
+		}
+		else if (hasAdminRole) {
+			session.setAttribute("adminrole", hasAdminRole);
+		}
 		return "message-board/message-view";
     }
 		
@@ -96,7 +114,15 @@ public class MessageController {
 	 */
 	
 	@GetMapping("/message-add")
-	public String messageAddPage() {
+	public String messageAddPage(HttpSession session) {
+		boolean hasUserRole = hasUserRole();
+		boolean hasAdminRole = hasAdminRole();		
+		if (hasUserRole) {
+			session.setAttribute("userrole", hasUserRole);
+		}
+		else if (hasAdminRole) {
+			session.setAttribute("adminrole", hasAdminRole);
+		}
 		return "message-board/message-add";
 	}
 	
@@ -109,7 +135,7 @@ public class MessageController {
 	 * @return the main message board view message.html
 	 */
 	
-	@GetMapping(path="/addPost")
+	@PostMapping(path="/addPost")
 	// request params to save
 	public String addNewPost (Model model, @RequestParam String name
 			, @RequestParam String message,
@@ -139,6 +165,8 @@ public class MessageController {
 		post.setUserId(userId);
 		post.setUsername(userName);
 		messages.save(post);
+		Post post2 = messages.findByName(name);
+		Long id = post2.getId();
 		// get the list of posts
 		List<Post> messageList = messages.findAll();
 		List<Post> reversedList = new ArrayList<>();
@@ -149,7 +177,7 @@ public class MessageController {
 		if (messageList != null) {
 			model.addAttribute("messages", reversedList);
 		}
-		return "redirect:/allmessages";
+		return "redirect:/view-message?id=" + id;
 	}
 	
 	/**
@@ -161,7 +189,7 @@ public class MessageController {
 	 * @return the masterPost view
 	 */
 	
-	@GetMapping(path="/addMessage")
+	@PostMapping(path="/addMessage")
 	public String addNewMessage (Model model, @RequestParam String message, 
 			@RequestParam Long masterId,
 			@RequestParam String userName) {

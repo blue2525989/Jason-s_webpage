@@ -38,7 +38,7 @@ public class MiscController extends PermissionController{
 		// add model for updates
 		List<UpdateMessages> updateList = updatelog.findAll();
 		List<UpdateMessages> reversedList = new ArrayList<>();
-		for (int i = updateList.size()-1; i > 0; i--) {
+		for (int i = updateList.size()-1; i >= 0; i--) {
 			reversedList.add(updateList.get(i));
 		}
 		if (reversedList != null) {

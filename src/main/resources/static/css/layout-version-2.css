@@ -21,8 +21,12 @@ footer {
 }
 article {
     overflow: hidden;
-    margin-left: 150px;
-    margin-right: 150px;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+span.tutorialName {
+	font-size: 16px;
 }
 
 div.container {
@@ -30,16 +34,21 @@ div.container {
 }
 
 div.container2 {
-	left-margin:200px;
+	left-margin:20%;
 	text-align: center;
 	align: center;
-    max-width: 550px;
+    max-width: 50%;
 }
 div.container3 {
 	text-align: center;
 	align: center;
-    max-width: 550px;
+    max-width: 50%;
 	margin-left: 20%;
+}
+div.container4 {
+	text-align: center;
+	align: center;
+	margin-right: 80%;
 }
 img.banner {
 	max-width: 100%;

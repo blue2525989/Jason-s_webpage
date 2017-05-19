@@ -7,21 +7,41 @@
 			<header th:replace="fragments :: header"></header>
 			<nav th:replace="fragments :: navigationVersion2"></nav>
 			
-			
+	<article class="messageView">
+
+	<hr th:if="${#httpServletRequest.remoteUser != null}" />
+	<h1 th:if="${#httpServletRequest.remoteUser != null}" 
+		th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]!</h1>
+	<hr th:if="${#httpServletRequest.remoteUser != null}" />
 	
-			<!-- this is where all your main content goes -->
-			<article>
-			<hr/>
-			
 			<div th:if="${session.adminrole == true}" align="center">
 			<a href="/adminpage">Back to ADMIN page</a></div>
-			
+	
+			<h2>Tutorials</h2><br/>
 			<div align="center">
-			<h1 th:inline="text">[[${session.saved}]]</h1>
+			<a href="/alltutorials">Back to Tutorials</a>
+			</div>
+			
+			<div th:unless="${#lists.isEmpty(tutorials)}">
+			<dl th:each="tutorial : ${tutorials}">
+			<dt>
+			<span class="tutorialName" th:text="${tutorial.name}">Name</span><br/><br/>
+			
+			<span th:if="${tutorial.block1 != null}"
+			 	  th:utext="${tutorial.block1}">block content</span><br/><br/>
+			</dt>
+			</dl>
+			</div>
+			
+			<!--  end -->
+						
+			<div th:if="${#lists.isEmpty(tutorials)}">
+			<p>The current tutorial could not be found, please try again.</p>
 			</div>
 			
 			<hr/>
-			</article>
+
+</article>
 
 	
 <!-- start of footer -->
@@ -39,7 +59,7 @@
      </p>
 </footer>
 
-	</div>
+	</div>	
 	</body>
 
 </html>

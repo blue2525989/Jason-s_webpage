@@ -1,6 +1,8 @@
 package reboot.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Users {
@@ -8,8 +10,11 @@ public class Users {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	
+	@NotNull
+    @Size(min=4, max=16, message = "Must not be empty")
 	private String username;
+	@NotNull
+    @Size(min=4, max=16, message = "Must not be empty")
 	private String password;
 	private boolean enabled;
 	

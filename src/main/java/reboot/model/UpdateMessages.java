@@ -8,6 +8,7 @@ public class UpdateMessages {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
+	@Lob
 	private String content;
 	private String date;
 
