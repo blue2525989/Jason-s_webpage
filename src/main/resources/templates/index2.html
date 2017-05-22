@@ -25,16 +25,10 @@
 	</p>	
 	
 	<hr />
-	<span th:inline="text">[[${session.curdate}]]!</span>
-	<p>
-	Welcome to my homepage. This is built using the Spring Boot framework for Java. This paragraph is being 
-	displayed because your Spring Security level is set to regualar user. You have acceses to the everyday 
-	excitement of this site.	
-	</p>
+	<span th:inline="text">[[${session.curdate}]]!</span>	
 	
-	
-	<p>
-	On this page I hope to show off some of my programming skills. I love Java programming and similar
+	<p>Welcome to my first web application,
+	on this page I hope to show off some of my programming skills. I love Java programming and similar
 	 languages. I have tried Python and a little C &amp; C++. 
 	 I hope to be a software engineer in the near future. 
 	 I really enjoy solving problems and writing software that people enjoy. Writing applications that involve 
@@ -43,14 +37,8 @@
 	 enjoy that side as well.
 	</p>
 	
-	<p>Working on the back-end on the server side is where I want to be. The solving of hard logic problems is 
-	more enjoyable to me then trying to make things attractive. I enjoy linux and using that as an 
-	operating system, and from my understanding that is the os of choice for servers. 
-	</p>
-		
-	<p>This page mainly consists of Java programming. I used the Spring boot framework along with Thymeleaf and
-	 used Gradle to build this application. Also a MySQL server has been used to make a login page as well as a 
-	guestbook for users to fill out.
+	<p>I am starting to learn to use linux more in depth. I have been trying to learn to write scripts 
+	to automate simple tasks on my computer. I also enjoy working from the terminal. 
 	</p>
 	
 	<h2>Updates to site:</h2>
@@ -80,20 +68,8 @@
 
 
 <!-- start of footer -->
- <footer>
-     <!-- picture of my goat. -->
-     <img height="225" width="350" alt="Totes ma goats" src="/images/totes_face.jpg" />
-     <!-- paragraph tag with class tag for style.css -->
-     <p class="footer">Written by: Jason Bierbrauer</p>
-     <p class="footer">Contact information: <a href="mailto:jbierbrauer99@gmail.com">
-         jbierbrauer99@gmail.com</a>.</p>
-     <p class="footer">
-         <!-- the special character -->
-          Jason Bierbrauer, 2017
-     </p>
-</footer>
-
-</div>
-</body>
-
+ <footer th:replace="fragments :: footer"></footer>
+	
+	</div>
+    </body>
 </html>

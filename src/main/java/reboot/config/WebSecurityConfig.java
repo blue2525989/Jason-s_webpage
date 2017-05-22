@@ -19,7 +19,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	
-	// autowire the database credintials to
+	// autowire the database credentials to
 	@Autowired
 	public DataSource ds;
 	

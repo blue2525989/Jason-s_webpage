@@ -116,6 +116,8 @@ public class TutorialController extends PermissionController{
 			, @RequestParam String block1, HttpSession session) {
 		// if no message was entered
 		if (name == null) {
+			// need to add this part to html pages on all
+			// instances of error
 			String error = "You must enter a name for the tutorial.";
 			session.setAttribute("error", error);
 			return "redirect:/tutorial-add";
