@@ -34,7 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             		"/addGuestbook**", "/th-math**", "/hobbies", "/textfun", "/toArray**", "/toArrayFindElement**",
             		"/toArrayReverse**", "/replace**", "/reverseString**", "/repeatMessage**",
             		"/isPalidrome**", "/index", "/poker", "/blueDB", "/alltutorials", "/tutorial",
-            		"/view-tutorial**").permitAll()
+            		"/view-tutorial**", "/encrypter").permitAll()
             .anyRequest().authenticated()
             .and()
         .formLogin()

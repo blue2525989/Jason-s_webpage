@@ -109,6 +109,20 @@ public class MiscController extends PermissionController{
 		return "projects/poker";
 	}
 	
+	// text encrypter view
+	@RequestMapping("/encrypter")
+	String encypter(HttpSession session) {
+		boolean hasUserRole = hasUserRole();
+		boolean hasAdminRole = hasAdminRole();
+		if (hasUserRole) {
+			session.setAttribute("userrole", hasUserRole);
+		}
+		else if (hasAdminRole) {
+			session.setAttribute("adminrole", hasAdminRole);
+		}
+		return "projects/encrypter";
+	}
+	
 	// returns create a new user view
 	@RequestMapping("/createlogin")
 	String createlogin() {
